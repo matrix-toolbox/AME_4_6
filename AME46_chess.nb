@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    393370,       8196]
-NotebookOptionsPosition[    380146,       7973]
-NotebookOutlinePosition[    380519,       7989]
-CellTagsIndexPosition[    380476,       7986]
+NotebookDataLength[    391313,       8137]
+NotebookOptionsPosition[    378451,       7921]
+NotebookOutlinePosition[    378824,       7937]
+CellTagsIndexPosition[    378781,       7934]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -7916,58 +7916,6 @@ Cell[BoxData["0"], "Output",
  CellChangeTimes->{3.8574454100762534`*^9, 3.857453851664693*^9},
  CellLabel->"Out[82]=",ExpressionUUID->"6740c7c6-9f45-4c51-b7f5-77ef523945af"]
 }, Open  ]]
-}, Closed]],
-
-Cell[CellGroupData[{
-
-Cell["text it...", "Subsection",
- CellChangeTimes->{{3.8574533467746944`*^9, 3.857453349974699*^9}, {
-  3.8574533852547483`*^9, 3.8574533966457644`*^9}, {3.8574534419158278`*^9, 
-  3.8574534421758285`*^9}},ExpressionUUID->"f5a3ac1b-c4be-4f92-ba00-\
-3e35a3ba6ef8"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "is", " ", "there", " ", "any", " ", "fucking", " ", "possibility", " ", 
-    "to", " ", "convert", " ", "*", 
-    RowBox[{".", "nb"}], " ", "into", " ", "a", " ", "_REAL", "_", " ", 
-    "plain", " ", 
-    RowBox[{"text", "?", "!"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"nb", "=", 
-     RowBox[{"UsingFrontEnd", "@", 
-      RowBox[{"NotebookOpen", "[", "\"\<AME46_chess.nb\>\"", "]"}]}]}], ";"}],
-    "\n", 
-   RowBox[{"UsingFrontEnd", "[", 
-    RowBox[{
-     RowBox[{"InputForm", "@*", "MakeExpression", "@*", "NotebookRead"}], "/@", 
-     RowBox[{"Cells", "[", "nb", "]"}]}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.8574533534547043`*^9, 3.857453403915775*^9}},
- CellLabel->"In[83]:=",ExpressionUUID->"6f331689-e907-41bd-b20d-5b8567e24b32"],
-
-Cell[BoxData[
- RowBox[{"Cells", "[", 
-  InterpretationBox[
-   StyleBox[
-    RowBox[{"ErrorBox", "[", 
-     RowBox[{"ErrorBox", "[", 
-      RowBox[{"NotebookRead", "[", "$Failed", "]"}], "]"}], "]"}],
-    ShowStringCharacters->True,
-    NumberMarks->True],
-   InputForm[
-    ErrorBox[
-     ErrorBox[
-      NotebookRead[$Failed]]]],
-   AutoDelete->True,
-   Editable->True], "]"}]], "Output",
- CellChangeTimes->{3.857453860784706*^9},
- CellLabel->"Out[84]=",ExpressionUUID->"89ac6d4b-8716-4cd9-b511-5a2bf0c7ef74"]
-}, Open  ]]
 }, Closed]]
 }, Open  ]]
 },
@@ -8188,13 +8136,6 @@ Cell[376887, 7875, 327, 5, 36, "Output",ExpressionUUID->"1ad1c9ad-be83-41bb-b05e
 Cell[CellGroupData[{
 Cell[377251, 7885, 984, 27, 121, "Input",ExpressionUUID->"65383fb7-ab6d-4d2b-95b7-5adca9d60e7d"],
 Cell[378238, 7914, 173, 2, 36, "Output",ExpressionUUID->"6740c7c6-9f45-4c51-b7f5-77ef523945af"]
-}, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[378460, 7922, 263, 4, 41, "Subsection",ExpressionUUID->"f5a3ac1b-c4be-4f92-ba00-3e35a3ba6ef8"],
-Cell[CellGroupData[{
-Cell[378748, 7930, 845, 20, 77, "Input",ExpressionUUID->"6f331689-e907-41bd-b20d-5b8567e24b32"],
-Cell[379596, 7952, 510, 16, 36, "Output",ExpressionUUID->"89ac6d4b-8716-4cd9-b511-5a2bf0c7ef74"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]]
