@@ -1,7 +1,10 @@
 function P=P36_tilde
+% ------------------------------------------------------------------------------
 % 2021-07-27
-% recover hat_P (Clarisse et al.) using basis vectors
-% this is a bit simplified version of the P36.m script!
+%
+% Permutation matrix hat_P (Clarisse et al.) constructed using basis vectors.
+% This is a bit simplified version of the P36.m script!
+% ------------------------------------------------------------------------------
 
     hP = [
         11  22  33  44  55  66;
@@ -30,10 +33,7 @@ function P=P36_tilde
 %    printcf(P)
 end
 
-
-
-% return standard basis vector with unity at k^th position
-function ek = ket(k)
-    ek=zeros(6,1);
+function ek = ket(k) % return standard basis vector with unity at k^th position
+    ek = zeros(6,1);
     ek(k) = 1;
 end

@@ -1,6 +1,9 @@
-function P=P36_hat
+function P = P36_hat
+% ------------------------------------------------------------------------------
 % 2021-07-27
-% recover hat_P (Clarisse et al.) using basis vectors
+%
+% Permutation matrix hat_P (Clarisse et al.) constructed using basis vectors.
+% ------------------------------------------------------------------------------
 
     hP = [
         11  22  33  44  55  66;
@@ -31,8 +34,7 @@ end
 
 
 
-% return standard basis vector with unity at k^th position
-function ek = ket(k)
-    ek=zeros(6,1);
+function ek = ket(k) % return standard basis vector with unity at k^th position
+    ek = zeros(6, 1);
     ek(k) = 1;
 end
