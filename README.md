@@ -6,6 +6,7 @@ Scripts:
 - `officers.m`
 - `bb_local.m`
 - `AME46_outer.m`
+- `AME46_chess.nb`
 
 are described in details in the short note [here](https://chaos.if.uj.edu.pl/~wojtek/AME46_chess/).
 They all are based on `AME46_ORIGINAL.m`.
