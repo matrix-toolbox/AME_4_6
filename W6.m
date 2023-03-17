@@ -32,7 +32,7 @@ function U = W6()
         if e > e_max
             e_max = e;
             printf("%d\t%d\t%d\t%d\t%d\t%d \t ep=%4.15g\n", p(1),p(2),p(3),p(4),p(5),p(6), e_max);
-            save("_xxxxxxxFNAME", '*');
+            save("W6_", '*');
         else
            p = RESTORE_p;
         end
