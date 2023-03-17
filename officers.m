@@ -52,7 +52,7 @@ function officers(type)
 		
 		phase = fix(round(mod(20+arg(w)/pi*10,20)));
 		if phase == 1
-		    if type=='cHTML'
+		    if type=='cHTML' % FIX IT: this should strcmp(type, 'cHTML')
 		        ket_psi = strcat(ket_psi, '&omega;');
 		    else
                         ket_psi = strcat(ket_psi, '\omega');
