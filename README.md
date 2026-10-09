@@ -1,7 +1,7 @@
 # AME state of four quhexes 
 
 # 2022
-https://github.com/matrix-toolbox/AME_4_6/tree/COMPLEX_AME46
+<!--https://github.com/matrix-toolbox/AME_4_6/tree/COMPLEX_AME46-->
 
 References:
 - [Phys. Rev. Lett. **128**, 080507 (2022)](https://doi.org/10.1103/PhysRevLett.128.080507)
@@ -10,4 +10,4 @@ References:
 
 # 2026
 
-- geomagic representation of a real-valued AME(4, 6) state
+- [geomagic](https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html) representation of a real-valued AME(4, 6) state
