@@ -1,0 +1,11 @@
+#last-update{font-family:monospace;}
+.alert{color:#f00;}
+a{color:#00f;}
+#content{max-width:1024px;margin:0 auto;}
+img{max-width:100%;}
+table{border-collapse:collapse;}
+td,th{border:1px solid #888;padding:0.2em 0.6em;text-align:center;white-space:nowrap;}
+td{min-width:10em;}
+pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}
+.OBSOLETE{text-decoration:line-through;}
+#hex-picture td,th{width:30%;text-align:left;}
