@@ -23,17 +23,17 @@
 
 <figure>
     <img src="AME46_geomagic_a01.png" alt="real-valued representative of AME(4, 6) state as a geomagic square, with colors and textures">
-    <figcaption>Real-valued representative of the AME$(4,6)$ state as a geomagic square. Every color also has its own texture and a black bar on the rim marks a minus sign.</figcaption>
+    <figcaption>Real-valued representative of the AME$(4,6)$ state as a geomagic square. Every color also has its own texture and a black dot at the rim marks a minus sign.</figcaption>
 </figure>
 
 <h2>how to read the picture</h2>
 
-<p>Each hexagon of the central $6\times 6$ array is a cell $(i,j)$. One should read $i$ and $j$ from the printed labels, not from the position. Each hexagon is divided into six triangles, the sectors $k=0,\ldots,5$ (see the sector key). Each thin triangle inside has a color $l=0,\ldots,5$, shown both by its color and by its texture: 0 plain, 1 horizontal lines, 2 vertical lines, 3 dots, 4 diagonal lines, 5 crosses. A black bar on the outer rim means a minus sign. The hexagons around the array only show how rows, columns and diagonals fit together and they add no entries.</p>
+<p>Each hexagon of the central $6\times 6$ array is a cell $(i,j)$. One should read $i$ and $j$ from the printed labels, not from the position. Each hexagon is divided into six triangles, the sectors $k=0,\ldots,5$ (see the sector key). Each thin triangle inside has a color $l=0,\ldots,5$, shown both by its color and by its texture: 0 plain, 1 horizontal lines, 2 vertical lines, 3 dots, 4 diagonal lines, 5 crosses. A black dot just outside the outer rim means a minus sign. The hexagons around the array only show how rows, columns and diagonals fit together and they add no entries.</p>
 
 <ol>
 <li>Choose a cell $(i,j)$, a sector $k$ and a color $l$.</li>
 <li>Count the thin triangles of color $l$ in sector $k$ of that cell. There are always 0, 2 or 4 of them.</li>
-<li>Read the entry $U^{\rm g}_{6i+j,6k+l}$ from the table, with a minus sign if the triangles have a black bar on the rim. With no triangles the entry is 0.</li>
+<li>Read the entry $U^{\rm g}_{6i+j,6k+l}$ from the table, with a minus sign if the triangles have black dots at the rim. With no triangles the entry is 0.</li>
 </ol>
 
 <table id="hex-picture">
@@ -46,11 +46,11 @@
 
 <h2>example</h2>
 
-<p>Cell $(0,4)$ is the second hexagon of the top row. Its sector 0 (outlined, upper right) contains two yellow triangles with diagonal lines, so $l=4$ and both have a black bar on the rim. Two triangles in sector 0 give $1/2$ and the bar gives the sign: $U^{\rm g}_{4,4}=-1/2$.</p>
+<p>Cell $(0,4)$ is the second hexagon of the top row. Its sector 0 (outlined, upper right) contains two yellow triangles with diagonal lines, so $l=4$ and both have a black dot at the rim. Two triangles in sector 0 give $1/2$ and the dots give the sign: $U^{\rm g}_{4,4}=-1/2$.</p>
 
 <figure>
     <img src="AME46_geomagic_a02.png" alt="cell (0, 4) with color numbers written next to each thin triangle" style="width:32em">
-    <figcaption>Cell $(0,4)$, enlarged. The number next to each group of thin triangles is its color $l$. Black bars on the rim mark negative entries. Sector 0 is outlined.</figcaption>
+    <figcaption>Cell $(0,4)$, enlarged. The number next to each group of thin triangles is its color $l$. Black dots at the rim mark negative entries. Sector 0 is outlined.</figcaption>
 </figure>
 
 <h2>geomagic square</h2>
