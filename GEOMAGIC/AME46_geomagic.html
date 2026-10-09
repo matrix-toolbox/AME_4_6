@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>AME &bull; toy model</title>
+<link rel="stylesheet" href="geomagic.css">
+<script src="mathjax.js"></script>
+
+<div id="content">
+
+<h1>AME state &ndash; a toy model</h1>
+<p id="last-update">update: 2023-02-11 by <a href="../index.html">W. Bruzda</a></p>
+
+<hr>
+<span class="alert">Technical note. This web page uses <a href="https://en.wikipedia.org/wiki/SVG" target="_blank">SVG</a> mechanism to draw primitives, as well as js-based <a href="https://www.mathjax.org/" target="_blank">MathJax</a> library for mathematical typesetting. Make sure your browser supports such features to fully experience the content.</span>
+<hr>
+
+<p>An <a href="https://en.wikipedia.org/wiki/Absolutely_maximally_entangled_state" target="_blank">absolutely maximally entangled</a> (AME) state of four <a href="https://en.wikipedia.org/wiki/Qubit" target="_blank">qutrits</a> (four parties with three degrees of freedom each), denoted by AME$(4,3)$, can be described by a permutation matrix
+\begin{equation}
+P_9=\left[\begin{array}{ccc|ccc|ccc}
+1 & . & . & . & . & . & . & . & .\\
+. & . & . & . & 1 & . & . & . & .\\
+. & . & . & . & . & . & . & . & 1\\
+\hline
+. & . & . & . & . & . & . & 1 & .\\
+. & . & 1 & . & . & . & . & . & .\\
+. & . & . & 1 & . & . & . & . & .\\
+\hline
+. & . & . & . & . & 1 & . & . & .\\
+. & . & . & . & . & . & 1 & . & .\\
+. & 1 & . & . & . & . & . & . & .\\
+\end{array}\right]\in\mathbb{U}(9).
+\end{equation}
+</p>
+
+<p>This particular state can also be represented as a Graeco-Latin square,
+\begin{equation}
+P_9^{\rm OLS}=\left[\begin{array}{ccc}
+A{\color{red}r} & B{\color{green}g} & C{\color{blue}b}\\
+C{\color{green}g} & A{\color{blue}b} & B{\color{red}r}\\
+B{\color{blue}b} & C{\color{red}r} & A{\color{green}g}\\
+\end{array}\right].
+\end{equation}
+The array of symbols has the property that no capital Latin letter $\{A,B,C\}$ repeats in any row and column, no small letter (color) $\{{\color{red}r},{\color{green}g},{\color{blue}b}\}$ repeats in any row and column, and no pair (Latin, color) repeats in any of nine cells. Such structures are also called <a href="https://en.wikipedia.org/wiki/Mutually_orthogonal_Latin_squares" target="_blank">Orthogonal Latin Squares</a> (OLS).</p>
+
+<p>The array $P_9^{\rm OLS}$ carries full information about the initial permutation matrix $P_9$ in the following way. All cells in $P_{\rm OLS}$ (in natural order: from top left to bottom right) correspond to rows (from top to bottom) in $P_9$. Capital letters $\{A,B,C\}$ denote the consecutive $9\times 3$  blocks of three columns of $P_9$, while small colored letter $\{{\color{red}r},{\color{green}g},{\color{blue}b}\}$ indicates the local index of a non-zero matrix element. For example, the entries with $1$'s in $P_9$ are replaced by their respective  counterparts in $P_9^{\rm OLS}$;
+\begin{equation}
+P_9\leftrightarrow\left[\begin{array}{ccc|ccc|ccc}
+A{\color{red}r} & . & . & . & . & . & . & . & .\\
+. & . & . & . & B\color{green}g & . & . & . & .\\
+. & . & . & . & . & . & . & . & C{\color{blue}b}\\
+\hline
+. & . & . & . & . & . & . & C{\color{green}g} & .\\
+. & . & A{\color{blue}b} & . & . & . & . & . & .\\
+. & . & . & B{\color{red}r} & . & . & . & . & .\\
+\hline
+. & . & . & . & . & B{\color{blue}b} & . & . & .\\
+. & . & . & . & . & . & C{\color{red}r} & . & .\\
+. & A{\color{green}g} & . & . & . & . & . & . & .\\
+\end{array}\right].
+\end{equation}
+</p>
+
+<hr>
+
+<p>Here we propose another representation of AME state which utilizes simple geometric features. Consider again AME$(4,3)$ state. Since there are three levels for each party, it is natural to associate it with a triangle. An equilateral triangle divided into three subtriangles can be used to encode the position of non-vanishing entry in $P_9$ &ndash; see Fig. 1.</p>
+<figure>
+ <svg height="130" width="660">
+
+ <line x1="32"  y1="119" x2="32"  y2="8"  style="stroke:black;stroke-width:2" />
+ <line x1="32"  y1="8"  x2="128" y2="64" style="stroke:black;stroke-width:2" />
+ <line x1="128" y1="64" x2="32"  y2="119" style="stroke:black;stroke-width:2" />
+ <line x1="32" y1="119" x2="64"  y2="64" style="stroke:black;stroke-width:2" />
+ <line x1="128" y1="64" x2="64"  y2="64" style="stroke:black;stroke-width:2" />
+ <line x1="32" y1="8" x2="64"  y2="64" style="stroke:black;stroke-width:2" />
+
+ <text x="67" y="53" fill="black">A</text>
+ <text x="41" y="71" fill="black">B</text>
+ <text x="67" y="83" fill="black">C</text>
+
+ <line x1="232"  y1="8" x2="343"  y2="8"  style="stroke:black;stroke-width:2" />
+ <line x1="232"  y1="8" x2="343"  y2="119"  style="stroke:black;stroke-width:2" />
+ <line x1="232"  y1="119" x2="343"  y2="119"  style="stroke:black;stroke-width:2" />
+ <line x1="232"  y1="119" x2="343"  y2="8"  style="stroke:black;stroke-width:2" />
+ <line x1="232"  y1="8" x2="232"  y2="119"  style="stroke:black;stroke-width:2" />
+ <line x1="343"  y1="8" x2="343"  y2="119"  style="stroke:black;stroke-width:2" />
+
+ <text x="280" y="40" fill="black">A</text>
+ <text x="249" y="69" fill="black">B</text>
+ <text x="280" y="100" fill="black">C</text>
+ <text x="312" y="69" fill="black">D</text>
+ </svg>
+ <figcaption>Fig. 1. Schematic partition of regular $n$-gon for $n=3$ and $n=4$. Sectors are assigned anti-clockwise. <span class="alert">Well, actually, the square should be rotated about the origin by $\pi/4$ so that its vertices form $4^{\rm th}$-roots of unity...</span></figcaption>
+</figure>
+<p>If a particular sector (isosceles subtriangle) of the big triangle is filled with color, it establishes a one-to-one correspondence as in the previous case between $P_9$ and $P_9^{\rm OLS}$. As a result we arrive at a $3\times 3$ array of triangles in the upper-left corner depicted in Fig. 2.</p>
+
+<figure>
+<svg height="570" width="560">
+  <polygon points="32,119      64,64  32,8"   style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="32,119      64,64  128,64" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="32,8      64,64  128,64"   style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="142,119    174,64  142,8"  style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="142,119    174,64  238,64" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="142,8      174,64  238,64" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="252,119    284,64  252,8"  style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="252,119    284,64  348,64" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="252,8      284,64  348,64" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="452,119    484,64  452,8"  style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="452,119    484,64  548,64" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="452,8      484,64  548,64" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="32,239      64,184   32,128" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="32,239      64,184  128,184" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="32,128      64,184  128,184" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="142,239    174,184  142,128" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="142,239    174,184  238,184" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="142,128    174,184  238,184" style="fill:blue;stroke:black;stroke-width:1" />
+
+  <polygon points="252,239    284,184  252,128" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="252,239    284,184  348,184" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="252,128    284,184  348,184" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="452,239    484,184  452,128" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="452,239    484,184  548,184" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="452,128    484,184  548,184" style="fill:blue;stroke:black;stroke-width:1" />
+
+  <polygon points="32, 359     64,304   32,248" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="32, 359     64,304  128,304" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="32, 248     64,304  128,304" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="142,359    174,304  142,248" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="142,359    174,304  238,304" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="142,248    174,304  238,304" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="252,359    284,304  252,248" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="252,359    284,304  348,304" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="252,248    284,304  348,304" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="452,359    484,304  452,248" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="452,359    484,304  548,304" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="452,248    484,304  548,304" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="32, 559     64,504   32,448" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="32, 559     64,504  128,504" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="32, 448     64,504  128,504" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="142,559    174,504  142,448" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="142,559    174,504  238,504" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="142,448    174,504  238,504" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="252,559    284,504  252,448" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="252,559    284,504  348,504" style="fill:blue;stroke:black;stroke-width:1" />
+  <polygon points="252,448    284,504  348,504" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="452,559    484,504  452,448" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="452,559    484,504  548,504" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="452,448    484,504  548,504" style="fill:white;stroke:black;stroke-width:1" />
+
+</svg>
+ <figcaption>Fig. 2. Pictorial representation of AME$(4, 3)$ state.</figcaption>
+ </figure>
+
+<p>This pictorial method of representing a permutation matrix reveals some additional properties. Firstly, one can see that if all triangles from a given row (or column) are superimposed, they form a full figure &ndash; see the right and bottom marginals in Fig. 2. This can be loosely related to the concept of <a href="https://www.geomagicsquares.com/" target="_blank">geomagic squares</a> &ndash; structures similar to <a href="https://en.wikipedia.org/wiki/Magic_square" target="_blank">magic squares</a>, wherein numbers summing up to a constant value are replaced by geometric shapes amalgamating each time to the very same figure. Secondly, the colors responsible for the local indexing have been chosen so that if we perform another &quot;projection&quot; along each marginal, the final triangle vanishes due to the color algebra, i.e., mixing three &quot;<a href="https://en.wikipedia.org/wiki/Primary_color" target="_blank">primary colors</a>&quot; red, green and blue results in the white output.</p>
+
+<p>It is easy to see that this method can be extended to any permutation matrix. Consider an AME state of four <a href="https://en.wikipedia.org/wiki/Qubit" target="_blank">ququarts</a>, AME$(4,4)$, which might be written as the $2$-unitary permutation matrix
+
+\begin{equation}
+P_{16}=\left[\begin{array}{cccc|cccc|cccc|cccc}
+1 & . & . & . &  . & . & . & . &  . & . & . & . &  . & . & . & .\\
+. & . & . & . &  . & 1 & . & . &  . & . & . & . &  . & . & . & .\\
+. & . & . & . &  . & . & . & . &  . & . & 1 & . &  . & . & . & .\\
+. & . & . & . &  . & . & . & . &  . & . & . & . &  . & . & . & 1\\
+\hline
+. & . & . & . &  . & . & . & 1 &  . & . & . & . &  . & . & . & .\\
+. & . & 1 & . &  . & . & . & . &  . & . & . & . &  . & . & . & .\\
+. & . & . & . &  . & . & . & . &  . & . & . & . &  . & 1 & . & .\\
+. & . & . & . &  . & . & . & . &  1 & . & . & . &  . & . & . & .\\
+\hline
+. & . & . & . &  . & . & . & . &  . & 1 & . & . &  . & . & . & .\\
+. & . & . & . &  . & . & . & . &  . & . & . & . &  1 & . & . & .\\
+. & . & . & 1 &  . & . & . & . &  . & . & . & . &  . & . & . & .\\
+. & . & . & . &  . & . & 1 & . &  . & . & . & . &  . & . & . & .\\
+\hline
+. & . & . & . &  . & . & . & . &  . & . & . & . &  . & . & 1 & .\\
+. & . & . & . &  . & . & . & . &  . & . & . & 1 &  . & . & . & .\\
+. & . & . & . &  1 & . & . & . &  . & . & . & . &  . & . & . & .\\
+. & 1 & . & . &  . & . & . & . &  . & . & . & . &  . & . & . & .\\
+\end{array}\right]\in\mathbb{U}(16).
+\end{equation}
+The corresponding OLS read
+\begin{equation}
+P_{16}^{\rm OLS}=\left[\begin{array}{llll}
+A{\color{red}r} & B{\color{green}g} & C{\color{magenta}m} & D{\color{cyan}c}\\
+B{\color{cyan}c} & A{\color{magenta}m} & D{\color{green}g} & C{\color{red}r}\\
+C{\color{green}g} & D{\color{red}r} & A{\color{cyan}c} & B{\color{magenta}m}\\
+D{\color{magenta}m} & C{\color{cyan}c} & B{\color{red}r} & A{\color{green}g}
+\end{array}\right],
+\end{equation}
+where, as previously, capital Latin letters $\{A,B,C,D\}$ denote four $16\times 4$ blocks of columns, while four colors $\{{\color{red}r},{\color{green}g},{\color{magenta}m},{\color{cyan}c}\}$ (in this order) encode the local position of non-zero entry in each block. Soon it will be clear why such colors have been picked. This time we shall turn to the set of squares instead of triangles, since the AME state is related to four parties with <b>four</b> levels. Having established a mapping between four sectors of the big square and the alphabet $\{A,B,C,D\}$ as in the schematic square in Fig. 1., one immediately reconstructs a very similar array by painting all subtriangles accordingly &ndash; see Fig. 3. Again, the array has the property of being a trivial geomagic square, and the appropriate colors eventually vanish when superimposed along the marginals.</p>
+
+<figure>
+ <svg height="670" width="660">
+  <polygon points="0,0      100,0   50,50" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="0,0      0,100   50,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,100    100,100 50,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,0    100,100 50,50" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="120,0    220,0   170,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,0    120,100 170,50" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="120,100  220,100 170,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,0    220,100 170,50" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="240,0    340,0   290,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,0    240,100 290,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,100  340,100 290,50" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="340,0    340,100 290,50" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="360,0    460,0   410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,0    360,100 410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,100  460,100 410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,0    460,100 410,50" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="560,0    660,0   610,50" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="560,0    560,100 610,50" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="560,100  660,100 610,50" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="660,0    660,100 610,50" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="0,120    100,120  50,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,120    0,220    50,170" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="0,220    100,220  50,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,120  100,220  50,170" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="120,120  220,120  170,170" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="120,120  120,220  170,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,220  220,220  170,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,120  220,220  170,170" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="240,120  340,120  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,120  240,220  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,220  340,220  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,120  340,220  290,170" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="360,120  460,120  410,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,120  360,220  410,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,220  460,220  410,170" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="460,120  460,220  410,170" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="560,120  660,120  610,170" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="560,120  560,220  610,170" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="560,220  660,220  610,170" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="660,120  660,220  610,170" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="0,240    100,240  50,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,240    0,340    50,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,340    100,340  50,290" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="100,240  100,340  50,290" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="120,240  220,240  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,240  120,340  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,340  220,340  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,240  220,340  170,290" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="240,240  340,240  290,290" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="240,240  240,340  290,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,340  340,340  290,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,240  340,340  290,290" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="360,240  460,240  410,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,240  360,340  410,290" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="360,340  460,340  410,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,240  460,340  410,290" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="560,240  660,240  610,290" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="560,240  560,340  610,290" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="560,340  660,340  610,290" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="660,240  660,340  610,290" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="0,360    100,360  50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,360    0,460    50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,460    100,460  50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,360  100,460  50,410" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="120,360  220,360  170,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,360  120,460  170,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,460  220,460  170,410" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="220,360  220,460  170,410" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="240,360  340,360  290,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,360  240,460  290,410" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="240,460  340,460  290,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,360  340,460  290,410" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="360,360  460,360  410,410" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="360,360  360,460  410,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,460  460,460  410,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,360  460,460  410,410" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="560,360  660,360  610,410" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="560,360  560,460  610,410" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="560,460  660,460  610,410" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="660,360  660,460  610,410" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="0,560    100,560  50,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="0,560    0,660    50,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="0,660    100,660  50,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="100,560  100,660  50,610" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="120,560  220,560  170,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="120,560  120,660  170,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="120,660  220,660  170,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="220,560  220,660  170,610" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="240,560  340,560  290,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="240,560  240,660  290,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="240,660  340,660  290,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="340,560  340,660  290,610" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="360,560  460,560  410,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="360,560  360,660  410,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="360,660  460,660  410,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="460,560  460,660  410,610" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="560,560  660,560  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="560,560  560,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="560,660  660,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="660,560  660,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+</svg>
+<figcaption>Fig. 3. Pictorial representation of AME$(4,4)$ state.</figcaption>
+</figure>
+
+<p>This case is slightly more complicated in comparison with the first one, and let us observe an additional feature which is offered by this representation. Suppose there is a need to change the coloring of the first square, which currently has the upper triangle $\{A\}$ in red. If we decide to repaint it so that the color should be put on the bottom triangle $\{C\}$, it definitely affects three additional squares marked with orange bullets in Fig. 4. To restore the correct structure, one must simply relocate all colors in all other three squares as it was done in the first one. Also, due to the OLS property (no two cells can hold repeated pairs), further four squares must be adjusted &ndash; those marked with yellow bullets.</p>
+
+<figure>
+ <svg height="670" width="660">
+  <polygon points="0,0      100,0   50,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,0      0,100   50,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,100    100,100 50,50" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="100,0    100,100 50,50" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="50" cy="50" r="6" stroke="black" stroke-width="1" fill="orange" />
+
+  <polygon points="120,0    220,0   170,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,0    120,100 170,50" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="120,100  220,100 170,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,0    220,100 170,50" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="240,0    340,0   290,50" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="240,0    240,100 290,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,100  340,100 290,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,0    340,100 290,50" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="290" cy="50" r="6" stroke="black" stroke-width="1" fill="orange" />
+
+  <polygon points="360,0    460,0   410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,0    360,100 410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,100  460,100 410,50" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,0    460,100 410,50" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="560,0    660,0   610,50" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="560,0    560,100 610,50" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="560,100  660,100 610,50" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="660,0    660,100 610,50" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="0,120    100,120  50,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,120    0,220    50,170" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="0,220    100,220  50,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,120  100,220  50,170" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="120,120  220,120  170,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,120  120,220  170,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,220  220,220  170,170" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="220,120  220,220  170,170" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="170" cy="170" r="6" stroke="black" stroke-width="1" fill="yellow" />
+
+  <polygon points="240,120  340,120  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,120  240,220  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,220  340,220  290,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,120  340,220  290,170" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="360,120  460,120  410,170" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="360,120  360,220  410,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,220  460,220  410,170" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,120  460,220  410,170" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="410" cy="170" r="6" stroke="black" stroke-width="1" fill="yellow" />
+
+  <polygon points="560,120  660,120  610,170" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="560,120  560,220  610,170" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="560,220  660,220  610,170" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="660,120  660,220  610,170" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="0,240    100,240  50,290" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="0,240    0,340    50,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,340    100,340  50,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,240  100,340  50,290" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="50" cy="290" r="6" stroke="black" stroke-width="1" fill="orange" />
+
+  <polygon points="120,240  220,240  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,240  120,340  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,340  220,340  170,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,240  220,340  170,290" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="240,240  340,240  290,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,240  240,340  290,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,340  340,340  290,290" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="340,240  340,340  290,290" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="290" cy="290" r="6" stroke="black" stroke-width="1" fill="orange" />
+
+  <polygon points="360,240  460,240  410,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,240  360,340  410,290" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="360,340  460,340  410,290" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="460,240  460,340  410,290" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="560,240  660,240  610,290" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="560,240  560,340  610,290" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="560,340  660,340  610,290" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="660,240  660,340  610,290" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="0,360    100,360  50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,360    0,460    50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="0,460    100,460  50,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="100,360  100,460  50,410" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="120,360  220,360  170,410" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="120,360  120,460  170,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="120,460  220,460  170,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="220,360  220,460  170,410" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="170" cy="410" r="6" stroke="black" stroke-width="1" fill="yellow" />
+
+  <polygon points="240,360  340,360  290,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="240,360  240,460  290,410" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="240,460  340,460  290,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="340,360  340,460  290,410" style="fill:white;stroke:black;stroke-width:1" />
+
+  <polygon points="360,360  460,360  410,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,360  360,460  410,410" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="360,460  460,460  410,410" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="460,360  460,460  410,410" style="fill:white;stroke:black;stroke-width:1" />
+ <circle cx="410" cy="410" r="6" stroke="black" stroke-width="1" fill="yellow" />
+
+  <polygon points="560,360  660,360  610,410" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="560,360  560,460  610,410" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="560,460  660,460  610,410" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="660,360  660,460  610,410" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="0,560    100,560  50,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="0,560    0,660    50,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="0,660    100,660  50,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="100,560  100,660  50,610" style="fill:magenta;stroke:black;stroke-width:1" />
+
+  <polygon points="120,560  220,560  170,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="120,560  120,660  170,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="120,660  220,660  170,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="220,560  220,660  170,610" style="fill:red;stroke:black;stroke-width:1" />
+
+  <polygon points="240,560  340,560  290,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="240,560  240,660  290,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="240,660  340,660  290,610" style="fill:cyan;stroke:black;stroke-width:1" />
+  <polygon points="340,560  340,660  290,610" style="fill:lime;stroke:black;stroke-width:1" />
+
+  <polygon points="360,560  460,560  410,610" style="fill:red;stroke:black;stroke-width:1" />
+  <polygon points="360,560  360,660  410,610" style="fill:magenta;stroke:black;stroke-width:1" />
+  <polygon points="360,660  460,660  410,610" style="fill:lime;stroke:black;stroke-width:1" />
+  <polygon points="460,560  460,660  410,610" style="fill:cyan;stroke:black;stroke-width:1" />
+
+  <polygon points="560,560  660,560  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="560,560  560,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="560,660  660,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+  <polygon points="660,560  660,660  610,610" style="fill:white;stroke:black;stroke-width:1" />
+</svg>
+<figcaption>Fig. 4. Pictorial representation of AME$(4,4)$ state &ndash; LU-equivalent form.</figcaption>
+</figure>
+
+<p>Keeping the order in the scheme of colors, $\{{\color{red}r},{\color{green}g},{\color{magenta}m},{\color{cyan}c}\}$, one obtains another permutation matrix $P_{16}'$ which also represents the same AME$(4,4)$ state (Fig. 4.). To prove this fact, it is enough to find local unitary operations that map one matrix to another. Transition from $P_{16}$ to $P_{16}'$ can be done with $48$ different sets of $4\times 4$ permutation matrices $Q_1$, $Q_2$, $Q_3$, and $Q_4$. One such example reads:
+\begin{equation}
+P_{16}=\underbrace{\left[\begin{array}{cccc}
+. & . & . & 1\\
+. & . & 1 & .\\
+. & 1 & . & .\\
+1 & . & . & .
+\end{array}\right]}_{Q_1}
+\otimes
+\underbrace{\left[\begin{array}{cccc}
+. & . & . & 1\\
+. & . & 1 & .\\
+. & 1 & . & .\\
+1 & . & . & .
+\end{array}\right]}_{Q_2}
+P_{16}'
+\underbrace{\left[\begin{array}{cccc}
+. & . & 1 & .\\
+. & 1 & . & .\\
+1 & . & . & .\\
+. & . & . & 1
+\end{array}\right]}_{Q_3}
+\otimes
+\underbrace{\left[\begin{array}{cccc}
+. & 1 & . & .\\
+1 & . & . & .\\
+. & . & . & 1\\
+. & . & 1 & .
+\end{array}\right]}_{Q_4}.
+\end{equation}
+
+<p>Hence, we have a simple graphical method to perform local operations on the $2$-unitary matrix that preserve the property of being absolutely maximally entangled state.</p>
+
+<hr>
+
+<p>Problems arise when a matrix no longer belongs to the class of permutations, but it is currently out of the scope of this short note. However, let us describe one more example, which indeed fits these generalized criteria. It pertains to the famous AME$(4,6)$ state of four <a href="https://en.wikipedia.org/wiki/Qubit" target="_blank">quhexes</a>.</p>
+
+<p>The existence of a $2$-unitary matrix representing AME$(4,6)$ state was a subject of the long debate until it was finally <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.080507" target="_blank">discovered</a> together with its surprising internal structure. A detailed description and a popular explanation of this state were recently presented in the follow-up <a href="https://arxiv.org/abs/2204.06800" target="_blank">papers</a> and <a href="https://www.quantamagazine.org/eulers-243-year-old-impossible-puzzle-gets-a-quantum-solution-20220110/" target="_blank">articles</a>.</p>
+
+<p>The natural polygon to be used for AME$(4,6)$ seems to be hexagon. But the problem is that the $2$-unitary matrix $U_{36}\in\mathbb{U}(36)$ corresponding to this state is neither a permutation nor even a real object. In the simplest known representation every row of $U_{36}$ contains exactly two or four complex elements which fall into three classes according to their modulus, and 20 other classes according to their phases. As before, each row is divided into six segments, each one containing six entries. Every segment is addressed by six letters from the set $\{A,B,C,D,E,F\}$, and six colors $\{{\color{red}r},{\color{green}g},{\color{blue}b},{\color{cyan}c},{\color{magenta}m},{\color{orange}y}\}$. The colors are chosen deliberately to form two groups of primary colors and their complements,
+\begin{equation}
+{\color{red}r}+{\color{cyan}c}={\color{green}g}+{\color{magenta}m}={\color{blue}b}+{\color{orange}y}=\text{white},
+\end{equation}
+in order to form a vanishing pattern in the end (to increase legibility, we used $\color{orange}{orange}$ color instead of barely visible $\color{yellow}{yellow}$).</p>
+
+<p>For the sake of simplicity, the phases are not considered here. This makes the picture rather incomplete, and it is impossible to recover the full state out of the graphical representation, as was the case before. However, we focus here only on some visual aspects, leaving the complete description for further considerations. Hence, because of the fact, that we must address three different amplitudes of complex numbers in the matrix $U_{36}$, we divide each triangle $X\in\{A,B,C,D,E,F\}$ inside the hexagon into six additional subtriangles. Now, depending on to which modulus-class a given number in $U_{36}$ belongs, we will color one, two or three subtriangles, respectively. The order and pattern of coloring can be chosen freely, however we propose the one that makes the colored triangles connected as in Fig. 5., but one might also prefer more scattered variant &ndash; Fig. 6.</p>
+
+<figure>
+<img src="AME46_geomagic_FULL_SPECTRUM.png" alt="" style="max-width:100%;">
+<figcaption>Fig. 5. Incomplete pictorial representation of AME$(4,6)$ state.</figcaption>
+</figure>
+
+<p>In both cases two marginals form a simple geomagic structure. Alas, this time we could not find the configuration for which the two marginals would vanish after final superimposition. There are at least $6!\times {6\choose 3}^{6}$ possible arrangements (in fact this number is much bigger!) for colors and distribution of subtriangles. <span class="OBSOLETE">Maybe there is one that would make this picture perfect. Can anyone help?</span> <a href="AME46_geomagic_REAL.html">&longrightarrow;</a></p>
+
+<figure>
+<img src="AME46_geomagic_SCATTER.png" alt="" style="max-width:100%;">
+<figcaption>Fig. 6. Incomplete pictorial representation of AME$(4,6)$ state.</figcaption>
+</figure>
+
+<p>As we already mentioned, these pictures roughly resemble geomagic structures. Especially, in the last case one can simply imagine the following situation. Suppose there are six hexagonal plates (right marginal) which are going to be broken into pieces. Fragments of each plate are then mixed together and scattered onto the (upper left) array. Now, somebody must glue them together and suddenly it happens that it is possible to restore the very exact shapes of all six plates (bottom marginal), however, they form completely <a href="https://www.geomagicsquares.com/gallery.php?page=25" target="_blank">different patterns</a>!</p>
+
+<p>Well, it is still not as perfect as, for example, <a href="https://www.geomagicsquares.com/gallery.php?page=44" target="_blank">this one</a>, however...</p>
+
+<p>Still, there are many unknowns and surprises hidden behind these pictures and one can play and examine thoroughly what will happen with colors when hexagons are appropriately folded or superimposed even in the imperfect form presented above...</p>
+
+<hr>
+<p>We wish to thank <b>Maciej Bartula</b> for his hint to exploit hexagons to represent AME$(4, 6)$ state, which significantly triggered the idea to pursue the pictorial representation. <a href="https://www.geomagicsquares.com/bio.php" target="_blank"><b>Lee Sallows</b></a> &ndash; for his amiable support concerning the concept of geomagic structures. And <b>Saverio Pascazio</b> &ndash; for his insightful questions and comments.</p>
+
+<hr>
+ 
+<p>Pictures on this page are made manually (in GIMP or using SVG).</p>
+
+</div>
+
