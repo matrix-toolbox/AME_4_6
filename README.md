@@ -10,4 +10,4 @@ References:
 
 # 2026
 
-...
+- geomagic representation of a real-valued AME(4, 6) state
