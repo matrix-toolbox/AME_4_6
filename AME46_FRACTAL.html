@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An illustrated, reproducible guide to self-similar geomagic puzzles and two real AME(4,6^n) families, with exact interactive assemblies and state decoding.">
+  <title>AME • self-similar geomagic representations</title>
+  <link rel="stylesheet" href="../geomagic.css">
+  <link rel="stylesheet" href="fractal.css">
+  <script src="../mathjax.js"></script>
+  <script defer src="ame46_data.js"></script>
+  <script defer src="fractal.js"></script>
+</head>
+<body id="fractal-page">
+<main id="content">
+<h1 id="top">AME state &ndash; self-similar <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representations</h1>
+<p id="last-update">update: 2026-10-10 by <a href="https://matrix-toolbox.github.io/">W. Bruzda</a></p>
+<hr>
+
+<div class="DISCLAIMER">
+<p>The material presented on this webpage grew out of my discussions with ChatGPT (GPT-6 Astra Pro) and is a direct follow-up to the geomagic construction presented <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">here</a>. I have decided to keep this material out of the original paper for two reasons. First, I do not want to obscure its main message. Second, my own contribution was limited to asking questions and guiding the model towards the simplest possible construction. I therefore do not regard this material as suitable for publication as a conventional research paper.</p>
+<p>Above all, this note is a way to indulge my childhood obsession with fractals. See also <a href="https://github.com/matrix-toolbox/x86">this repository</a>.</p>
+<p>This is certainly not the end of the story... :)</p>
+</div>
+
+<p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure.</p>
+
+<p>The starting point is the real AME$(4,6)$ state and its geomagic representation in the companion manuscript <a href="#ref-seed">[1]</a>. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
+
+<figure class="wide">
+  <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
+  <figcaption><strong>Many shapes, one rule.</strong> These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
+</figure>
+
+<div class="note"><p><strong>What “fractal AME” means here.</strong> Each finite depth gives a finite-dimensional AME state and a finite geomagic puzzle. Repeating an address forever gives a geometric fractal of zero area. We do not define an infinite-dimensional AME state by taking that geometric limit.</p></div>
+
+<nav class="contents" aria-label="Contents">
+<h2>contents</h2>
+<ol>
+  <li><a href="#meaning">The quantum state and the puzzle</a></li>
+  <li><a href="#bridge">From hexagons to rectangles</a></li>
+  <li><a href="#alphabet">A 96-atom alphabet: the strings and permutations</a></li>
+  <li><a href="#assemble">See complete rows, columns and diagonals assemble</a></li>
+  <li><a href="#replacement">One replacement rule, any depth</a></li>
+  <li><a href="#decode">Recover the state from the picture, and back</a></li>
+  <li><a href="#squares">Squares are possible too</a></li>
+  <li><a href="#signs">The conditional minus sign</a></li>
+  <li><a href="#dimension">The limit and its dimension</a></li>
+  <li><a href="#classical">IFS, L-systems and classical fractal squares</a></li>
+  <li><a href="#scope">What generalizes, and what remains open</a></li>
+  <li><a href="#references">References and related reading</a></li>
+</ol>
+</nav>
+<noscript><p class="note">All explanations and static figures remain available without JavaScript. The interactive explorers and MathJax rendering require JavaScript.</p></noscript>
+<hr>
+
+<section id="meaning">
+<h2>1. the quantum state and the puzzle</h2>
+<p>An AME$(4,d)$ state has four parties, each with $d$ possible basis labels. It is <em>absolutely maximally entangled</em>: whichever two parties are retained, their reduced state is the maximally mixed state $\mathbb I_{d^2}/d^2$. No particular pair is preferred.</p>
+
+<p>For a four-index tensor $T$, collect two indices into a row label and the other two into a column label. There are three essentially different ways to do this: $AB|CD$, $AC|BD$ and $AD|BC$. If the resulting $d^2\times d^2$ matrices are all unitary, then</p>
+<div class="equation">$$|\psi\rangle=\frac1d\sum_{i,j,k,l=0}^{d-1}T_{ijkl}|i\rangle_A|j\rangle_B|k\rangle_C|l\rangle_D$$</div>
+<p>is an AME state. Such a tensor is called <em>two-unitary</em>. Here all coefficients are real, so its three matrices are orthogonal. We write $T^{\rm g}$ for the geometric seed throughout: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
+
+<p>A geomagic square replaces numbers in a magic square by shapes. Its entries are distinct pieces. Each row, column and main diagonal must assemble into the same target. In this construction the pieces already share a coordinate frame: simply superimpose the occupied regions, keeping every component in its prescribed position. A piece may have several disconnected components. The complete collection at fixed relative positions counts as one piece.</p>
+
+<p>The geometry represents squared magnitudes. Labels identify coefficients, and signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality.</p>
+
+<div class="table-scroll">
+<table class="data-table">
+<caption>The first four finite levels.</caption>
+<thead><tr><th>depth $n$</th><th>local dimension $d=6^n$</th><th>pieces $d^2$</th><th>pieces in one line</th><th>atoms in one piece</th></tr></thead>
+<tbody><tr><td>1</td><td>6</td><td>36</td><td>6</td><td>16</td></tr><tr><td>2</td><td>36</td><td>1,296</td><td>36</td><td>256</td></tr><tr><td>3</td><td>216</td><td>46,656</td><td>216</td><td>4,096</td></tr><tr><td>4</td><td>1,296</td><td>1,679,616</td><td>1,296</td><td>65,536</td></tr></tbody>
+</table>
+</div>
+<p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party, and likewise for $B,C,D$.</p>
+</section>
+
+<section id="bridge">
+<h2>2. from hexagons to rectangles</h2>
+<p>The original hexagon and the new rectangle encode the same $T^{\rm g}$. This is a new placement of the same signed, weighted matching data. It is not an affine transformation of the hexagon. A thin triangular contribution can be subdivided and placed elsewhere, provided its label, its sign and its total relative area are preserved.</p>
+
+<p>For the recursive construction we make all atoms equal. Each of the six sectors contains 16 atoms, so the complete target has 96. An atom in the first four sectors of the equal-slice hexagon is split into two, and the atoms in sectors 4 and 5 already have the required sector weight $1/16$. The resulting atoms are placed on a $24\times4$ grid.</p>
+
+<figure class="wide">
+ <div class="figure-pair">
+  <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the companion repository.">
+  <img src="coefficient_bridge.svg" alt="Rectangular piece (0,4), with four highlighted equal atoms of sector 0 and colour 4, each carrying a minus sign.">
+ </div>
+ <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced unchanged from <a href="https://github.com/matrix-toolbox/AME_4_6/blob/main/GEOMAGIC/AME46_geomagic_REAL.html">the original page</a>. The rectangular drawing is calculated from the exact data.</figcaption>
+</figure>
+
+<p>Why use a rectangle of width $\sqrt6$ and height $1$? A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work.</p>
+
+<p>In this rectangular placement 34 of the 36 base pieces are disconnected as closed sets. That is compatible with the definition used here: disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
+</section>
+
+<section id="alphabet">
+<h2>3. a 96-atom alphabet: the strings and permutations</h2>
+<p>The long strings have a modest job: they specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, and so on. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\ldots,5$.</p>
+
+<p>One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the <em>placement</em> of an atom: the same target location can have different quantum colours in different pieces.</p>
+
+<p>Equation (B1) in the companion manuscript gives these six words of matching numbers:</p>
+<div class="table-scroll">
+<table class="data-table"><thead><tr><th>sector $k$</th><th>B1 word</th><th>equal-atom word used here</th></tr></thead><tbody>
+<tr><td>0</td><td class="words">23310102</td><td class="words">2233331100110022</td></tr>
+<tr><td>1</td><td class="words">21303021</td><td class="words">2211330033002211</td></tr>
+<tr><td>2</td><td class="words">32113020</td><td class="words">3322111133002200</td></tr>
+<tr><td>3</td><td class="words">11302230</td><td class="words">1111330022223300</td></tr>
+<tr><td>4</td><td class="words">7632321056014475</td><td class="words">7632321056014475</td></tr>
+<tr><td>5</td><td class="words">6013617402535724</td><td class="words">6013617402535724</td></tr>
+</tbody></table></div>
+
+<p>Read an expanded word from left to right, placing its digits along the bottom row of the corresponding $4\times4$ sector block, then along the next row up. Position $t=0,\ldots,15$ in sector $k$ has coordinates</p>
+<div class="equation">$$a=4k+(t\bmod4),\qquad b=\lfloor t/4\rfloor.$$</div>
+<p>For sectors 4 and 5, each matching occurs twice. Use its first colour word on its first occurrence, and its second colour word on its second occurrence. For sectors 0&ndash;3 there is only one colour word for each matching. The sign is the sign of the corresponding entry of $T^{\rm g}$. It is provided by the seed, not by the matching number.</p>
+
+<figure class="wide"><img src="atom_recipe.svg" alt="The complete 96-atom matching alphabet above the signed, quantum-colour-labelled atoms of one base piece."><figcaption><strong>From placement numbers to quantum labels.</strong> The upper grid displays the matching numbers used to assign target atoms to pieces. The lower grid shows a selected piece with its actual colour digits and seed signs. The two kinds of numbers serve different purposes.</figcaption></figure>
+
+<div class="js-only">
+<fieldset>
+<legend>Inspect any atom and its six placements</legend>
+<div class="controls"><label>Sector $k$ <select id="atom-sector"></select></label><label>Position $t$ within sector <select id="atom-position"></select></label></div>
+<div class="canvas-wrap"><canvas id="atom-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="The 24 by 4 atom grid. The selected atom is outlined; numbers show matching identifiers."></canvas></div>
+<div id="atom-readout" class="readout" aria-live="polite"></div>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>row $i$</th><th>piece column $j=\tau(i)$</th><th>quantum colour $l=\sigma(i)$</th><th>sign</th></tr></thead><tbody id="atom-placements"></tbody></table></div>
+</fieldset>
+</div>
+
+<details id="matching-table"><summary>The complete Table I input: 32 records, 48 weighted transversals</summary>
+<p>The weight applies to each listed colour permutation. In sectors 0&ndash;3, one record accounts for four equal atoms. In sectors 4&ndash;5, each of its two colour words accounts for one atom. Leading zeroes are significant. These data, together with the B1 order and the seed signs, specify the whole base picture.</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>$k$</th><th>matching</th><th>$\tau$</th><th>$\sigma_1$</th><th>$\sigma_2$</th><th>weight per $\sigma$</th></tr></thead><tbody id="full-matching-table"><tr><td>0</td><td>0</td><td class="words">251340</td><td class="words">253104</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>0</td><td>1</td><td class="words">341205</td><td class="words">243150</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>0</td><td>2</td><td class="words">430215</td><td class="words">423150</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>0</td><td>3</td><td class="words">520341</td><td class="words">523104</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>1</td><td>0</td><td class="words">253014</td><td class="words">350241</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>1</td><td>1</td><td class="words">342051</td><td class="words">340215</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>1</td><td>2</td><td class="words">432150</td><td class="words">430215</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>1</td><td>3</td><td class="words">523104</td><td class="words">530241</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>2</td><td>0</td><td class="words">035142</td><td class="words">314025</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>2</td><td>1</td><td class="words">124035</td><td class="words">315042</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>2</td><td>2</td><td class="words">215043</td><td class="words">134025</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>2</td><td>3</td><td class="words">304125</td><td class="words">135042</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>3</td><td>0</td><td class="words">031452</td><td class="words">201534</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>3</td><td>1</td><td class="words">120534</td><td class="words">201453</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>3</td><td>2</td><td class="words">210453</td><td class="words">021534</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>3</td><td>3</td><td class="words">301524</td><td class="words">021453</td><td class="words">&ndash;</td><td>1/4</td></tr>
+<tr><td>4</td><td>0</td><td class="words">142530</td><td class="words">415320</td><td class="words">504321</td><td>1/16</td></tr>
+<tr><td>4</td><td>1</td><td class="words">145203</td><td class="words">412503</td><td class="words">502413</td><td>1/16</td></tr>
+<tr><td>4</td><td>2</td><td class="words">152403</td><td class="words">415302</td><td class="words">504312</td><td>1/16</td></tr>
+<tr><td>4</td><td>3</td><td class="words">154320</td><td class="words">402531</td><td class="words">512430</td><td>1/16</td></tr>
+<tr><td>4</td><td>4</td><td class="words">403512</td><td class="words">054312</td><td class="words">145302</td><td>1/16</td></tr>
+<tr><td>4</td><td>5</td><td class="words">405231</td><td class="words">042531</td><td class="words">152430</td><td>1/16</td></tr>
+<tr><td>4</td><td>6</td><td class="words">503421</td><td class="words">054321</td><td class="words">145320</td><td>1/16</td></tr>
+<tr><td>4</td><td>7</td><td class="words">504312</td><td class="words">052413</td><td class="words">142503</td><td>1/16</td></tr>
+<tr><td>5</td><td>0</td><td class="words">042513</td><td class="words">415302</td><td class="words">504312</td><td>1/16</td></tr>
+<tr><td>5</td><td>1</td><td class="words">045231</td><td class="words">412530</td><td class="words">502431</td><td>1/16</td></tr>
+<tr><td>5</td><td>2</td><td class="words">052431</td><td class="words">415320</td><td class="words">504321</td><td>1/16</td></tr>
+<tr><td>5</td><td>3</td><td class="words">054312</td><td class="words">402513</td><td class="words">512403</td><td>1/16</td></tr>
+<tr><td>5</td><td>4</td><td class="words">413520</td><td class="words">054321</td><td class="words">145320</td><td>1/16</td></tr>
+<tr><td>5</td><td>5</td><td class="words">415203</td><td class="words">042513</td><td class="words">152403</td><td>1/16</td></tr>
+<tr><td>5</td><td>6</td><td class="words">513402</td><td class="words">054312</td><td class="words">145302</td><td>1/16</td></tr>
+<tr><td>5</td><td>7</td><td class="words">514320</td><td class="words">052431</td><td class="words">142530</td><td>1/16</td></tr></tbody></table></div>
+<p>In formulas, the table is a decomposition of squared entries into coloured matchings:</p>
+<div class="equation">$$\bigl(T^{\rm g}_{ijkl}\bigr)^2=\sum_\alpha w_{k\alpha}\,\delta_{j,\tau_{k\alpha}(i)}\,\delta_{l,\sigma_{k\alpha}(i)},\qquad \sum_\alpha w_{k\alpha}=1.$$</div>
+<p>It specifies magnitudes. The exact signs and all 152 nonzero coefficients can be inspected in the <a href="#decode">coefficient decoder below</a>.</p>
+</details>
+</section>
+
+<section id="assemble">
+<h2>4. see complete rows, columns and diagonals assemble</h2>
+<p>The array below uses the same row and column orders as the companion construction:</p>
+<div class="equation">$$R_0=(0,2,4,5,3,1),\qquad C_0=(2,4,0,1,5,3).$$</div>
+<p>The two displayed diagonals consist of $(i,D(i))$ and $(i,D'(i))$, where</p>
+<div class="equation">$$D=(2,3,4,5,0,1),\qquad D'=(3,2,5,4,1,0).$$</div>
+
+<figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption><strong>The complete base geomagic square.</strong> Every piece contains 16 of the 96 target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
+
+<div class="js-only">
+<fieldset>
+<legend>Assemble a full line</legend>
+<div class="controls">
+<label>Depth <select id="assembly-depth"><option value="1">1 &ndash; order 6</option><option value="2">2 &ndash; order 36</option></select></label>
+<label>Line <select id="assembly-kind"><option value="row">Row</option><option value="column">Column</option><option value="diagonal">Main diagonal</option><option value="antidiagonal">Other diagonal</option></select></label>
+<label id="assembly-line-label">Row label <select id="assembly-line"></select></label>
+<label>Target <select id="assembly-shape"><option value="rectangle">Rectangle</option><option value="square">Square</option></select></label>
+<button type="button" id="assembly-play">Assemble step by step</button>
+</div>
+<p><label for="assembly-count">Pieces placed: <output id="assembly-count-label">6 / 6</output></label><br><input type="range" id="assembly-count" min="0" max="6" value="6" step="1"></p>
+<div class="canvas-wrap" id="assembly-wrap"><canvas id="assembly-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="Exact superposition of the selected geomagic line."></canvas></div>
+<div id="assembly-readout" class="readout" aria-live="polite"></div>
+<p class="small">Select a piece label below to highlight its contribution within the assembly. Select it again to show all contributors equally.</p>
+<div class="piece-key" id="assembly-key" aria-label="Contributing pieces"></div>
+</fieldset>
+</div>
+
+<p>At depth one, six pieces containing 16 atoms each cover all $6\cdot16=96$ atoms, once each. At depth two, 36 pieces containing 256 atoms each cover all $36\cdot256=9216$ cells of a $96\times96$ grid. The tool counts occupied cells exactly. It does not estimate coverage from the rendered pixels.</p>
+
+<figure class="wide"><img src="seed_all_lines.svg" alt="The six row assemblies, six column assemblies and two diagonal assemblies. Every target rectangle is completely covered."><figcaption><strong>All 14 base assemblies.</strong> Each small rectangle is a different required line of the puzzle, filled without gaps or overlapping interiors. The contribution of each of its six pieces has a different colour.</figcaption></figure>
+
+<div class="note"><p><strong>Which superposition fills the figure?</strong> One complete row, column or diagonal fills the target exactly once. Superimposing <em>all</em> $d^2$ pieces covers it $d$ times. A selection of attractive portraits generally does not form a tiling line.</p></div>
+</section>
+
+<section id="replacement">
+<h2>5. one replacement rule, any depth</h2>
+<p>Choose an outer base piece $(i_1,j_1)$. Inside each of its 16 occupied cells place a smaller copy of a child piece $(i_2,j_2)$, always with the same clockwise quarter-turn. To go deeper, do the same thing to the child. Nothing needs to be redesigned as the depth increases.</p>
+
+<figure class="wide"><img src="ifs_step.svg" alt="The rectangle replacement rule and a magnified child inside one occupied cell, showing the same clockwise quarter-turn and uniform scale."><figcaption><strong>The replacement step.</strong> Each occupied atom receives the same smaller child piece. The pale frame is the common target. The indicated magnification shows the exact descendants of one cell, rather than a separately drawn imitation.</figcaption></figure>
+
+<p>For $R=[0,\sqrt6]\times[0,1]$ and a grid cell $(a,b)$, the placement map is</p>
+<div class="equation">$$f_{a,b}(x,y)=\left(\frac{a+y}{4\sqrt6},\;\frac{b+1}{4}-\frac{x}{4\sqrt6}\right).\tag{1}$$</div>
+<p>It is a clockwise quarter-turn, uniform contraction and translation, with contraction ratio $r=1/\sqrt{96}$. The 96 possible images of the whole rectangle tile $R$. If $M_{ij}$ is the set of 16 occupied cells of piece $(i,j)$, the complete recursive definition is</p>
+<div class="equation">$$P^{(0)}=R,\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
+<p>where $I=(i_1,\ldots,i_n)$, $J=(j_1,\ldots,j_n)$ and primes remove the first digit. Every piece has $16^n$ equal atoms and occupies the fraction $(16/96)^n=6^{-n}$ of its target.</p>
+
+<div class="js-only">
+<fieldset>
+<legend>Explore a piece and its descendants</legend>
+<div class="controls">
+<label>Address <select id="explorer-address"><option value="stationary">Repeat one base label</option><option value="controlled">Sign example: (0,2), then (2,0)</option></select></label>
+<label>Repeated row digit $i$ <select id="explorer-i"></select></label><label>Repeated column digit $j$ <select id="explorer-j"></select></label>
+<label>Depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4,096 atoms</option><option value="4">4 &ndash; 65,536 atoms</option></select></label>
+<label>Target <select id="explorer-shape"><option value="rectangle">Rectangle</option><option value="square" selected>Square</option></select></label>
+<label>Colour shows <select id="explorer-colour"><option value="geometry">Geometry only</option><option value="sector">First sector digit</option><option value="quantum">First quantum-colour digit</option><option value="product-sign">Product sign</option><option value="controlled-sign">Controlled sign</option><option value="extra-sign">Extra sign factor</option></select></label>
+</div>
+<p><label for="explorer-zoom">View </label><select id="explorer-zoom"><option value="full">Whole target</option><option value="cell">Magnify one occupied outer cell</option></select> <label for="explorer-cell">Outer cell </label><select id="explorer-cell"></select> <button type="button" id="explorer-download">Download this view as PNG</button></p>
+<div class="canvas-wrap square-view" id="explorer-wrap"><canvas id="explorer-canvas" class="puzzle" width="1100" height="1100" role="img" aria-label="A selected stationary geomagic piece, calculated from its exact atom addresses."></canvas></div>
+<div id="explorer-legend" class="legend"></div>
+<div id="explorer-readout" class="readout" aria-live="polite"></div>
+<p class="small">The dropdowns also provide keyboard access to the zoom. Click a visible atom for its complete sector word, colour word and signs. At high depth, some atoms are smaller than a screen pixel. The numerical counts and addresses remain exact.</p>
+<div id="explorer-atom" class="readout mono" aria-live="polite"></div>
+</fieldset>
+</div>
+
+<details><summary>Why every depth is a genuine geomagic square</summary>
+<p><strong>Tilings.</strong> Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
+<p><strong>Equal areas.</strong> Each replacement retains 16 of 96 equal cells. Therefore all pieces have target-area fraction $1/d$, and a line contains exactly $d$ pieces.</p>
+<p><strong>Different shapes.</strong> The base masks have 144 distinct normalized images under the four axis-preserving reflection choices. This finite certificate is obtained by exact comparison. At any depth, horizontal boundary lengths are rational multiples of $\sqrt6$ and vertical boundary lengths are rational. A Euclidean congruence cannot interchange these directions. Rectilinear boundaries then leave only translations and axis-preserving reflections.</p>
+<p>After translating a piece to normalize its bounding box, its coarse occupied cells recover its outer mask. Restricting to one occupied open cell, then taking closure, recovers the child up to congruence. The base certificate identifies the first pair of labels. Induction identifies the rest. All $d^2$ pieces are therefore pairwise noncongruent, including under reflection. This is a geometric statement, independent of the signs.</p>
+</details>
+</section>
+
+<section id="decode">
+<h2>6. recover the state from the picture, and back</h2>
+<p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once.</p>
+
+<p>Collect <em>all</em> fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then</p>
+<div class="equation">$$\boxed{\ U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}},\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}\ },\qquad d=6^n.\tag{3}$$</div>
+<p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas <em>before</em> taking the square root.</p>
+
+<h3>counting is enough</h3>
+<p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then</p>
+<div class="equation">$$\mu=\frac{m}{96^n},\qquad U=\varepsilon\sqrt{\frac{m}{16^n}},\qquad\psi=\varepsilon\frac{\sqrt m}{24^n}.\tag{4}$$</div>
+<p>For example, $(i,j,k,l)=(0,4,0,4)$ has four negative atoms. Thus $\mu=4/96=1/24$, $U=-1/2$, and $\psi=-1/12$. A reader needs labels, counts and signs, but no ruler.</p>
+
+<div class="js-only">
+<fieldset>
+<legend>Decode any base coefficient</legend>
+<div class="controls"><label>Row $i$ <select id="decode-i"></select></label><label>Column $j$ <select id="decode-j"></select></label><label>Sector $k$ <select id="decode-k"></select></label><label>Quantum colour $l$ <select id="decode-l"></select></label><button type="button" id="decode-example">Restore the example</button></div>
+<div class="canvas-wrap"><canvas id="decode-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="Selected base piece, with all fragments of the chosen coefficient highlighted and signed."></canvas></div>
+<div id="decode-result" class="formula-result" aria-live="polite"></div>
+<p class="small">Numbers inside occupied atoms are the quantum colour $l$. A minus is an explicit sign mark. The chosen sector and colour are highlighted. The remaining atoms of the piece are pale. The six sector blocks run from $k=0$ on the left to $k=5$ on the right.</p>
+</fieldset>
+</div>
+
+<h3>the reverse direction</h3>
+<p>For the product family, start from the seed coefficients and the stated matching decomposition. Distribute each squared magnitude among its assigned equal atoms, attach its sign and colour label, and put those atoms at the B1 grid positions. Recursively replace occupied cells according to (2), multiplying the base signs. This gives</p>
+<div class="equation">$$\mu_{IJKL}=\frac1d\prod_{r=1}^n\bigl(T^{\rm g}_{i_rj_rk_rl_r}\bigr)^2,\qquad U^{(n)}_{IJ,KL}=\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}.\tag{5}$$</div>
+<p>With corresponding parties grouped, this is $|\psi_{\rm g}\rangle^{\otimes n}$. Tensor products preserve all three unitary flattenings <a href="#ref-products">[2]</a>.</p>
+
+<p>The correspondence is exact once the placement conventions and sign rule are specified. The same matrix can admit many pictures, including the original hexagons and these rectangles. Conversely, an unlabelled silhouette loses the sector, colour and sign information and does not uniquely determine a quantum state. The explorers display complete labels numerically. The portrait figures deliberately show geometry alone.</p>
+
+<details><summary>From the geometric seed back to the sparse 60-entry seed</summary>
+<p>The geometric seed has 152 nonzero entries with squared magnitudes $1/2$, $1/4$ and $1/8$. It is related by local orthogonal rotations to a sparse seed with 60 nonzero entries. Set</p>
+<div class="equation">$$\xi=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad \zeta=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix},$$</div>
+<div class="equation">$$O_A=\xi\oplus\mathbb I_4,\qquad O_B=\xi\oplus\xi\oplus\mathbb I_2,\qquad O_C=\mathbb I_4\oplus\zeta.$$</div>
+<p>For $U^{\rm g}_{6i+j,6k+l}=T^{\rm g}_{ijkl}$, the sparse matrix is</p>
+<div class="equation">$$U=(O_A\otimes O_B)^{\mathsf T}\,U^{\rm g}\,(O_C\otimes\mathbb I_6).$$</div>
+<p>The state from that sparse matrix is locally equivalent to the geometric seed. These rotations can be performed exactly in the ring $\mathbb Q(\sqrt2)$.</p>
+</details>
+</section>
+
+<section id="squares">
+<h2>7. squares are possible too</h2>
+<p>Apply the same horizontal rescaling to every piece and its target:</p>
+<div class="equation">$$S(x,y)=(x/\sqrt6,y).$$</div>
+<p>The common target becomes the unit square. Every relative area and every encoded coefficient is unchanged, and every complete line still fills its target. The rectangle is useful because one step is a similarity. In the square picture a single step is affine, but two steps together are again a similarity.</p>
+
+<figure class="wide"><img src="square_bridge.svg" alt="Two complete assemblies, one rectangular and one square, above the six individual square-normalized pieces."><figcaption><strong>The same puzzle in two coordinate systems.</strong> Apply one common horizontal rescaling to all pieces, including their gaps. Their areas as fractions of the target, quantum data and complete-line assemblies are preserved.</figcaption></figure>
+
+<p>In normalized coordinates $z=(u,v)$, one step is</p>
+<div class="equation">$$g_{a,b}(u,v)=\left(\frac{a+v}{24},\frac{b+1-u}{4}\right).$$</div>
+<p>Two successive steps have the form $z\mapsto(\delta-z)/96$: a half-turn and a uniform contraction by $1/96$. Thus depth two has a $96\times96$ grid of genuinely square cells.</p>
+
+<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption><strong>One complete row of the order-36 puzzle.</strong> Here $I=(0,0)$ is fixed and all 36 column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot256=9216$ cells cover the square exactly once.</figcaption></figure>
+
+<p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives 288 distinct normalized images under the eight square symmetries. All 1,296 two-level pieces give 10,368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
+</section>
+
+<section id="signs">
+<h2>8. the conditional minus sign</h2>
+<p>The product family already gives infinitely many dimensions. There is also a simple way to change the states while leaving every occupied atom exactly where it is. When the sector digit at one level is $0$ and the row digit at the next level is $2$, multiply the coefficient by $-1$.</p>
+<div class="equation">$$\mathcal T^{(n)}_{IJKL}=\left(\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}\right)(-1)^{\sum_{r=1}^{n-1}[k_r=0][i_{r+1}=2]},\qquad |\Psi_n\rangle=\frac1{6^n}\sum_{I,J,K,L}\mathcal T^{(n)}_{IJKL}|IJKL\rangle.\tag{6}$$</div>
+<p>Square brackets denote an indicator: $[\text{statement}]$ is 1 when the statement is true and 0 otherwise. An extra minus <em>toggles</em> the old sign. It does not necessarily make the final sign negative.</p>
+
+<figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption><strong>Change a sign, keep the geometry.</strong> For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their 64 descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
+
+<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
+
+<div class="js-only"><p><button type="button" id="show-control-example">Inspect this nonstationary piece and its actual signs</button></p></div>
+
+<h3>why the changed state is still AME</h3>
+<p>The operation is a controlled local sign on the child, selected by one outer party. It fits a useful general rule. Let $A$ be a two-unitary tensor and let every $B^{(x)}$ be two-unitary with the same inner dimension. Then</p>
+<div class="equation">$$W_{(i,a)(j,b)(k,c)(l,e)}=A_{ijkl}B^{(k)}_{abce}\tag{7}$$</div>
+<p>is two-unitary. In each bipartition the controlling index $k$ lies entirely on one side. After reordering indices, the matrix factors into the appropriate flattening of $A$ tensored with an identity, and a block-diagonal matrix whose blocks are flattenings of $B^{(k)}$. Both factors are unitary. Apply this rule repeatedly, using a local sign flip on the inner level $i=2$ when the outer $k=0$. This proves that every $|\Psi_n\rangle$ is a real AME$(4,6^n)$ state. An arbitrary control depending on two outer parties would need a new proof.</p>
+
+<h3>it is not just the same tensor power in another local basis</h3>
+<p>For every $n\ge2$, an exact invariant separates $|\Psi_n\rangle$ from the specified grouped seed power $|\psi_{\rm g}\rangle^{\otimes n}$, even allowing arbitrary local $U(6^n)$ changes of basis. At depth two the separating values are</p>
+<div class="equation">$$\mathcal I(\Psi_2)=\frac{4464}{36^8},\qquad\mathcal I(\psi_{\rm g}^{\otimes2})=\frac{5184}{36^8}.$$</div>
+<p>This establishes a different local-unitary class from those seed powers. It does not establish that the controlled states are irreducible against every possible factorization into other AME states.</p>
+
+<details id="invariant"><summary>The exact all-depth certificate</summary>
+<p>For a normalized state, permute four copies locally and form</p>
+<div class="equation">$$\mathcal I(\phi)=\langle\phi^{\otimes4}|\left(P_{(01)(23)}\otimes P_{(02)(13)}\otimes\mathbb I\otimes P_{(03)(12)}\right)|\phi^{\otimes4}\rangle.$$</div>
+<p>A permutation of copies commutes with $V^{\otimes4}$ for every local unitary $V$, so this scalar is locally unitary invariant. Grouping one seed-level contraction by its two control parities and two target parities gives the exact matrix</p>
+<div class="equation">$$F=\begin{pmatrix}44&-3&-3&10\\-3&8&1&0\\-3&1&8&0\\10&0&0&2\end{pmatrix},\qquad H_{s,e}=(-1)^{s\cdot e},$$</div>
+<p>with labels $00,10,01,11$. More explicitly, for four ket index tuples $(a_t,b_t,c_t,d_t)$ the two bits are $s=([c_0=0]\mathbin\oplus[c_1=0],[c_2=0]\mathbin\oplus[c_3=0])$ and $e=([a_0=2]\mathbin\oplus[a_1=2],[a_2=2]\mathbin\oplus[a_3=2])$. The matrix is obtained by summing the 2,404 nonzero terms of this finite contraction exactly. The relevant control and sign projectors commute with the local rotations to $T^{\rm g}$.</p>
+<div class="equation">$$v_1=(48,6,6,12)^{\mathsf T},\quad v_{n+1}=FH v_n,\quad J_n=\mathbf1^{\mathsf T}v_n,\quad\mathcal I(\Psi_n)=\frac{J_n}{6^{8n}}.$$</div>
+<p>The ordinary power has numerator $72^n$. Writing $v_n=(a_n,b_n,b_n,c_n)$ reduces the calculation to</p>
+<div class="equation">$$\begin{pmatrix}a_{n+1}\\b_{n+1}\\c_{n+1}\end{pmatrix}=\begin{pmatrix}48&68&60\\6&-6&-12\\12&16&12\end{pmatrix}\begin{pmatrix}a_n\\b_n\\c_n\end{pmatrix},\qquad (a_1,b_1,c_1)=(48,6,12).$$</div>
+<p>The cone $a\ge b+2c$, $b,c\ge0$ is preserved: $b'=6(a-b-2c)\ge0$ and $a'-b'-2c'=18a+42b+48c\ge0$. Also $c_n>0$ and $72J_n-J_{n+1}=72b_n+24c_n>0$. Since $J_1=72$, this proves $0<J_n<72^n$ for every $n\ge2$. The distinct invariant values prove the claim.</p>
+<div class="js-only"><label for="invariant-depth">Evaluate the exact numerators at depth </label><select id="invariant-depth"></select><p id="invariant-readout" class="mono" aria-live="polite"></p></div>
+</details>
+</section>
+
+<section id="dimension">
+<h2>9. the limit and its dimension</h2>
+<p>Choose one base label $(i,j)$ and repeat it at every level. This <em>stationary address</em> defines a compact attractor satisfying</p>
+<div class="equation">$$F_{ij}=\bigcup_{(a,b)\in M_{ij}}f_{a,b}(F_{ij}).\tag{8}$$</div>
+<p>There are 16 copies, each smaller by $1/\sqrt{96}$. The interiors of their containing cells are disjoint, so the open set condition holds. The classical Moran&ndash;Hutchinson formula <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a> determines the Hausdorff dimension $s$ from $16(1/\sqrt{96})^s=1$:</p>
+<div class="equation">$$\boxed{\ \dim_H F_{ij}=\frac{\log16}{\log\sqrt{96}}=\frac{\log256}{\log96}=1.21488922664690575\ldots\ }.\tag{9}$$</div>
+
+<p>The number is greater than the dimension of a line and less than that of an area. It follows directly from the branching and scale factors. The dimension formula is classical, and the decimal value is not claimed to be a new mathematical constant. Other self-similar sets with 256 pieces scaled by $1/96$ have the same dimension when the open set condition holds.</p>
+
+<p>For a more detailed portrait, <a href="stationary_depth4.svg">open the exact depth-four drawing</a>. It contains 65,536 atoms but covers only $1/1296$ of its target, so its whole-target appearance is naturally faint. The explorer's magnified-cell view makes the fine structure easier to inspect.</p>
+
+<figure class="wide"><img src="stationary_gallery.svg" alt="All thirty-six stationary depth-two portraits, illustrating varied deleted-cell patterns with the same scale and dimension."><figcaption><strong>A gallery of all 36 stationary addresses.</strong> Each panel repeats its own label, so it shows $P^{(2)}_{(i,i),(j,j)}$. These are 36 portraits with the same dimension in the limit. They are not the complete order-36 array and they do not collectively represent one of its required tiling lines.</figcaption></figure>
+
+<h3>why a zero-area fractal can arise from complete finite puzzles</h3>
+<p>At finite depth, one piece has positive area fraction $6^{-n}$. A complete line has $6^n$ pieces, so its total is always 1. As $n$ increases, the pieces become smaller in area and the number needed for the assembly increases. The limit of one stationary piece has area zero. A fixed finite collection of such limits cannot tile a positive-area rectangle. These statements are consistent because the number of pieces in a finite complete line is not fixed as $n$ grows.</p>
+
+<h3>the dimension belongs to the geometric encoding</h3>
+<p>Subdivide every base atom into $t\times t$ equal subatoms, inheriting its labels and sign. Use the finer cells as the replacement maps. The base piece as a union of regions is unchanged, and the total area assigned to every coefficient at every finite depth is unchanged. But there are now $16t^2$ maps of ratio $1/(t\sqrt{96})$. Their stationary limit has dimension</p>
+<div class="equation">$$s_t=\frac{\log(16t^2)}{\log(t\sqrt{96})}=2-\frac{\log6}{\log(t\sqrt{96})},\qquad t=1,2,\ldots.\tag{10}$$</div>
+<p>For example $s_2=1.397792943\ldots$, and $s_t\to2$. Both quantum families therefore admit multiple fractal encodings with different dimensions. The Hausdorff dimension here is neither a quantum-state invariant nor a local-unitary invariant.</p>
+
+<figure class="wide"><img src="dimension_refinement.svg" alt="The same base piece with one-, two- and three-fold atom subdivisions, and the resulting distinct recursive patterns."><figcaption><strong>The same base shape can generate different fractals.</strong> Refinements $t=1,2,3$ preserve the base regions and their coefficient areas, but change the recursive placements. The corresponding stationary dimensions differ.</figcaption></figure>
+
+<div class="js-only"><fieldset><legend>Refine the encoding, keep the coefficient areas</legend><label for="refinement">Subdivision $t$: <output id="refinement-label">1</output></label><br><input type="range" id="refinement" min="1" max="16" step="1" value="1"><div id="refinement-readout" class="readout" aria-live="polite"></div><canvas id="dimension-canvas" class="puzzle" width="1100" height="400" role="img" aria-label="Hausdorff dimensions for integer atom refinements t=1 through 16, increasing toward 2."></canvas><p class="small">The points correspond to integer refinements. They describe different recursive encodings of the same coefficient magnitudes, not a continuous physical change of the quantum state.</p></fieldset></div>
+</section>
+
+<section id="classical">
+<h2>10. IFS, L-systems and classical fractal squares</h2>
+<h3>an iterated function system</h3>
+<p>For a fixed $(i,j)$, the 16 maps in (8) form an <em>iterated function system</em> (IFS). Starting with the full target and repeatedly taking the union of its 16 images produces the displayed finite approximations and converges to its compact attractor. This is precisely the familiar IFS mechanism <a href="#ref-hutchinson">[4]</a>. The particular masks supply the AME matching data.</p>
+
+<h3>a geometric L-system with very little memory</h3>
+<p>The same geometry can be described as a parallel replacement rule: replace every occupied symbol by the same 16-symbol pattern, with its scale and rotation. This is the connection with geometric L-systems <a href="#ref-plants">[6]</a>. A fixed repeated label gives one stationary rule, and an address with changing labels chooses a mask at each level.</p>
+<p>The conditional sign rule needs only two bits of memory along an address: the preceding control bit $q$ and the accumulated sign $\varepsilon$. On reading a nonzero seed entry $(i,j,k,l)$, update</p>
+<div class="equation">$$(q,\varepsilon)\longmapsto\left([k=0],\;\varepsilon\,\operatorname{sgn}(T^{\rm g}_{ijkl})(-1)^{q[i=2]}\right),\qquad(q,\varepsilon)_{\rm start}=(0,+1).\tag{11}$$</div>
+<p>There are only four memory states. The digit $k$ determines the memory for the <em>next</em> level, while the previous memory determines whether the current sign is toggled. This gives a finite algorithm at every depth. No convergence of signs along an infinite address is assumed.</p>
+
+<div class="js-only"><fieldset><legend>Follow a sign through a short address</legend><div class="controls"><label>Example <select id="automaton-example"><option value="controlled">One toggle: the depth-two example</option><option value="chain">Two toggles along three levels</option><option value="negative">A negative seed coefficient</option></select></label></div><div class="table-scroll"><table class="data-table"><thead><tr><th>level</th><th>$(i,j,k,l)$</th><th>old $q$</th><th>base sign</th><th>extra factor</th><th>new $q$</th><th>accumulated sign</th></tr></thead><tbody id="automaton-rows"></tbody></table></div><p id="automaton-readout" aria-live="polite"></p></fieldset></div>
+
+<h3>a deleted-digit fractal square</h3>
+<p>There is a direct connection with the classical class called <em>fractal squares</em> <a href="#ref-squares">[5]</a>. Let $K=S(F_{ij})$ be a square-normalized stationary attractor. Two steps are half-turn similarities with 256 translation digits. Four steps remove the remaining half-turn, giving the standard deleted-digit form</p>
+<div class="equation">$$K=\frac{K+\mathcal E}{9216},\qquad\mathcal E\subset\{0,\ldots,9215\}^2,\qquad|\mathcal E|=65\,536.\tag{12}$$</div>
+<p>This means: retain a fixed selection of 65,536 cells in a $9216\times9216$ square grid, and repeat the same selection inside each retained cell. Grouping four existing steps only redescribes the same attractor. It differs from the finer-atom construction in (10), which changes the recursion. “Fractal square” does not imply connectedness or a carpet topology.</p>
+<details><summary>The exact digit sets</summary><p>For two occupied base atoms $(a,b),(a',b')\in M_{ij}$, define</p>
+<div class="equation">$$\mathcal D=\left\{\bigl(4a+b'+1,\;24(b+1)-a'\bigr):(a,b),(a',b')\in M_{ij}\right\}.$$</div>
+<p>Then $K$ is the union of $(\delta-K)/96$ over $\delta\in\mathcal D$. The 256 vectors have coordinates in $\{1,\ldots,96\}$. Composing two such maps gives</p>
+<div class="equation">$$\mathcal E=96\mathcal D-\mathcal D=\{96\delta-\delta':\delta,\delta'\in\mathcal D\}.$$</div>
+<p>Positional uniqueness gives 65,536 distinct digits in the stated range. This is a direct realization in the class studied by Lau, Luo and Rao, rather than a resemblance based only on pictures.</p></details>
+</section>
+
+<section id="scope">
+<h2>11. what generalizes, and what remains open</h2>
+<p><strong>The existence of larger AME states by tensor products is standard.</strong> The content of this construction is the explicit connection to a fixed planar replacement rule, complete geomagic lines, pairwise noncongruent pieces and a recoverable signed state. The controlled family adds an exact all-depth distinction from the seed tensor powers.</p>
+
+<p>The ingredients have relevant precedents: product constructions for AME states <a href="#ref-products">[2]</a>, classical similarity dimensions <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a>, geometric replacement systems <a href="#ref-plants">[6]</a>, and self-tiling tile sets <a href="#ref-sallows">[7]</a>. Indexed constructions for quantum Latin structures provide further related context <a href="#ref-qls">[8]</a>. In particular, Construction 2.8 of [8] starts with outer classical orthogonal Latin squares. It is not a direct derivation of the present six-level seed construction. These connections explain the ingredients without identifying distinct results as the same theorem.</p>
+
+<h3>which other states might admit such pictures?</h3>
+<p>A useful sufficient starting point is a real two-unitary tensor $T$ corresponding to an AME$(4,d)$ state, whose squared entries admit a finite compatible coloured matching decomposition of the form used in Section 3, with rational weights and common designated diagonals. Refining to $N$ equal atoms per sector gives $dN$ target atoms and $N$ atoms in every piece. A $p\times q$ grid with $pq=dN$ and target aspect ratio $\sqrt{p/q}$ again makes each cell a quarter-turned similar copy. Its ratio is $1/\sqrt{dN}$, and the same digitwise construction gives tilings and product-state encodings at dimensions $d^n$.</p>
+<p>For a stationary mask the similarity dimension, under this separated-cell construction, is $\log N/\log\sqrt{dN}$. To obtain a genuine geomagic square with pairwise noncongruent pieces, a suitable noncongruence and recovery argument must also be supplied. Neither a compatible matching decomposition with the required diagonals nor noncongruence follows automatically from the AME condition. Thus this is a constructive sufficient route, not a classification of all AME states.</p>
+
+<p>The reverse question also has a boundary: a geomagic arrangement determines coverage and areas, but suitable phase or sign information is still required to make all three flattenings unitary. Arbitrary geomagic puzzles need not define AME states. In the present example the exact seed and the one-index control lemma provide the missing quantum guarantee.</p>
+
+<div class="table-scroll"><table class="data-table wrap"><thead><tr><th>Established here</th><th>Further questions</th></tr></thead><tbody>
+<tr><td>Real AME$(4,6^n)$ states at every finite depth, for both sign rules.</td><td>Which other seeds admit equally simple compatible matching data?</td></tr>
+<tr><td>Complete line tilings and pairwise noncongruent pieces, in rectangle and square coordinates.</td><td>Which additional constraints give connected pieces or connected attractors?</td></tr>
+<tr><td>The controlled family differs from the specified seed powers under arbitrary local unitaries.</td><td>Can these states factor into other AME building blocks?</td></tr>
+<tr><td>A classical IFS dimension and a direct fractal-square description.</td><td>What topological differences occur among the 36 stationary attractors?</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="references">
+<h2>12. references and related reading</h2>
+<ol class="reference-list">
+<li id="ref-seed">W. Bruzda, <em>Geomagic Square Representation of a Real AME$(4,6)$ State</em>, companion manuscript, version of 9 October 2026, Table I and Appendix B. <a href="https://github.com/matrix-toolbox/AME_4_6">Repository</a> and <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">geometric seed and its decoding</a>.</li>
+<li id="ref-products">Y. Shen and L. Chen, <em>Absolutely maximally entangled states in tripartite heterogeneous systems</em>, <a href="https://arxiv.org/abs/2001.08821">arXiv:2001.08821</a>, Section II (grouped tensor-product construction).</li>
+<li id="ref-moran">P. A. P. Moran, “Additive functions of intervals and Hausdorff measure,” <em>Proceedings of the Cambridge Philosophical Society</em> <strong>42</strong>, 15&ndash;23 (1946).</li>
+<li id="ref-hutchinson">J. E. Hutchinson, “Fractals and self similarity,” <em>Indiana University Mathematics Journal</em> <strong>30</strong>, 713&ndash;747 (1981). <a href="https://maths-people.anu.edu.au/~john/Assets/Research%20Papers/fractals_self-similarity.pdf">Author-hosted paper</a>.</li>
+<li id="ref-squares">K.-S. Lau, J. J. Luo and H. Rao, “Topological structure of fractal squares,” <em>Mathematical Proceedings of the Cambridge Philosophical Society</em> <strong>155</strong>, 73&ndash;86 (2013), <a href="https://arxiv.org/abs/1206.4826">arXiv:1206.4826</a>.</li>
+<li id="ref-plants">P. Prusinkiewicz and A. Lindenmayer, <em>The Algorithmic Beauty of Plants</em> (Springer, 1990), Chapters 1 and 8. <a href="https://algorithmicbotany.org/papers/abop/abop.pdf">Author-hosted book</a>.</li>
+<li id="ref-sallows">L. Sallows, “On self-tiling tile sets,” <em>Mathematics Magazine</em> <strong>85</strong>, 323&ndash;333 (2012).</li>
+<li id="ref-qls">M. Lv, Y. Zhang and H. Cao, <em>Orthogonal Quantum Latin Squares with Maximal Cardinality from Full-Rank Factorizations</em>, <a href="https://arxiv.org/abs/2609.29070">arXiv:2609.29070</a>, Construction 2.8 (related indexed construction with classical outer Latin squares).</li>
+</ol>
+</section>
+<hr>
+<p class="back-top"><a href="#top">back to the top</a></p>
+</main>
+</body>
+</html>
