@@ -13,7 +13,7 @@ references:
 
 # 2026
 
-- original [real-valued](https://github.com/suhailahmadrather/Real-AME-4-6-state) AME(4, 6) state by **Suhail Ahmad Rather**
+- original [**real**-valued](https://github.com/suhailahmadrather/Real-AME-4-6-state) AME(4, 6) state by **Suhail Ahmad Rather**
 - geomagic representation of a real-valued AME(4, 6) state
   - [old notes](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic.html) (incomplete)
   - [**geomagic** solution](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html) (based on a later independent finding) and [detailed explanation](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL_DECIPHERING.html)
