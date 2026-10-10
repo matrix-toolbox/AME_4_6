@@ -9,7 +9,7 @@ references:
 - ...
 
 # 2023 &ndash; 2025
-<span style='color:#aaaaaa;'>... awaiting update ...</span>
+... awaiting update ...
 
 # 2026
 
