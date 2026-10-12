@@ -185,7 +185,7 @@
 <div class="equation">$$P^{(0)}=R\qquad\text{and}\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
 <p>where $I=(i_1,\ldots,i_n)$, $J=(j_1,\ldots,j_n)$ and primes remove the first digit. Every piece has $16^n$ equal atoms and occupies the fraction $(16/96)^n=6^{-n}$ of its target.</p>
 
-<div class="js-only">
+<!--div class="js-only">
 <fieldset>
 <legend>explore a piece and its descendants</legend>
 <div class="controls">
@@ -202,7 +202,7 @@
 <p class="small">The dropdowns also provide keyboard access to the zoom. Click a visible atom for its complete sector word, colour word and signs. At high depth, some atoms are smaller than a screen pixel. The numerical counts and addresses remain exact.</p>
 <div id="explorer-atom" class="readout mono" aria-live="polite"></div>
 </fieldset>
-</div>
+</div-->
 
 <details><summary>every depth is a genuine geomagic square</summary>
 <p>Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
@@ -250,7 +250,7 @@
 <div class="equation">$$g_{a,b}(u,v)=\left(\frac{a+v}{24},\frac{b+1-u}{4}\right).$$</div>
 <p>Two successive steps have the form $z\mapsto(\delta-z)/96$: a half-turn and a uniform contraction by $1/96$. Thus depth two has a $96\times96$ grid of genuinely square cells.</p>
 
-<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption><strong>One complete row of the order-36 puzzle.</strong> Here $I=(0,0)$ is fixed and all $36$ column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot256=9216$ cells cover the square exactly once.</figcaption></figure>
+<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption><strong>One complete row of the order-36 puzzle.</strong> Here $I=(0,0)$ is fixed and all $36$ column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot256=9'216$ cells cover the square exactly once.</figcaption></figure>
 
 <p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives $288$ distinct normalized images under the eight square symmetries. All 1'296 two-level pieces give 10'368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
 </section>
@@ -263,7 +263,7 @@
 
 <figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption><strong>Change a sign, keep the geometry.</strong> For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their $64$ descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
 
-<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
+<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9'216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
 
 <h3>the changed state is still AME</h3>
 <p>The operation is a controlled local sign on the child, selected by one outer party. It fits a useful general rule. Let $A$ be a two-unitary tensor and let every $B^{(x)}$ be two-unitary with the same inner dimension. Then</p>
