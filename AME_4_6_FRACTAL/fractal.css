@@ -33,7 +33,7 @@ legend { padding: 0 .4em; }
 
 .controls {
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
 button, input, select { font: inherit; }
