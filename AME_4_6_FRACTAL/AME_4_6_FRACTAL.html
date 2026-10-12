@@ -24,7 +24,7 @@
 
 <p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure.</p>
 
-<p>The starting point is the real AME$(4,6)$ state and its geomagic representation in the companion manuscript <a href="#ref-seed">[1]</a>. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
+<p>The starting point is the real AME$(4,6)$ state and its geomagic representation in the manuscript <a href="#ref-seed">[1]</a>. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
 
 <figure class="wide">
   <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
@@ -71,7 +71,7 @@
 
 <figure class="wide">
  <div class="figure-pair">
-  <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the companion repository.">
+  <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the repository.">
   <img src="coefficient_bridge.svg" alt="Rectangular piece (0,4), with four highlighted equal atoms of sector 0 and colour 4, each carrying a minus sign.">
  </div>
  <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced unchanged from <a href="https://github.com/matrix-toolbox/AME_4_6/blob/main/GEOMAGIC/AME46_geomagic_REAL.html">the original page</a>. The rectangular drawing is calculated from the exact data.</figcaption>
@@ -82,11 +82,9 @@
 
 <section id="alphabet">
 <h2>3. a $96$-atom alphabet: the strings and permutations</h2>
-<p>The long strings specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, $\ldots$. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\cdots,5$.</p>
+<p>The long strings specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, $\ldots$. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\cdots,5$. One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the placement of an atom: the same target location can have different quantum colours in different pieces.</p>
 
-<p>One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the <em>placement</em> of an atom: the same target location can have different quantum colours in different pieces.</p>
-
-<p>Equation (B1) in the companion manuscript gives these six words of matching numbers:</p>
+<p>Equation (B1) in the manuscript gives these six words of matching numbers:</p>
 <div class="table-scroll">
 <table class="data-table"><thead><tr><th>sector $k$</th><th>B1 word</th><th>equal-atom word used here</th></tr></thead><tbody>
 <tr><td>0</td><td class="words">23310102</td><td class="words">2233331100110022</td></tr>
@@ -97,9 +95,7 @@
 <tr><td>5</td><td class="words">6013617402535724</td><td class="words">6013617402535724</td></tr>
 </tbody></table></div>
 
-<p>Read an expanded word from left to right, placing its digits along the bottom row of the corresponding $4\times4$ sector block, then along the next row up. Position $t=0,\ldots,15$ in sector $k$ has coordinates</p>
-<div class="equation">$$a=4k+(t\bmod4),\qquad b=\lfloor t/4\rfloor.$$</div>
-<p>For sectors 4 and 5, each matching occurs twice. Use its first colour word on its first occurrence, and its second colour word on its second occurrence. For sectors 0&ndash;3 there is only one colour word for each matching. The sign is the sign of the corresponding entry of $T^{\rm g}$. It is provided by the seed, not by the matching number.</p>
+<p>Read an expanded word from left to right, placing its digits along the bottom row of the corresponding $4\times4$ sector block, then along the next row up. Position $t=0,\ldots,15$ in sector $k$ has coordinates $a=4k+(t\bmod4)$ with $b=\lfloor t/4\rfloor$. For sectors $4$ and $5$, each matching occurs twice. Use its first colour word on its first occurrence, and its second colour word on its second occurrence. For sectors 0&ndash;3 there is only one colour word for each matching. The sign is the sign of the corresponding entry of $T^{\rm g}$. It is provided by the seed, not by the matching number.</p>
 
 <figure class="wide"><img src="atom_recipe.svg" alt="The complete 96-atom matching alphabet above the signed, quantum-colour-labelled atoms of one base piece."><figcaption><strong>From placement numbers to quantum labels.</strong> The upper grid displays the matching numbers used to assign target atoms to pieces. The lower grid shows a selected piece with its actual colour digits and seed signs. The two kinds of numbers serve different purposes.</figcaption></figure>
 
@@ -113,7 +109,7 @@
 </fieldset>
 </div>
 
-<details id="matching-table"><summary>The complete Table I input: 32 records, 48 weighted transversals</summary>
+<details id="matching-table"><summary>The complete Table I input: $32$ records, $48$ weighted transversals</summary>
 <p>The weight applies to each listed colour permutation. In sectors 0&ndash;3, one record accounts for four equal atoms. In sectors 4&ndash;5, each of its two colour words accounts for one atom. Leading zeroes are significant. These data, together with the B1 order and the seed signs, specify the whole base picture.</p>
 <div class="table-scroll"><table class="data-table"><thead><tr><th>$k$</th><th>matching</th><th>$\tau$</th><th>$\sigma_1$</th><th>$\sigma_2$</th><th>weight per $\sigma$</th></tr></thead><tbody id="full-matching-table"><tr><td>0</td><td>0</td><td class="words">251340</td><td class="words">253104</td><td class="words">&ndash;</td><td>1/4</td></tr>
 <tr><td>0</td><td>1</td><td class="words">341205</td><td class="words">243150</td><td class="words">&ndash;</td><td>1/4</td></tr>
@@ -392,7 +388,7 @@
 <section id="references">
 <h2>12. references and related reading</h2>
 <ol class="reference-list">
-<li id="ref-seed">W. Bruzda, <em>Geomagic Square Representation of a Real AME$(4,6)$ State</em>, companion manuscript, version of 9 October 2026, Table I and Appendix B. <a href="https://github.com/matrix-toolbox/AME_4_6">Repository</a> and <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">geometric seed and its decoding</a>.</li>
+<li id="ref-seed">W. Bruzda, <em>Geomagic Square Representation of a Real AME$(4,6)$ State</em>, manuscript, version of 12 October 2026, Table I and Appendix B. <a href="https://github.com/matrix-toolbox/AME_4_6">Repository</a> and <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">geometric seed and its decoding</a>.</li>
 <li id="ref-products">Y. Shen and L. Chen, <em>Absolutely maximally entangled states in tripartite heterogeneous systems</em>, <a href="https://arxiv.org/abs/2001.08821">arXiv:2001.08821</a>, Section II (grouped tensor-product construction).</li>
 <li id="ref-moran">P. A. P. Moran, “Additive functions of intervals and Hausdorff measure,” <em>Proceedings of the Cambridge Philosophical Society</em> <strong>42</strong>, 15&ndash;23 (1946).</li>
 <li id="ref-hutchinson">J. E. Hutchinson, “Fractals and self similarity,” <em>Indiana University Mathematics Journal</em> <strong>30</strong>, 713&ndash;747 (1981). <a href="https://maths-people.anu.edu.au/~john/Assets/Research%20Papers/fractals_self-similarity.pdf">Author-hosted paper</a>.</li>
