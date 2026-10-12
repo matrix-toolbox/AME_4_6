@@ -182,27 +182,27 @@
 
 <section id="replacement">
 <h2>5. one replacement rule, any depth</h2>
-<p>Choose an outer base piece $(i_1,j_1)$. Inside each of its 16 occupied cells place a smaller copy of a child piece $(i_2,j_2)$, always with the same clockwise quarter-turn. To go deeper, do the same thing to the child. Nothing needs to be redesigned as the depth increases.</p>
+<p>Choose an outer base piece $(i_1,j_1)$. Inside each of its $16$ occupied cells place a smaller copy of a child piece $(i_2,j_2)$, always with the same clockwise quarter-turn. To go deeper, do the same thing to the child. Nothing needs to be redesigned as the depth increases.</p>
 
 <figure class="wide"><img src="ifs_step.svg" alt="The rectangle replacement rule and a magnified child inside one occupied cell, showing the same clockwise quarter-turn and uniform scale."><figcaption><strong>The replacement step.</strong> Each occupied atom receives the same smaller child piece. The pale frame is the common target. The indicated magnification shows the exact descendants of one cell, rather than a separately drawn imitation.</figcaption></figure>
 
 <p>For $R=[0,\sqrt6]\times[0,1]$ and a grid cell $(a,b)$, the placement map is</p>
 <div class="equation">$$f_{a,b}(x,y)=\left(\frac{a+y}{4\sqrt6},\;\frac{b+1}{4}-\frac{x}{4\sqrt6}\right).\tag{1}$$</div>
 <p>It is a clockwise quarter-turn, uniform contraction and translation, with contraction ratio $r=1/\sqrt{96}$. The 96 possible images of the whole rectangle tile $R$. If $M_{ij}$ is the set of 16 occupied cells of piece $(i,j)$, the complete recursive definition is</p>
-<div class="equation">$$P^{(0)}=R,\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
+<div class="equation">$$P^{(0)}=R\qquad\text{and}\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
 <p>where $I=(i_1,\ldots,i_n)$, $J=(j_1,\ldots,j_n)$ and primes remove the first digit. Every piece has $16^n$ equal atoms and occupies the fraction $(16/96)^n=6^{-n}$ of its target.</p>
 
 <div class="js-only">
 <fieldset>
-<legend>Explore a piece and its descendants</legend>
+<legend>explore a piece and its descendants</legend>
 <div class="controls">
-<label>Address <select id="explorer-address"><option value="stationary">Repeat one base label</option><option value="controlled">Sign example: (0,2), then (2,0)</option></select></label>
-<label>Repeated row digit $i$ <select id="explorer-i"></select></label><label>Repeated column digit $j$ <select id="explorer-j"></select></label>
-<label>Depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4,096 atoms</option><option value="4">4 &ndash; 65,536 atoms</option></select></label>
-<label>Target <select id="explorer-shape"><option value="rectangle">Rectangle</option><option value="square" selected>Square</option></select></label>
-<label>Colour shows <select id="explorer-colour"><option value="geometry">Geometry only</option><option value="sector">First sector digit</option><option value="quantum">First quantum-colour digit</option><option value="product-sign">Product sign</option><option value="controlled-sign">Controlled sign</option><option value="extra-sign">Extra sign factor</option></select></label>
+<label>address <select id="explorer-address"><option value="stationary">repeat one base label</option><option value="controlled">sign example: (0,2), then (2,0)</option></select></label>
+<label>repeated row digit $i$ <select id="explorer-i"></select></label><label>repeated column digit $j$ <select id="explorer-j"></select></label>
+<label>depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4'096 atoms</option><option value="4">4 &ndash; 65'536 atoms</option></select></label>
+<label>target <select id="explorer-shape"><option value="rectangle">rectangle</option><option value="square" selected>square</option></select></label>
+<label>colour shows <select id="explorer-colour"><option value="geometry">geometry only</option><option value="sector">first sector digit</option><option value="quantum">first quantum-colour digit</option><option value="product-sign">product sign</option><option value="controlled-sign">controlled sign</option><option value="extra-sign">extra sign factor</option></select></label>
 </div>
-<p><label for="explorer-zoom">View </label><select id="explorer-zoom"><option value="full">Whole target</option><option value="cell">Magnify one occupied outer cell</option></select> <label for="explorer-cell">Outer cell </label><select id="explorer-cell"></select> <button type="button" id="explorer-download">Download this view as PNG</button></p>
+<p><label for="explorer-zoom">view </label><select id="explorer-zoom"><option value="full">whole target</option><option value="cell">magnify one occupied outer cell</option></select> <label for="explorer-cell">outer cell </label><select id="explorer-cell"></select> <button type="button" id="explorer-download">download this view as PNG</button></p>
 <div class="canvas-wrap square-view" id="explorer-wrap"><canvas id="explorer-canvas" class="puzzle" width="1100" height="1100" role="img" aria-label="A selected stationary geomagic piece, calculated from its exact atom addresses."></canvas></div>
 <div id="explorer-legend" class="legend"></div>
 <div id="explorer-readout" class="readout" aria-live="polite"></div>
@@ -211,26 +211,23 @@
 </fieldset>
 </div>
 
-<details><summary>Why every depth is a genuine geomagic square</summary>
-<p><strong>Tilings.</strong> Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
-<p><strong>Equal areas.</strong> Each replacement retains 16 of 96 equal cells. Therefore all pieces have target-area fraction $1/d$, and a line contains exactly $d$ pieces.</p>
-<p><strong>Different shapes.</strong> The base masks have 144 distinct normalized images under the four axis-preserving reflection choices. This finite certificate is obtained by exact comparison. At any depth, horizontal boundary lengths are rational multiples of $\sqrt6$ and vertical boundary lengths are rational. A Euclidean congruence cannot interchange these directions. Rectilinear boundaries then leave only translations and axis-preserving reflections.</p>
+<details><summary>every depth is a genuine geomagic square</summary>
+<p>Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
+<p>Each replacement retains $16$ of $96$ equal cells. Therefore all pieces have target-area fraction $1/d$, and a line contains exactly $d$ pieces.</p>
+<p>The base masks have $144$ distinct normalized images under the four axis-preserving reflection choices. This finite certificate is obtained by exact comparison. At any depth, horizontal boundary lengths are rational multiples of $\sqrt6$ and vertical boundary lengths are rational. A Euclidean congruence cannot interchange these directions. Rectilinear boundaries then leave only translations and axis-preserving reflections.</p>
 <p>After translating a piece to normalize its bounding box, its coarse occupied cells recover its outer mask. Restricting to one occupied open cell, then taking closure, recovers the child up to congruence. The base certificate identifies the first pair of labels. Induction identifies the rest. All $d^2$ pieces are therefore pairwise noncongruent, including under reflection. This is a geometric statement, independent of the signs.</p>
 </details>
 </section>
 
 <section id="decode">
 <h2>6. recover the state from the picture, and back</h2>
-<p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once.</p>
-
-<p>Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then</p>
-<div class="equation">$$\boxed{\ U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}},\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}\ },\qquad d=6^n.\tag{3}$$</div>
+<p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once. Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then, with $d=6^n$</p>
+<div class="equation">$$U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}}\qquad\text{and}\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}.\tag{3}$$</div>
 <p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas before taking the square root.</p>
 
-<h3>counting is enough</h3>
-<p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then</p>
+  <p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then</p>
 <div class="equation">$$\mu=\frac{m}{96^n},\qquad U=\varepsilon\sqrt{\frac{m}{16^n}},\qquad\psi=\varepsilon\frac{\sqrt m}{24^n}.\tag{4}$$</div>
-<p>For example, $(i,j,k,l)=(0,4,0,4)$ has four negative atoms. Thus $\mu=4/96=1/24$, $U=-1/2$, and $\psi=-1/12$. A reader needs labels, counts and signs, but no ruler.</p>
+<p>For example, $(i,j,k,l)=(0,4,0,4)$ has four negative atoms. Thus $\mu=4/96=1/24$, $U=-1/2$, and $\psi=-1/12$.</p>
 
 <div class="js-only">
 <fieldset>
