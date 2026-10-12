@@ -1,7 +1,3 @@
-/* Exact interactive geometry for AME46_FRACTAL.html.
-   All combinatorial input is in ame46_data.js, exported from seed46.py.
-   Coordinates are integer cell addresses, with y counted upwards.
-   Canvas is a display only. Coverage and coefficient counts use these integers. */
 (function () {
   'use strict';
   const D = window.AME46_DATA;
@@ -126,12 +122,12 @@
   });renderAtom();
 
   let assembly=[],assemblyModel=null,activePiece=null,assemblyTimer=null;
-  function stopAssembly(){if(assemblyTimer)clearInterval(assemblyTimer);assemblyTimer=null;$('assembly-play').textContent='Assemble step by step';}
+  function stopAssembly(){if(assemblyTimer)clearInterval(assemblyTimer);assemblyTimer=null;$('assembly-play').textContent='assemble step by step';}
   function updateAssemblyOptions(resetCount=true) {
     stopAssembly();const n=Number($('assembly-depth').value),kind=$('assembly-kind').value,d=6**n;
     const old=Number($('assembly-line').value)||0;
     fillSelect('assembly-line',Array.from({length:d},(_,i)=>[i,wordText(digits(i,n))]),Math.min(old,d-1));
-    $('assembly-line-label').firstChild.textContent=kind==='column'?'Column label ':'Row label ';
+    $('assembly-line-label').firstChild.textContent=kind==='column'?'column label ':'row label ';
     $('assembly-line-label').hidden=kind==='diagonal'||kind==='antidiagonal';
     $('assembly-count').max=d;if(resetCount)$('assembly-count').value=d;
     assembly=lineWords(n,kind,Number($('assembly-line').value)).map(word=>nested(word));
