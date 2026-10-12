@@ -287,15 +287,6 @@
 <p>For every $n\geqslant 2$, an exact invariant separates $|\Psi_n\rangle$ from the specified grouped seed power $|\psi_{\rm g}\rangle^{\otimes n}$, even allowing arbitrary local $U(6^n)$ changes of basis. At depth two the separating values are</p>
 <div class="equation">$$\mathcal I(\Psi_2)=\frac{4464}{36^8},\qquad\mathcal I(\psi_{\rm g}^{\otimes2})=\frac{5184}{36^8}.$$</div>
 <p>This establishes a different local-unitary class from those seed powers. It does not establish that the controlled states are irreducible against every possible factorization into other AME states.</p>
-
-<details id="invariant"><summary>the exact all-depth certificate</summary>
-<p>For a normalized state, permute four copies locally and form $\mathcal I(\phi)=\langle\phi^{\otimes4}|\left(P_{(01)(23)}\otimes P_{(02)(13)}\otimes\mathbb I\otimes P_{(03)(12)}\right)|\phi^{\otimes4}\rangle$. A permutation of copies commutes with $V^{\otimes4}$ for every local unitary $V$, so this scalar is locally unitary invariant. Grouping one seed-level contraction by its two control parities and two target parities gives the exact matrix</p>
-<div class="equation">$$F=\begin{pmatrix}44&-3&-3&10\\-3&8&1&0\\-3&1&8&0\\10&0&0&2\end{pmatrix}$$</div>
-<p>and $H_{s,e}=(-1)^{s\cdot e}$ with labels $00$, $10$, $01$ and $11$. More explicitly, for four ket index tuples $(a_t,b_t,c_t,d_t)$ the two bits are $s=([c_0=0]\mathbin\oplus[c_1=0],[c_2=0]\mathbin\oplus[c_3=0])$ and $e=([a_0=2]\mathbin\oplus[a_1=2],[a_2=2]\mathbin\oplus[a_3=2])$. The matrix is obtained by summing the 2'404 nonzero terms of this finite contraction exactly. The relevant control and sign projectors commute with the local rotations to $T^{\rm g}$. Let $v_1=(48,6,6,12)^{\mathsf T}$, $v_{n+1}=FH v_n$, $J_n=\mathbf1^{\mathsf T}v_n$ and $\mathcal I(\Psi_n)=J_n/6^{8n}$. The ordinary power has numerator $72^n$. Writing $v_n=(a_n,b_n,b_n,c_n)$ reduces the calculation to</p>
-<div class="equation">$$\begin{pmatrix}a_{n+1}\\b_{n+1}\\c_{n+1}\end{pmatrix}=\begin{pmatrix}48&68&60\\6&-6&-12\\12&16&12\end{pmatrix}\begin{pmatrix}a_n\\b_n\\c_n\end{pmatrix}$$</div>
-<p>with $(a_1,b_1,c_1)=(48,6,12)$. The cone $a\geqslant b+2c$, $b,c\geqslant 0$ is preserved: $b'=6(a-b-2c)\ge0$ and $a'-b'-2c'=18a+42b+48c\ge0$. Also $c_n>0$ and $72J_n-J_{n+1}=72b_n+24c_n>0$. Since $J_1=72$, this proves $0 &lt; J_n &lt; 72^n$ for every $n\geqslant 2$. The distinct invariant values prove the claim.</p>
-<div class="js-only"><label for="invariant-depth">Evaluate the exact numerators at depth </label><select id="invariant-depth"></select><p id="invariant-readout" class="mono" aria-live="polite"></p></div>
-</details>
 </section>
 
 <section id="dimension">
