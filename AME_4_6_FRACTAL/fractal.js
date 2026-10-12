@@ -66,7 +66,9 @@
   function drawCells(canvas,model,colour,options={}) {
     const bounds=options.bounds || {x:0,y:0,w:model.W,h:model.H};
     const shape=options.shape||'rectangle';
-    const fullRatio=shape==='square'?1:Math.sqrt(6);
+    /*const fullRatio=shape==='square'?1:Math.sqrt(6);*/
+    const fullRatio=options.aspect!==undefined?options.aspect:(shape==='square'?1:Math.sqrt(6));
+    
     const ratio=fullRatio*(bounds.w/model.W)/(bounds.h/model.H);
     const ctx=setupCanvas(canvas,ratio,options.width||1200);
     const sx=canvas.width/bounds.w, sy=canvas.height/bounds.h;
@@ -111,7 +113,9 @@
   function renderAtom() {
     const id=Number($('atom-sector').value)*16+Number($('atom-position').value),a=D.atoms[id];
     const model={W:24,H:4,cells:D.atoms.map(x=>({x:x.a,y:x.b,...x}))};
-    const {ctx}=drawCells($('atom-canvas'),model,c=>c.id===id?palette[c.k]:light[c.k],{grid:true,labels:c=>String(c.matching)});
+    /*const {ctx}=drawCells($('atom-canvas'),model,c=>c.id===id?palette[c.k]:light[c.k],{grid:true,labels:c=>String(c.matching)});*/
+    const {ctx}=drawCells($('atom-canvas'),model,c=>c.id===id?palette[c.k]:light[c.k],{grid:true, labels:c=>String(c.matching), aspect:model.W/model.H});
+    
     const sx=$('atom-canvas').width/24,sy=$('atom-canvas').height/4;
     ctx.strokeStyle='#000';ctx.lineWidth=5;ctx.strokeRect(a.a*sx+2,(3-a.b)*sy+2,sx-4,sy-4);
     $('atom-readout').textContent='Atom '+id+' at (a,b)=('+a.a+','+a.b+'). Sector k='+a.k+', matching '+a.matching+'. τ='+a.tau.join('')+', σ='+a.sigma.join('')+'. Grid numbers are matching identifiers, not quantum colours.';
