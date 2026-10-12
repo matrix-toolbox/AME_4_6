@@ -22,9 +22,7 @@
 <p>This note is a way to indulge my childhood obsession with <a href="https://github.com/matrix-toolbox/x86">fractals</a>. :)</p>
 </div>
 
-<p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure.</p>
-
-<p>The starting point is the real AME$(4,6)$ state and its <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representation. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
+<p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure. The starting point is the real AME$(4,6)$ state and its <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representation. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane.</p>
 
 <figure class="wide">
   <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
@@ -34,7 +32,7 @@
 <hr>
 
 <section id="meaning">
-<h2>1. the quantum state and the puzzle</h2>
+<h2>the quantum state and the puzzle</h2>
 <p>An AME$(4,d)$ state has four parties, each with $d$ possible basis labels. It is <strong>absolutely maximally entangled</strong>: whichever two parties are retained, their reduced state is the maximally mixed state $\mathbb I_{d^2}/d^2$. No particular pair is preferred.</p>
 
 <p>For a four-index tensor $T$, collect two indices into a row label and the other two into a column label. There are three different ways to do this: $AB|CD$, $AC|BD$ and $AD|BC$. If the resulting $d^2\times d^2$ matrices are all unitary, then</p>
@@ -45,7 +43,7 @@
 
 <p>The geometry represents squared magnitudes. Labels identify coefficients, signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality.</p>
 
-<div class="table-scroll">
+<!--div class="table-scroll">
 <table class="data-table">
 <caption>The first four finite levels.</caption>
 <thead><tr><th>depth $n$</th><th>local dimension $d=6^n$</th><th>pieces $d^2$</th><th>pieces in one line</th><th>atoms in one piece</th></tr></thead>
@@ -57,12 +55,12 @@
   <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
 </tbody>
 </table>
-</div>
+</div-->
 <p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p>
 </section>
 
 <section id="bridge">
-<h2>2. from hexagons to rectangles</h2>
+<h2>from hexagons to rectangles</h2>
 <p>The original hexagon and the new rectangle encode the same $T^{\rm g}$. This is a new placement of the same signed, weighted matching data. It is not an affine transformation of the hexagon. A thin triangular contribution can be subdivided and placed elsewhere, provided its label, its sign and its total relative area are preserved.</p>
 
 <p>For the recursive construction we make all atoms equal. Each of the six sectors contains $16$ atoms, so the complete target has $96$. An atom in the first four sectors of the equal-slice hexagon is split into two and the atoms in sectors $4$ and $5$ already have the required sector weight $1/16$. The resulting atoms are placed on a $24\times4$ grid.</p>
@@ -79,7 +77,7 @@
 </section>
 
 <section id="alphabet">
-<h2>3. a $96$-atom alphabet: the strings and permutations</h2>
+<h2>a $96$-atom alphabet: the strings and permutations</h2>
 <p>The long strings specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, $\ldots$. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\cdots,5$. One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the placement of an atom: the same target location can have different quantum colours in different pieces.</p>
 
 <p>Equation (B1) in the manuscript gives these six words of matching numbers:</p>
@@ -148,7 +146,7 @@
 </section>
 
 <section id="assemble">
-<h2>4. see complete rows, columns and diagonals assemble</h2>
+<h2>complete rows, columns and diagonals assemble</h2>
 <p>The array below uses the same row and column orders as the companion construction: $R_0=(0,2,4,5,3,1)$ and $C_0=(2,4,0,1,5,3)$. The two displayed diagonals consist of $(i,D(i))$ and $(i,D'(i))$, where $D=(2,3,4,5,0,1)$ and $D'=(3,2,5,4,1,0)$.</p>
 
 <figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption><strong>The complete base geomagic square.</strong> Every piece contains $16$ of the $96$ target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
@@ -177,7 +175,7 @@
 </section>
 
 <section id="replacement">
-<h2>5. one replacement rule, any depth</h2>
+<h2>one replacement rule in any depth</h2>
 <p>Choose an outer base piece $(i_1,j_1)$. Inside each of its $16$ occupied cells place a smaller copy of a child piece $(i_2,j_2)$, always with the same clockwise quarter-turn. To go deeper, do the same thing to the child. Nothing needs to be redesigned as the depth increases.</p>
 
 <figure class="wide"><img src="ifs_step.svg" alt="The rectangle replacement rule and a magnified child inside one occupied cell, showing the same clockwise quarter-turn and uniform scale."><figcaption><strong>The replacement step.</strong> Each occupied atom receives the same smaller child piece. The pale frame is the common target. The indicated magnification shows the exact descendants of one cell, rather than a separately drawn imitation.</figcaption></figure>
@@ -216,7 +214,7 @@
 </section>
 
 <section id="decode">
-<h2>6. recover the state from the picture, and back</h2>
+<h2>state &ndash; picture correspondence</h2>
 <p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once. Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then, for $d=6^n$</p>
 <div class="equation">$$U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}}\qquad\text{and}\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}.\tag{3}$$</div>
 <p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas before taking the square root.</p>
@@ -244,7 +242,7 @@
 </section>
 
 <section id="squares">
-<h2>7. squares vs. hexagons</h2>
+<h2>squares vs. hexagons</h2>
 <p>Apply the same horizontal rescaling to every piece and its target: $S(x,y)=(x/\sqrt6,y)$. The common target becomes the unit square. Every relative area and every encoded coefficient is unchanged, and every complete line still fills its target. The rectangle is useful because one step is a similarity. In the square picture a single step is affine, but two steps together are again a similarity.</p>
 
 <figure class="wide"><img src="square_bridge.svg" alt="Two complete assemblies, one rectangular and one square, above the six individual square-normalized pieces."><figcaption><strong>The same puzzle in two coordinate systems.</strong> Apply one common horizontal rescaling to all pieces, including their gaps. Their areas as fractions of the target, quantum data and complete-line assemblies are preserved.</figcaption></figure>
