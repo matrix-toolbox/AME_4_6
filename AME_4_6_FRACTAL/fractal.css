@@ -28,8 +28,14 @@ legend { padding: 0 .4em; }
 /*.controls { display: flex; align-items: end; flex-wrap: wrap; gap: .7em 1.15em; }
 .controls label { display: inline-flex; flex-direction: column; gap: .3em; max-width: 100%; }
 .controls label.check { flex-direction: row; align-items: center; padding-bottom: .3em; }*/
-.controls label { flex: 0 0 auto; white-space: nowrap; }
-.controls label > * { min-width: 0;}
+/*.controls label { flex: 0 0 auto; white-space: nowrap; }
+.controls label > * { min-width: 0;}*/
+
+.controls {
+  flex-direction: column;
+  align-items: stretch;
+}
+
 button, input, select { font: inherit; }
 button, select { min-height: 2em; }
 select { max-width: 100%; }
