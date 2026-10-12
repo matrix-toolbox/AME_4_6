@@ -24,14 +24,12 @@
 
 <p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure.</p>
 
-<p>The starting point is the real AME$(4,6)$ state and its geomagic representation in the manuscript <a href="#ref-seed">[1]</a>. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
+<p>The starting point is the real AME$(4,6)$ state and its <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representation. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane. There are two families to explore: the ordinary tensor powers of the seed, and a family obtained by a particularly simple conditional change of signs. Their pictures have exactly the same occupied regions.</p>
 
 <figure class="wide">
   <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
   <figcaption><strong>Many shapes, one rule.</strong> These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
 </figure>
-
-<div class="note"><p>&quot;Fractal-AME&quot;: Each finite depth gives a finite-dimensional AME state and a finite geomagic puzzle. Repeating an address forever gives a geometric fractal of zero area. We do not define an infinite-dimensional AME state by taking that geometric limit.</p></div>
 
 <hr>
 
@@ -74,7 +72,7 @@
   <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the repository.">
   <img src="coefficient_bridge.svg" alt="Rectangular piece (0,4), with four highlighted equal atoms of sector 0 and colour 4, each carrying a minus sign.">
  </div>
- <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced unchanged from <a href="https://github.com/matrix-toolbox/AME_4_6/blob/main/GEOMAGIC/AME46_geomagic_REAL.html">the original page</a>. The rectangular drawing is calculated from the exact data.</figcaption>
+ <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">unchanged</a>. The rectangular drawing is calculated from the exact data.</figcaption>
 </figure>
 
 <p>A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work. In this rectangular placement $34$ of the $36$ base pieces are disconnected as closed sets. That is compatible with the definition used here, namely disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
@@ -176,8 +174,6 @@
 <p>At depth one, six pieces containing $16$ atoms each cover all $6\cdot 16=96$ atoms, once each. At depth two, $36$ pieces containing $256$ atoms each cover all $36\cdot 256=9216$ cells of a $96\times 96$ grid. The tool counts occupied cells exactly. It does not estimate coverage from the rendered pixels.</p>
 
 <figure class="wide"><img src="seed_all_lines.svg" alt="The six row assemblies, six column assemblies and two diagonal assemblies. Every target rectangle is completely covered."><figcaption><strong>All $14$ base assemblies.</strong> Each small rectangle is a different required line of the puzzle, filled without gaps or overlapping interiors. The contribution of each of its six pieces has a different colour.</figcaption></figure>
-
-<div class="note"><p><strong>Which superposition fills the figure?</strong> One complete row, column or diagonal fills the target exactly once. Superimposing <strong>all</strong> $d^2$ pieces covers it $d$ times. A selection of attractive portraits generally does not form a tiling line.</p></div>
 </section>
 
 <section id="replacement">
@@ -242,15 +238,9 @@
 <h3>the reverse direction</h3>
 <p>For the product family, start from the seed coefficients and the stated matching decomposition. Distribute each squared magnitude among its assigned equal atoms, attach its sign and colour label, and put those atoms at the B1 grid positions. Recursively replace occupied cells according to (2), multiplying the base signs. This gives</p>
 <div class="equation">$$\mu_{IJKL}=\frac1d\prod_{r=1}^n\bigl(T^{\rm g}_{i_rj_rk_rl_r}\bigr)^2,\qquad U^{(n)}_{IJ,KL}=\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}.\tag{5}$$</div>
-<p>With corresponding parties grouped, this is $|\psi_{\rm g}\rangle^{\otimes n}$. Tensor products preserve all three unitary flattenings <a href="#ref-products">[2]</a>.</p>
+<p>With corresponding parties grouped, this is $|\psi_{\rm g}\rangle^{\otimes n}$. Tensor products preserve all three unitary flattenings.</p>
 
 <p>The correspondence is exact once the placement conventions and sign rule are specified. The same matrix can admit many pictures, including the original hexagons and these rectangles. Conversely, an unlabelled silhouette loses the sector, colour and sign information and does not uniquely determine a quantum state. The explorers display complete labels numerically. The portrait figures deliberately show geometry alone.</p>
-
-<details><summary>from the geometric seed back to the sparse $60$-entry seed</summary>
-<p>The geometric seed has $152$ nonzero entries with squared magnitudes $1/2$, $1/4$ and $1/8$. It is related by local orthogonal rotations to a sparse seed with $60$ nonzero entries. Set</p>
-<div class="equation">$$\xi=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad \zeta=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix}$$</div>
-<p>and $O_A=\xi\oplus\mathbb I_4$, $O_B=\xi\oplus\xi\oplus\mathbb I_2$, $O_C=\mathbb I_4\oplus\zeta$. For $U^{\rm g}_{6i+j,6k+l}=T^{\rm g}_{ijkl}$, the sparse matrix is $U=(O_A\otimes O_B)^{\mathsf T}\,U^{\rm g}\,(O_C\otimes\mathbb I_6)$. The state from that sparse matrix is locally equivalent to the geometric seed. These rotations can be performed exactly in the ring $\mathbb Q(\sqrt2)$.</p>
-</details>
 </section>
 
 <section id="squares">
@@ -289,33 +279,6 @@
 <p>This establishes a different local-unitary class from those seed powers. It does not establish that the controlled states are irreducible against every possible factorization into other AME states.</p>
 </section>
 
-<section id="dimension">
-<h2>9. the limit and its dimension</h2>
-<p>Choose one base label $(i,j)$ and repeat it at every level. This stationary address defines a compact attractor satisfying</p>
-<div class="equation">$$F_{ij}=\bigcup_{(a,b)\in M_{ij}}f_{a,b}(F_{ij}).\tag{8}$$</div>
-<p>There are $16$ copies, each smaller by $1/\sqrt{96}$. The interiors of their containing cells are disjoint, so the open set condition holds. The classical Moran&ndash;Hutchinson formula <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a> determines the Hausdorff dimension $s$ from $16(1/\sqrt{96})^s=1$:</p>
-<div class="equation">$$\dim_H F_{ij}=\frac{\log16}{\log\sqrt{96}}=\frac{\log256}{\log96}=1.21488922664690575\ldots.\tag{9}$$</div>
-
-<p>The number is greater than the dimension of a line and less than that of an area. It follows directly from the branching and scale factors. Other self-similar sets with $256$ pieces scaled by $1/96$ have the same dimension when the open set condition holds.</p>
-
-<figure class="wide"><img src="stationary_gallery.svg" alt="All thirty-six stationary depth-two portraits, illustrating varied deleted-cell patterns with the same scale and dimension."><figcaption><strong>A gallery of all 36 stationary addresses.</strong> Each panel repeats its own label, so it shows $P^{(2)}_{(i,i),(j,j)}$. These are $36$ portraits with the same dimension in the limit. They are not the complete order-$36$ array and they do not collectively represent one of its required tiling lines.</figcaption></figure>
-</section>
-
-<section id="references">
-<h2>12. references and related reading</h2>
-<ol class="reference-list">
-<li id="ref-seed">W. Bruzda, <em>Geomagic Square Representation of a Real AME$(4,6)$ State</em>, manuscript, version of 12 October 2026, Table I and Appendix B. <a href="https://github.com/matrix-toolbox/AME_4_6">Repository</a> and <a href="https://matrix-toolbox.github.io/AME_4_6/GEOMAGIC/AME46_geomagic_REAL.html">geometric seed and its decoding</a>.</li>
-<li id="ref-products">Y. Shen and L. Chen, <em>Absolutely maximally entangled states in tripartite heterogeneous systems</em>, <a href="https://arxiv.org/abs/2001.08821">arXiv:2001.08821</a>, Section II (grouped tensor-product construction).</li>
-<li id="ref-moran">P. A. P. Moran, “Additive functions of intervals and Hausdorff measure,” <em>Proceedings of the Cambridge Philosophical Society</em> <strong>42</strong>, 15&ndash;23 (1946).</li>
-<li id="ref-hutchinson">J. E. Hutchinson, “Fractals and self similarity,” <em>Indiana University Mathematics Journal</em> <strong>30</strong>, 713&ndash;747 (1981). <a href="https://maths-people.anu.edu.au/~john/Assets/Research%20Papers/fractals_self-similarity.pdf">Author-hosted paper</a>.</li>
-<li id="ref-squares">K.-S. Lau, J. J. Luo and H. Rao, “Topological structure of fractal squares,” <em>Mathematical Proceedings of the Cambridge Philosophical Society</em> <strong>155</strong>, 73&ndash;86 (2013), <a href="https://arxiv.org/abs/1206.4826">arXiv:1206.4826</a>.</li>
-<li id="ref-plants">P. Prusinkiewicz and A. Lindenmayer, <em>The Algorithmic Beauty of Plants</em> (Springer, 1990), Chapters 1 and 8. <a href="https://algorithmicbotany.org/papers/abop/abop.pdf">Author-hosted book</a>.</li>
-<li id="ref-sallows">L. Sallows, “On self-tiling tile sets,” <em>Mathematics Magazine</em> <strong>85</strong>, 323&ndash;333 (2012).</li>
-<li id="ref-qls">M. Lv, Y. Zhang and H. Cao, <em>Orthogonal Quantum Latin Squares with Maximal Cardinality from Full-Rank Factorizations</em>, <a href="https://arxiv.org/abs/2609.29070">arXiv:2609.29070</a>, Construction 2.8 (related indexed construction with classical outer Latin squares).</li>
-</ol>
-</section>
-<hr>
-<p class="back-top"><a href="#top">back to the top</a></p>
 </main>
 </body>
 </html>
