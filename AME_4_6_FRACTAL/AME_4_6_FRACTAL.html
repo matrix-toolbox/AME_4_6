@@ -221,7 +221,7 @@
 
 <section id="decode">
 <h2>6. recover the state from the picture, and back</h2>
-<p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once. Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then, with $d=6^n$</p>
+<p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once. Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then, for $d=6^n$</p>
 <div class="equation">$$U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}}\qquad\text{and}\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}.\tag{3}$$</div>
 <p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas before taking the square root.</p>
 
@@ -231,8 +231,8 @@
 
 <div class="js-only">
 <fieldset>
-<legend>Decode any base coefficient</legend>
-<div class="controls"><label>Row $i$ <select id="decode-i"></select></label><label>Column $j$ <select id="decode-j"></select></label><label>Sector $k$ <select id="decode-k"></select></label><label>Quantum colour $l$ <select id="decode-l"></select></label><button type="button" id="decode-example">Restore the example</button></div>
+<legend>decode any base coefficient</legend>
+<div class="controls"><label>row $i$ <select id="decode-i"></select></label><label>column $j$ <select id="decode-j"></select></label><label>sector $k$ <select id="decode-k"></select></label><label>quantum colour $l$ <select id="decode-l"></select></label><button type="button" id="decode-example">restore the example</button></div>
 <div class="canvas-wrap"><canvas id="decode-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="Selected base piece, with all fragments of the chosen coefficient highlighted and signed."></canvas></div>
 <div id="decode-result" class="formula-result" aria-live="polite"></div>
 <p class="small">Numbers inside occupied atoms are the quantum colour $l$. A minus is an explicit sign mark. The chosen sector and colour are highlighted. The remaining atoms of the piece are pale. The six sector blocks run from $k=0$ on the left to $k=5$ on the right.</p>
@@ -246,21 +246,16 @@
 
 <p>The correspondence is exact once the placement conventions and sign rule are specified. The same matrix can admit many pictures, including the original hexagons and these rectangles. Conversely, an unlabelled silhouette loses the sector, colour and sign information and does not uniquely determine a quantum state. The explorers display complete labels numerically. The portrait figures deliberately show geometry alone.</p>
 
-<details><summary>From the geometric seed back to the sparse 60-entry seed</summary>
-<p>The geometric seed has 152 nonzero entries with squared magnitudes $1/2$, $1/4$ and $1/8$. It is related by local orthogonal rotations to a sparse seed with 60 nonzero entries. Set</p>
-<div class="equation">$$\xi=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad \zeta=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix},$$</div>
-<div class="equation">$$O_A=\xi\oplus\mathbb I_4,\qquad O_B=\xi\oplus\xi\oplus\mathbb I_2,\qquad O_C=\mathbb I_4\oplus\zeta.$$</div>
-<p>For $U^{\rm g}_{6i+j,6k+l}=T^{\rm g}_{ijkl}$, the sparse matrix is</p>
-<div class="equation">$$U=(O_A\otimes O_B)^{\mathsf T}\,U^{\rm g}\,(O_C\otimes\mathbb I_6).$$</div>
-<p>The state from that sparse matrix is locally equivalent to the geometric seed. These rotations can be performed exactly in the ring $\mathbb Q(\sqrt2)$.</p>
+<details><summary>from the geometric seed back to the sparse $60$-entry seed</summary>
+<p>The geometric seed has $152$ nonzero entries with squared magnitudes $1/2$, $1/4$ and $1/8$. It is related by local orthogonal rotations to a sparse seed with $60$ nonzero entries. Set</p>
+<div class="equation">$$\xi=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad \zeta=\frac1{\sqrt2}\begin{pmatrix}1&1\\-1&1\end{pmatrix}$$</div>
+<p>and $O_A=\xi\oplus\mathbb I_4$, $O_B=\xi\oplus\xi\oplus\mathbb I_2$, $O_C=\mathbb I_4\oplus\zeta$. For $U^{\rm g}_{6i+j,6k+l}=T^{\rm g}_{ijkl}$, the sparse matrix is $U=(O_A\otimes O_B)^{\mathsf T}\,U^{\rm g}\,(O_C\otimes\mathbb I_6)$. The state from that sparse matrix is locally equivalent to the geometric seed. These rotations can be performed exactly in the ring $\mathbb Q(\sqrt2)$.</p>
 </details>
 </section>
 
 <section id="squares">
-<h2>7. squares are possible too</h2>
-<p>Apply the same horizontal rescaling to every piece and its target:</p>
-<div class="equation">$$S(x,y)=(x/\sqrt6,y).$$</div>
-<p>The common target becomes the unit square. Every relative area and every encoded coefficient is unchanged, and every complete line still fills its target. The rectangle is useful because one step is a similarity. In the square picture a single step is affine, but two steps together are again a similarity.</p>
+<h2>7. squares vs. hexagons</h2>
+<p>Apply the same horizontal rescaling to every piece and its target: $S(x,y)=(x/\sqrt6,y)$. The common target becomes the unit square. Every relative area and every encoded coefficient is unchanged, and every complete line still fills its target. The rectangle is useful because one step is a similarity. In the square picture a single step is affine, but two steps together are again a similarity.</p>
 
 <figure class="wide"><img src="square_bridge.svg" alt="Two complete assemblies, one rectangular and one square, above the six individual square-normalized pieces."><figcaption><strong>The same puzzle in two coordinate systems.</strong> Apply one common horizontal rescaling to all pieces, including their gaps. Their areas as fractions of the target, quantum data and complete-line assemblies are preserved.</figcaption></figure>
 
@@ -268,43 +263,37 @@
 <div class="equation">$$g_{a,b}(u,v)=\left(\frac{a+v}{24},\frac{b+1-u}{4}\right).$$</div>
 <p>Two successive steps have the form $z\mapsto(\delta-z)/96$: a half-turn and a uniform contraction by $1/96$. Thus depth two has a $96\times96$ grid of genuinely square cells.</p>
 
-<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption><strong>One complete row of the order-36 puzzle.</strong> Here $I=(0,0)$ is fixed and all 36 column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot256=9216$ cells cover the square exactly once.</figcaption></figure>
+<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption><strong>One complete row of the order-36 puzzle.</strong> Here $I=(0,0)$ is fixed and all $36$ column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot256=9216$ cells cover the square exactly once.</figcaption></figure>
 
-<p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives 288 distinct normalized images under the eight square symmetries. All 1,296 two-level pieces give 10,368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
+<p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives $288$ distinct normalized images under the eight square symmetries. All 1'296 two-level pieces give 10'368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
 </section>
 
 <section id="signs">
 <h2>8. the conditional minus sign</h2>
 <p>The product family already gives infinitely many dimensions. There is also a simple way to change the states while leaving every occupied atom exactly where it is. When the sector digit at one level is $0$ and the row digit at the next level is $2$, multiply the coefficient by $-1$.</p>
-<div class="equation">$$\mathcal T^{(n)}_{IJKL}=\left(\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}\right)(-1)^{\sum_{r=1}^{n-1}[k_r=0][i_{r+1}=2]},\qquad |\Psi_n\rangle=\frac1{6^n}\sum_{I,J,K,L}\mathcal T^{(n)}_{IJKL}|IJKL\rangle.\tag{6}$$</div>
-<p>Square brackets denote an indicator: $[\text{statement}]$ is 1 when the statement is true and 0 otherwise. An extra minus toggles the old sign. It does not necessarily make the final sign negative.</p>
+<div class="equation">$$\mathcal T^{(n)}_{IJKL}=\left(\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}\right)(-1)^{\sum_{r=1}^{n-1}[k_r=0][i_{r+1}=2]}\qquad\text{and}\qquad |\Psi_n\rangle=\frac1{6^n}\sum_{I,J,K,L}\mathcal T^{(n)}_{IJKL}|IJKL\rangle.\tag{6}$$</div>
+<p>Square brackets denote an indicator: $[\text{statement}]$ is $1$ when the statement is true and $0$ otherwise. An extra minus toggles the old sign. It does not necessarily make the final sign negative.</p>
 
-<figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption><strong>Change a sign, keep the geometry.</strong> For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their 64 descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
+<figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption><strong>Change a sign, keep the geometry.</strong> For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their $64$ descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
 
 <p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
 
-<div class="js-only"><p><button type="button" id="show-control-example">Inspect this nonstationary piece and its actual signs</button></p></div>
-
-<h3>why the changed state is still AME</h3>
+<h3>the changed state is still AME</h3>
 <p>The operation is a controlled local sign on the child, selected by one outer party. It fits a useful general rule. Let $A$ be a two-unitary tensor and let every $B^{(x)}$ be two-unitary with the same inner dimension. Then</p>
 <div class="equation">$$W_{(i,a)(j,b)(k,c)(l,e)}=A_{ijkl}B^{(k)}_{abce}\tag{7}$$</div>
 <p>is two-unitary. In each bipartition the controlling index $k$ lies entirely on one side. After reordering indices, the matrix factors into the appropriate flattening of $A$ tensored with an identity, and a block-diagonal matrix whose blocks are flattenings of $B^{(k)}$. Both factors are unitary. Apply this rule repeatedly, using a local sign flip on the inner level $i=2$ when the outer $k=0$. This proves that every $|\Psi_n\rangle$ is a real AME$(4,6^n)$ state. An arbitrary control depending on two outer parties would need a new proof.</p>
 
 <h3>it is not just the same tensor power in another local basis</h3>
-<p>For every $n\ge2$, an exact invariant separates $|\Psi_n\rangle$ from the specified grouped seed power $|\psi_{\rm g}\rangle^{\otimes n}$, even allowing arbitrary local $U(6^n)$ changes of basis. At depth two the separating values are</p>
+<p>For every $n\geqslant 2$, an exact invariant separates $|\Psi_n\rangle$ from the specified grouped seed power $|\psi_{\rm g}\rangle^{\otimes n}$, even allowing arbitrary local $U(6^n)$ changes of basis. At depth two the separating values are</p>
 <div class="equation">$$\mathcal I(\Psi_2)=\frac{4464}{36^8},\qquad\mathcal I(\psi_{\rm g}^{\otimes2})=\frac{5184}{36^8}.$$</div>
 <p>This establishes a different local-unitary class from those seed powers. It does not establish that the controlled states are irreducible against every possible factorization into other AME states.</p>
 
-<details id="invariant"><summary>The exact all-depth certificate</summary>
-<p>For a normalized state, permute four copies locally and form</p>
-<div class="equation">$$\mathcal I(\phi)=\langle\phi^{\otimes4}|\left(P_{(01)(23)}\otimes P_{(02)(13)}\otimes\mathbb I\otimes P_{(03)(12)}\right)|\phi^{\otimes4}\rangle.$$</div>
-<p>A permutation of copies commutes with $V^{\otimes4}$ for every local unitary $V$, so this scalar is locally unitary invariant. Grouping one seed-level contraction by its two control parities and two target parities gives the exact matrix</p>
-<div class="equation">$$F=\begin{pmatrix}44&-3&-3&10\\-3&8&1&0\\-3&1&8&0\\10&0&0&2\end{pmatrix},\qquad H_{s,e}=(-1)^{s\cdot e},$$</div>
-<p>with labels $00,10,01,11$. More explicitly, for four ket index tuples $(a_t,b_t,c_t,d_t)$ the two bits are $s=([c_0=0]\mathbin\oplus[c_1=0],[c_2=0]\mathbin\oplus[c_3=0])$ and $e=([a_0=2]\mathbin\oplus[a_1=2],[a_2=2]\mathbin\oplus[a_3=2])$. The matrix is obtained by summing the 2,404 nonzero terms of this finite contraction exactly. The relevant control and sign projectors commute with the local rotations to $T^{\rm g}$.</p>
-<div class="equation">$$v_1=(48,6,6,12)^{\mathsf T},\quad v_{n+1}=FH v_n,\quad J_n=\mathbf1^{\mathsf T}v_n,\quad\mathcal I(\Psi_n)=\frac{J_n}{6^{8n}}.$$</div>
-<p>The ordinary power has numerator $72^n$. Writing $v_n=(a_n,b_n,b_n,c_n)$ reduces the calculation to</p>
-<div class="equation">$$\begin{pmatrix}a_{n+1}\\b_{n+1}\\c_{n+1}\end{pmatrix}=\begin{pmatrix}48&68&60\\6&-6&-12\\12&16&12\end{pmatrix}\begin{pmatrix}a_n\\b_n\\c_n\end{pmatrix},\qquad (a_1,b_1,c_1)=(48,6,12).$$</div>
-<p>The cone $a\ge b+2c$, $b,c\ge0$ is preserved: $b'=6(a-b-2c)\ge0$ and $a'-b'-2c'=18a+42b+48c\ge0$. Also $c_n>0$ and $72J_n-J_{n+1}=72b_n+24c_n>0$. Since $J_1=72$, this proves $0<J_n<72^n$ for every $n\ge2$. The distinct invariant values prove the claim.</p>
+<details id="invariant"><summary>the exact all-depth certificate</summary>
+<p>For a normalized state, permute four copies locally and form $\mathcal I(\phi)=\langle\phi^{\otimes4}|\left(P_{(01)(23)}\otimes P_{(02)(13)}\otimes\mathbb I\otimes P_{(03)(12)}\right)|\phi^{\otimes4}\rangle$. A permutation of copies commutes with $V^{\otimes4}$ for every local unitary $V$, so this scalar is locally unitary invariant. Grouping one seed-level contraction by its two control parities and two target parities gives the exact matrix</p>
+<div class="equation">$$F=\begin{pmatrix}44&-3&-3&10\\-3&8&1&0\\-3&1&8&0\\10&0&0&2\end{pmatrix}$$</div>
+<p>and $H_{s,e}=(-1)^{s\cdot e}$ with labels $00$, $10$, $01$ and $11$. More explicitly, for four ket index tuples $(a_t,b_t,c_t,d_t)$ the two bits are $s=([c_0=0]\mathbin\oplus[c_1=0],[c_2=0]\mathbin\oplus[c_3=0])$ and $e=([a_0=2]\mathbin\oplus[a_1=2],[a_2=2]\mathbin\oplus[a_3=2])$. The matrix is obtained by summing the 2'404 nonzero terms of this finite contraction exactly. The relevant control and sign projectors commute with the local rotations to $T^{\rm g}$. Let $v_1=(48,6,6,12)^{\mathsf T}$, $v_{n+1}=FH v_n$, $J_n=\mathbf1^{\mathsf T}v_n$ and $\mathcal I(\Psi_n)=J_n/6^{8n}$. The ordinary power has numerator $72^n$. Writing $v_n=(a_n,b_n,b_n,c_n)$ reduces the calculation to</p>
+<div class="equation">$$\begin{pmatrix}a_{n+1}\\b_{n+1}\\c_{n+1}\end{pmatrix}=\begin{pmatrix}48&68&60\\6&-6&-12\\12&16&12\end{pmatrix}\begin{pmatrix}a_n\\b_n\\c_n\end{pmatrix}$$</div>
+<p>with $(a_1,b_1,c_1)=(48,6,12)$. The cone $a\geqslant b+2c$, $b,c\geqslant 0$ is preserved: $b'=6(a-b-2c)\ge0$ and $a'-b'-2c'=18a+42b+48c\ge0$. Also $c_n>0$ and $72J_n-J_{n+1}=72b_n+24c_n>0$. Since $J_1=72$, this proves $0 &lt; J_n &lt; 72^n$ for every $n\geqslant 2$. The distinct invariant values prove the claim.</p>
 <div class="js-only"><label for="invariant-depth">Evaluate the exact numerators at depth </label><select id="invariant-depth"></select><p id="invariant-readout" class="mono" aria-live="polite"></p></div>
 </details>
 </section>
