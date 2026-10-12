@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AME &bull; BH(36, 6)</title>
+
+<link rel="stylesheet" href="../AME_4_6.css">
+<script src="../AME_4_6.js"></script>
+
+<style>
+td{width:6px;height:6px;padding:4px;border:1px solid #99f;font-size:4px;}
+.c0{background-color:#fff;}
+.c1{background-color:#f77;}
+.c2{background-color:#7f7;}
+.c3{background-color:#77f;}
+.c4{background-color:#ff7;}
+.c5{background-color:#7ff;}
+.c6{background-color:#f7f;}
+.c7{background-color:#777;}
+.c8{background-color:#a00;}
+.c9{background-color:#0a0;}
+.c10{background-color:#00a;}
+.c11{background-color:#aa0;}
+.c12{background-color:#0aa;}
+.c13{background-color:#a0a;}
+.c-1{background-color:#f7f;}
+.c-2{background-color:#770;}
+.t{font-size:10px;}
+.u{font-size:10px;text-decoration:overline;}
+.r{border: 1px solid #f00;}
+
+.slidecontainer { width: 100%; }
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider:hover { opacity: 1; }
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
+</style>
+
+<body onload="draw_array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)">
+
+<h2>AME$(4,6)$ as BH$(36,6)$</h2>
+<p id="last-update">update: 2023-07-03 by <a href="https://matrix-toolbox.github.io/">W. Bruzda</a></p>
+<hr>
+
+<p>A simple visualization showing which entries of BH$(36, 6)$ = BH$(36, 6)(p)$ are affected when a particular affine parameter is set.</p>
+<p>To perform a <strong>hard reset</strong>, press Ctrl+F5 (all sliders will be cleared).</p>
+
+<!--p>p = 
+<input type="checkbox" id="p1" name="p" value="p1"  onchange="set_p1()"><span class="t">1</span>
+<input type="checkbox" id="p2" name="p" value="p2"  onchange="set_p2()"><span class="t">2</span>
+<input type="checkbox" id="p3" name="p" value="p3"  onchange="set_p3()"><span class="t">3</span>
+<input type="checkbox" id="p4" name="p" value="p4"  onchange="set_p4()"><span class="t">4</span>
+<input type="checkbox" id="p5" name="p" value="p5"  onchange="set_p5()"><span class="t">5</span>
+<input type="checkbox" id="p6" name="p" value="p6"  onchange="set_p6()"><span class="t">6</span>
+<input type="checkbox" id="p7" name="p" value="p7"  onchange="set_p7()"><span class="t">7</span>
+<input type="checkbox" id="p8" name="p" value="p8"  onchange="set_p8()"><span class="t">8</span>
+<input type="checkbox" id="p9" name="p" value="p9"  onchange="set_p9()"><span class="t">9</span>
+<input type="checkbox" id="p10" name="p" value="p10"  onchange="set_p10()"><span class="t">10</span>
+<input type="checkbox" id="p11" name="p" value="p11"  onchange="set_p11()"><span class="t">11</span>
+<input type="checkbox" id="p12" name="p" value="p12"  onchange="set_p12()"><span class="t u">12</span>
+<input type="checkbox" id="p13" name="p" value="p13"  onchange="set_p13()"><span class="t u">13</span>
+<input type="checkbox" id="p14" name="p" value="p14"  onchange="set_p14()"><span class="t">14</span>
+<input type="checkbox" id="p15" name="p" value="p15"  onchange="set_p15()"><span class="t">15</span>
+<input type="checkbox" id="p16" name="p" value="p16"  onchange="set_p16()"><span class="t">16</span>
+<input type="checkbox" id="p17" name="p" value="p17"  onchange="set_p17()"><span class="t">17</span>
+<input type="checkbox" id="p18" name="p" value="p18"  onchange="set_p18()"><span class="t">18</span>
+<input type="checkbox" id="p19" name="p" value="p19"  onchange="set_p19()"><span class="t">19</span>
+</p-->
+
+<div class="slidecontainer">
+p = [
+<span class="t">1</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r1" onchange="set_p1()">
+<span class="t">2</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r2" onchange="set_p2()">
+<span class="t">3</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r3" onchange="set_p3()">
+<span class="t">4</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r4" onchange="set_p4()">
+<span class="t">5</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r5" onchange="set_p5()">
+<span class="t">6</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r6" onchange="set_p6()">
+<span class="t">7</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r7" onchange="set_p7()">
+<span class="t">8</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r8" onchange="set_p8()">
+<span class="t">9</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r9" onchange="set_p9()">
+<span class="t">10</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r10" onchange="set_p10()">
+<span class="t">11</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r11" onchange="set_p11()">
+<span class="t u">12</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r12" onchange="set_p12()">
+<span class="t u">13</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r13" onchange="set_p13()">
+<span class="t">14</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r14" onchange="set_p14()">
+<span class="t">15</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r15" onchange="set_p15()">
+<span class="t">16</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r16" onchange="set_p16()">
+<span class="t">17</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r17" onchange="set_p17()">
+<span class="t">18</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r18" onchange="set_p18()">
+<span class="t">19</span><input type="range" min="0" max="512" value="0" orient="vertical" id="r19" onchange="set_p19()">
+]
+</div>
+
+<!-- 1 4 7 10 13 16 -->
+
+<hr>
+
+<script>
+
+let a = 0;
+let b = 0;
+let c = 0;
+let d = 0;
+let e = 0;
+let f = 0;
+let g = 0;
+let h = 0;
+let i = 0;
+let j = 0;
+let k = 0;
+let l = 0;
+let m = 0;
+let n = 0;
+let o = 0;
+let p = 0;
+let q = 0;
+let r = 0;
+let s = 0;
+
+
+document.write("<table>");
+for (let jj=0; jj<36; jj++) {
+    document.write("<tr>");
+    for (let kk=0; kk<36; kk++) {
+        document.write("<td id='j"+jj+"k"+kk+"'></td>");
+    }
+    document.write("</tr>");
+}
+document.write("</table>");
+
+function draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s) {
+
+let A36 = [
+[a+c+f+j-l+n, a+d+g+j+n, a+e+n, a+f+j-l+n, a+g+j+n, a+n, c+f+j-l+n, d+g+j+n, e+n, f+j-l+n, g+j+n, +n, b+c+f+j-l+n, b+d+g+j+n, b+e+n, b+f+j-l+n, b+g+j+n, b+n, a+c+f+j-l+n, a+d+g+j+n, a+e+n, a+f+j-l+n, a+g+j+n, a+n, c+f+j-l+n, d+g+j+n, e+n, f+j-l+n, g+j+n, +n, b+c+f+j-l+n, b+d+g+j+n, b+e+n, b+f+j-l+n, b+g+j+n, b+n],
+[a+c+f+k-m+o, a+d+g+k+o, a+e+o, a+f+k-m+o, a+g+k+o, a+o, c+f+k-m+o, d+g+k+o, e+o, f+k-m+o, g+k+o, +o, b+c+f+k-m+o, b+d+g+k+o, b+e+o, b+f+k-m+o, b+g+k+o, b+o, a+c+f+k-m+o, a+d+g+k+o, a+e+o, a+f+k-m+o, a+g+k+o, a+o, c+f+k-m+o, d+g+k+o, e+o, f+k-m+o, g+k+o, +o, b+c+f+k-m+o, b+d+g+k+o, b+e+o, b+f+k-m+o, b+g+k+o, b+o],
+[a+c+f+j-l+p, a+d+g+j+p, a+e+p, a+f+j-l+p, a+g+j+p, a+p, c+f+j-l+p, d+g+j+p, e+p, f+j-l+p, g+j+p, +p, b+c+f+j-l+p, b+d+g+j+p, b+e+p, b+f+j-l+p, b+g+j+p, b+p, a+c+f+j-l+p, a+d+g+j+p, a+e+p, a+f+j-l+p, a+g+j+p, a+p, c+f+j-l+p, d+g+j+p, e+p, f+j-l+p, g+j+p, +p, b+c+f+j-l+p, b+d+g+j+p, b+e+p, b+f+j-l+p, b+g+j+p, b+p],
+[a+c+f+k-m+q, a+d+g+k+q, a+e+q, a+f+k-m+q, a+g+k+q, a+q, c+f+k-m+q, d+g+k+q, e+q, f+k-m+q, g+k+q, +q, b+c+f+k-m+q, b+d+g+k+q, b+e+q, b+f+k-m+q, b+g+k+q, b+q, a+c+f+k-m+q, a+d+g+k+q, a+e+q, a+f+k-m+q, a+g+k+q, a+q, c+f+k-m+q, d+g+k+q, e+q, f+k-m+q, g+k+q, +q, b+c+f+k-m+q, b+d+g+k+q, b+e+q, b+f+k-m+q, b+g+k+q, b+q],
+[a+c+f+j-l+r, a+d+g+j+r, a+e+r, a+f+j-l+r, a+g+j+r, a+r, c+f+j-l+r, d+g+j+r, e+r, f+j-l+r, g+j+r, +r, b+c+f+j-l+r, b+d+g+j+r, b+e+r, b+f+j-l+r, b+g+j+r, b+r, a+c+f+j-l+r, a+d+g+j+r, a+e+r, a+f+j-l+r, a+g+j+r, a+r, c+f+j-l+r, d+g+j+r, e+r, f+j-l+r, g+j+r, +r, b+c+f+j-l+r, b+d+g+j+r, b+e+r, b+f+j-l+r, b+g+j+r, b+r],
+[a+c+f+k-m+s, a+d+g+k+s, a+e+s, a+f+k-m+s, a+g+k+s, a+s, c+f+k-m+s, d+g+k+s, e+s, f+k-m+s, g+k+s, +s, b+c+f+k-m+s, b+d+g+k+s, b+e+s, b+f+k-m+s, b+g+k+s, b+s, a+c+f+k-m+s, a+d+g+k+s, a+e+s, a+f+k-m+s, a+g+k+s, a+s, c+f+k-m+s, d+g+k+s, e+s, f+k-m+s, g+k+s, +s, b+c+f+k-m+s, b+d+g+k+s, b+e+s, b+f+k-m+s, b+g+k+s, b+s],
+[a+c+j+n, a+d+n, a+e+j-l+n, a+j+n, a+n, a+j-l+n, c+j+n, d+n, e+j-l+n, j+n, n, j-l+n, b+c+j+n, b+d+n, b+e+j-l+n, b+j+n, b+n, b+j-l+n, a+c+j+n, a+d+n, a+e+j-l+n, a+j+n, a+n, a+j-l+n, c+j+n, d+n, e+j-l+n, +j+n, +n, +j-l+n, b+c+j+n, b+d+n, b+e+j-l+n, b+j+n, b+n, b+j-l+n],
+[a+c+k+o, a+d+o, a+e+k-m+o, a+k+o, a+o, a+k-m+o, c+k+o, d+o, e+k-m+o, k+o, o, k-m+o, b+c+k+o, b+d+o, b+e+k-m+o, b+k+o, b+o, b+k-m+o, a+c+k+o, a+d+o, a+e+k-m+o, a+k+o, a+o, a+k-m+o, c+k+o, d+o, e+k-m+o, +k+o, +o, +k-m+o, b+c+k+o, b+d+o, b+e+k-m+o, b+k+o, b+o, b+k-m+o],
+[a+c+j+p, a+d+p, a+e+j-l+p, a+j+p, a+p, a+j-l+p, c+j+p, d+p, e+j-l+p, j+p, p, j-l+p, b+c+j+p, b+d+p, b+e+j-l+p, b+j+p, b+p, b+j-l+p, a+c+j+p, a+d+p, a+e+j-l+p, a+j+p, a+p, a+j-l+p, c+j+p, d+p, e+j-l+p, +j+p, +p, +j-l+p, b+c+j+p, b+d+p, b+e+j-l+p, b+j+p, b+p, b+j-l+p],
+[a+c+k+q, a+d+q, a+e+k-m+q, a+k+q, a+q, a+k-m+q, c+k+q, d+q, e+k-m+q, k+q, q, k-m+q, b+c+k+q, b+d+q, b+e+k-m+q, b+k+q, b+q, b+k-m+q, a+c+k+q, a+d+q, a+e+k-m+q, a+k+q, a+q, a+k-m+q, c+k+q, d+q, e+k-m+q, +k+q, +q, +k-m+q, b+c+k+q, b+d+q, b+e+k-m+q, b+k+q, b+q, b+k-m+q],
+[a+c+j+r, a+d+r, a+e+j-l+r, a+j+r, a+r, a+j-l+r, c+j+r, d+r, e+j-l+r, j+r, r, j-l+r, b+c+j+r, b+d+r, b+e+j-l+r, b+j+r, b+r, b+j-l+r, a+c+j+r, a+d+r, a+e+j-l+r, a+j+r, a+r, a+j-l+r, c+j+r, d+r, e+j-l+r, +j+r, +r, +j-l+r, b+c+j+r, b+d+r, b+e+j-l+r, b+j+r, b+r, b+j-l+r],
+[a+c+k+s, a+d+s, a+e+k-m+s, a+k+s, a+s, a+k-m+s, c+k+s, d+s, e+k-m+s, k+s, s, k-m+s, b+c+k+s, b+d+s, b+e+k-m+s, b+k+s, b+s, b+k-m+s, a+c+k+s, a+d+s, a+e+k-m+s, a+k+s, a+s, a+k-m+s, c+k+s, d+s, e+k-m+s, +k+s, +s, +k-m+s, b+c+k+s, b+d+s, b+e+k-m+s, b+k+s, b+s, b+k-m+s],
+[a+c+i+n, a+d+h+j-l+n, a+e+j+n, a+i+n, a+h+j-l+n, a+j+n, c+i+n, d+h+j-l+n, e+j+n, i+n, h+j-l+n, +j+n, b+c+i+n, b+d+h+j-l+n, b+e+j+n, b+i+n, b+h+j-l+n, b+j+n, a+c+i+n, a+d+h+j-l+n, a+e+j+n, a+i+n, a+h+j-l+n, a+j+n, c+i+n, d+h+j-l+n, e+j+n, i+n, h+j-l+n, +j+n, b+c+i+n, b+d+h+j-l+n, b+e+j+n, b+i+n, b+h+j-l+n, b+j+n],
+[a+c+i+o, a+d+h+k-m+o, a+e+k+o, a+i+o, a+h+k-m+o, a+k+o, c+i+o, d+h+k-m+o, e+k+o, i+o, h+k-m+o, +k+o, b+c+i+o, b+d+h+k-m+o, b+e+k+o, b+i+o, b+h+k-m+o, b+k+o, a+c+i+o, a+d+h+k-m+o, a+e+k+o, a+i+o, a+h+k-m+o, a+k+o, c+i+o, d+h+k-m+o, e+k+o, i+o, h+k-m+o, +k+o, b+c+i+o, b+d+h+k-m+o, b+e+k+o, b+i+o, b+h+k-m+o, b+k+o],
+[a+c+i+p, a+d+h+j-l+p, a+e+j+p, a+i+p, a+h+j-l+p, a+j+p, c+i+p, d+h+j-l+p, e+j+p, i+p, h+j-l+p, +j+p, b+c+i+p, b+d+h+j-l+p, b+e+j+p, b+i+p, b+h+j-l+p, b+j+p, a+c+i+p, a+d+h+j-l+p, a+e+j+p, a+i+p, a+h+j-l+p, a+j+p, c+i+p, d+h+j-l+p, e+j+p, i+p, h+j-l+p, +j+p, b+c+i+p, b+d+h+j-l+p, b+e+j+p, b+i+p, b+h+j-l+p, b+j+p],
+[a+c+i+q, a+d+h+k-m+q, a+e+k+q, a+i+q, a+h+k-m+q, a+k+q, c+i+q, d+h+k-m+q, e+k+q, i+q, h+k-m+q, +k+q, b+c+i+q, b+d+h+k-m+q, b+e+k+q, b+i+q, b+h+k-m+q, b+k+q, a+c+i+q, a+d+h+k-m+q, a+e+k+q, a+i+q, a+h+k-m+q, a+k+q, c+i+q, d+h+k-m+q, e+k+q, i+q, h+k-m+q, +k+q, b+c+i+q, b+d+h+k-m+q, b+e+k+q, b+i+q, b+h+k-m+q, b+k+q],
+[a+c+i+r, a+d+h+j-l+r, a+e+j+r, a+i+r, a+h+j-l+r, a+j+r, c+i+r, d+h+j-l+r, e+j+r, i+r, h+j-l+r, +j+r, b+c+i+r, b+d+h+j-l+r, b+e+j+r, b+i+r, b+h+j-l+r, b+j+r, a+c+i+r, a+d+h+j-l+r, a+e+j+r, a+i+r, a+h+j-l+r, a+j+r, c+i+r, d+h+j-l+r, e+j+r, i+r, h+j-l+r, +j+r, b+c+i+r, b+d+h+j-l+r, b+e+j+r, b+i+r, b+h+j-l+r, b+j+r],
+[a+c+i+s, a+d+h+k-m+s, a+e+k+s, a+i+s, a+h+k-m+s, a+k+s, c+i+s, d+h+k-m+s, e+k+s, i+s, h+k-m+s, +k+s, b+c+i+s, b+d+h+k-m+s, b+e+k+s, b+i+s, b+h+k-m+s, b+k+s, a+c+i+s, a+d+h+k-m+s, a+e+k+s, a+i+s, a+h+k-m+s, a+k+s, c+i+s, d+h+k-m+s, e+k+s, i+s, h+k-m+s, +k+s, b+c+i+s, b+d+h+k-m+s, b+e+k+s, b+i+s, b+h+k-m+s, b+k+s],
+[a+c+f+j-l+n, a+d+g+j+n, a+e+n, a+f+j-l+n, a+g+j+n, a+n, c+f+j-l+n, d+g+j+n, e+n, f+j-l+n, g+j+n, +n, b+c+f+j-l+n, b+d+g+j+n, b+e+n, b+f+j-l+n, b+g+j+n, b+n, a+c+f+j-l+n, a+d+g+j+n, a+e+n, a+f+j-l+n, a+g+j+n, a+n, c+f+j-l+n, d+g+j+n, e+n, f+j-l+n, g+j+n, +n, b+c+f+j-l+n, b+d+g+j+n, b+e+n, b+f+j-l+n, b+g+j+n, b+n],
+[a+c+f+k-m+o, a+d+g+k+o, a+e+o, a+f+k-m+o, a+g+k+o, a+o, c+f+k-m+o, d+g+k+o, e+o, f+k-m+o, g+k+o, +o, b+c+f+k-m+o, b+d+g+k+o, b+e+o, b+f+k-m+o, b+g+k+o, b+o, a+c+f+k-m+o, a+d+g+k+o, a+e+o, a+f+k-m+o, a+g+k+o, a+o, c+f+k-m+o, d+g+k+o, e+o, f+k-m+o, g+k+o, +o, b+c+f+k-m+o, b+d+g+k+o, b+e+o, b+f+k-m+o, b+g+k+o, b+o],
+[a+c+f+j-l+p, a+d+g+j+p, a+e+p, a+f+j-l+p, a+g+j+p, a+p, c+f+j-l+p, d+g+j+p, e+p, f+j-l+p, g+j+p, +p, b+c+f+j-l+p, b+d+g+j+p, b+e+p, b+f+j-l+p, b+g+j+p, b+p, a+c+f+j-l+p, a+d+g+j+p, a+e+p, a+f+j-l+p, a+g+j+p, a+p, c+f+j-l+p, d+g+j+p, e+p, f+j-l+p, g+j+p, +p, b+c+f+j-l+p, b+d+g+j+p, b+e+p, b+f+j-l+p, b+g+j+p, b+p],
+[a+c+f+k-m+q, a+d+g+k+q, a+e+q, a+f+k-m+q, a+g+k+q, a+q, c+f+k-m+q, d+g+k+q, e+q, f+k-m+q, g+k+q, +q, b+c+f+k-m+q, b+d+g+k+q, b+e+q, b+f+k-m+q, b+g+k+q, b+q, a+c+f+k-m+q, a+d+g+k+q, a+e+q, a+f+k-m+q, a+g+k+q, a+q, c+f+k-m+q, d+g+k+q, e+q, f+k-m+q, g+k+q, +q, b+c+f+k-m+q, b+d+g+k+q, b+e+q, b+f+k-m+q, b+g+k+q, b+q],
+[a+c+f+j-l+r, a+d+g+j+r, a+e+r, a+f+j-l+r, a+g+j+r, a+r, c+f+j-l+r, d+g+j+r, e+r, f+j-l+r, g+j+r, +r, b+c+f+j-l+r, b+d+g+j+r, b+e+r, b+f+j-l+r, b+g+j+r, b+r, a+c+f+j-l+r, a+d+g+j+r, a+e+r, a+f+j-l+r, a+g+j+r, a+r, c+f+j-l+r, d+g+j+r, e+r, f+j-l+r, g+j+r, +r, b+c+f+j-l+r, b+d+g+j+r, b+e+r, b+f+j-l+r, b+g+j+r, b+r],
+[a+c+f+k-m+s, a+d+g+k+s, a+e+s, a+f+k-m+s, a+g+k+s, a+s, c+f+k-m+s, d+g+k+s, e+s, f+k-m+s, g+k+s, +s, b+c+f+k-m+s, b+d+g+k+s, b+e+s, b+f+k-m+s, b+g+k+s, b+s, a+c+f+k-m+s, a+d+g+k+s, a+e+s, a+f+k-m+s, a+g+k+s, a+s, c+f+k-m+s, d+g+k+s, e+s, f+k-m+s, g+k+s, +s, b+c+f+k-m+s, b+d+g+k+s, b+e+s, b+f+k-m+s, b+g+k+s, b+s],
+[a+c+j+n, a+d+n, a+e+j-l+n, a+j+n, a+n, a+j-l+n, c+j+n, d+n, e+j-l+n, +j+n, +n, +j-l+n, b+c+j+n, b+d+n, b+e+j-l+n, b+j+n, b+n, b+j-l+n, a+c+j+n, a+d+n, a+e+j-l+n, a+j+n, a+n, a+j-l+n, c+j+n, d+n, e+j-l+n, +j+n, +n, +j-l+n, b+c+j+n, b+d+n, b+e+j-l+n, b+j+n, b+n, b+j-l+n],
+[a+c+k+o, a+d+o, a+e+k-m+o, a+k+o, a+o, a+k-m+o, c+k+o, d+o, e+k-m+o, +k+o, +o, +k-m+o, b+c+k+o, b+d+o, b+e+k-m+o, b+k+o, b+o, b+k-m+o, a+c+k+o, a+d+o, a+e+k-m+o, a+k+o, a+o, a+k-m+o, c+k+o, d+o, e+k-m+o, +k+o, +o, +k-m+o, b+c+k+o, b+d+o, b+e+k-m+o, b+k+o, b+o, b+k-m+o],
+[a+c+j+p, a+d+p, a+e+j-l+p, a+j+p, a+p, a+j-l+p, c+j+p, d+p, e+j-l+p, +j+p, +p, +j-l+p, b+c+j+p, b+d+p, b+e+j-l+p, b+j+p, b+p, b+j-l+p, a+c+j+p, a+d+p, a+e+j-l+p, a+j+p, a+p, a+j-l+p, c+j+p, d+p, e+j-l+p, +j+p, +p, +j-l+p, b+c+j+p, b+d+p, b+e+j-l+p, b+j+p, b+p, b+j-l+p],
+[a+c+k+q, a+d+q, a+e+k-m+q, a+k+q, a+q, a+k-m+q, c+k+q, d+q, e+k-m+q, +k+q, +q, +k-m+q, b+c+k+q, b+d+q, b+e+k-m+q, b+k+q, b+q, b+k-m+q, a+c+k+q, a+d+q, a+e+k-m+q, a+k+q, a+q, a+k-m+q, c+k+q, d+q, e+k-m+q, +k+q, +q, +k-m+q, b+c+k+q, b+d+q, b+e+k-m+q, b+k+q, b+q, b+k-m+q],
+[a+c+j+r, a+d+r, a+e+j-l+r, a+j+r, a+r, a+j-l+r, c+j+r, d+r, e+j-l+r, +j+r, +r, +j-l+r, b+c+j+r, b+d+r, b+e+j-l+r, b+j+r, b+r, b+j-l+r, a+c+j+r, a+d+r, a+e+j-l+r, a+j+r, a+r, a+j-l+r, c+j+r, d+r, e+j-l+r, +j+r, +r, +j-l+r, b+c+j+r, b+d+r, b+e+j-l+r, b+j+r, b+r, b+j-l+r],
+[a+c+k+s, a+d+s, a+e+k-m+s, a+k+s, a+s, a+k-m+s, c+k+s, d+s, e+k-m+s, +k+s, +s, +k-m+s, b+c+k+s, b+d+s, b+e+k-m+s, b+k+s, b+s, b+k-m+s, a+c+k+s, a+d+s, a+e+k-m+s, a+k+s, a+s, a+k-m+s, c+k+s, d+s, e+k-m+s, +k+s, +s, +k-m+s, b+c+k+s, b+d+s, b+e+k-m+s, b+k+s, b+s, b+k-m+s],
+[a+c+i+n, a+d+h+j-l+n, a+e+j+n, a+i+n, a+h+j-l+n, a+j+n, c+i+n, d+h+j-l+n, e+j+n, i+n, h+j-l+n, +j+n, b+c+i+n, b+d+h+j-l+n, b+e+j+n, b+i+n, b+h+j-l+n, b+j+n, a+c+i+n, a+d+h+j-l+n, a+e+j+n, a+i+n, a+h+j-l+n, a+j+n, c+i+n, d+h+j-l+n, e+j+n, i+n, h+j-l+n, +j+n, b+c+i+n, b+d+h+j-l+n, b+e+j+n, b+i+n, b+h+j-l+n, b+j+n],
+[a+c+i+o, a+d+h+k-m+o, a+e+k+o, a+i+o, a+h+k-m+o, a+k+o, c+i+o, d+h+k-m+o, e+k+o, i+o, h+k-m+o, +k+o, b+c+i+o, b+d+h+k-m+o, b+e+k+o, b+i+o, b+h+k-m+o, b+k+o, a+c+i+o, a+d+h+k-m+o, a+e+k+o, a+i+o, a+h+k-m+o, a+k+o, c+i+o, d+h+k-m+o, e+k+o, i+o, h+k-m+o, +k+o, b+c+i+o, b+d+h+k-m+o, b+e+k+o, b+i+o, b+h+k-m+o, b+k+o],
+[a+c+i+p, a+d+h+j-l+p, a+e+j+p, a+i+p, a+h+j-l+p, a+j+p, c+i+p, d+h+j-l+p, e+j+p, i+p, h+j-l+p, +j+p, b+c+i+p, b+d+h+j-l+p, b+e+j+p, b+i+p, b+h+j-l+p, b+j+p, a+c+i+p, a+d+h+j-l+p, a+e+j+p, a+i+p, a+h+j-l+p, a+j+p, c+i+p, d+h+j-l+p, e+j+p, i+p, h+j-l+p, +j+p, b+c+i+p, b+d+h+j-l+p, b+e+j+p, b+i+p, b+h+j-l+p, b+j+p],
+[a+c+i+q, a+d+h+k-m+q, a+e+k+q, a+i+q, a+h+k-m+q, a+k+q, c+i+q, d+h+k-m+q, e+k+q, i+q, h+k-m+q, +k+q, b+c+i+q, b+d+h+k-m+q, b+e+k+q, b+i+q, b+h+k-m+q, b+k+q, a+c+i+q, a+d+h+k-m+q, a+e+k+q, a+i+q, a+h+k-m+q, a+k+q, c+i+q, d+h+k-m+q, e+k+q, i+q, h+k-m+q, +k+q, b+c+i+q, b+d+h+k-m+q, b+e+k+q, b+i+q, b+h+k-m+q, b+k+q],
+[a+c+i+r, a+d+h+j-l+r, a+e+j+r, a+i+r, a+h+j-l+r, a+j+r, c+i+r, d+h+j-l+r, e+j+r, i+r, h+j-l+r, +j+r, b+c+i+r, b+d+h+j-l+r, b+e+j+r, b+i+r, b+h+j-l+r, b+j+r, a+c+i+r, a+d+h+j-l+r, a+e+j+r, a+i+r, a+h+j-l+r, a+j+r, c+i+r, d+h+j-l+r, e+j+r, i+r, h+j-l+r, +j+r, b+c+i+r, b+d+h+j-l+r, b+e+j+r, b+i+r, b+h+j-l+r, b+j+r],
+[a+c+i+s, a+d+h+k-m+s, a+e+k+s, a+i+s, a+h+k-m+s, a+k+s, c+i+s, d+h+k-m+s, e+k+s, i+s, h+k-m+s, +k+s, b+c+i+s, b+d+h+k-m+s, b+e+k+s, b+i+s, b+h+k-m+s, b+k+s, a+c+i+s, a+d+h+k-m+s, a+e+k+s, a+i+s, a+h+k-m+s, a+k+s, c+i+s, d+h+k-m+s, e+k+s, i+s, h+k-m+s, +k+s, b+c+i+s, b+d+h+k-m+s, b+e+k+s, b+i+s, b+h+k-m+s, b+k+s]	
+];
+
+//console.log(A36[0][0]%256);
+
+
+        for (let jj=0; jj<36; jj++) {
+                for (let kk=0; kk<36; kk++) {
+                        if (kk==jj) {
+                            document.getElementById("j"+jj+"k"+kk).className = "c"+A36[jj][kk]+" r";
+                            document.getElementById("j"+jj+"k"+kk).style.backgroundColor = "rgb(" + (256-(A36[jj][kk]+512)%256) + ", "+ (256-(A36[jj][kk]+512)%256) + ", "+ (256-(A36[jj][kk]+512)%256) + ")";
+                        }
+                        else {
+                            document.getElementById("j"+jj+"k"+kk).style.backgroundColor = "rgb(" + (256-(A36[jj][kk]+512)%256) + ", "+ (256-(A36[jj][kk]+512)%256) + ", "+ (256-(A36[jj][kk]+512)%256) + ")";
+                        }
+                }
+        }
+}
+
+
+
+
+
+function set_p1() {
+    a = 255*document.getElementById("r1").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p2() {
+    b = 255*document.getElementById("r2").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p3() {
+    c = 255*document.getElementById("r3").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p4() {
+    d = 255*document.getElementById("r4").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p5() {
+    e = 255*document.getElementById("r5").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p6() {
+    f = 255*document.getElementById("r6").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p7() {
+    g = 255*document.getElementById("r7").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p8() {
+    h = 255*document.getElementById("r8").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p9() {
+    i = 255*document.getElementById("r9").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p10() {
+    j = 255*document.getElementById("r10").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p11() {
+    k = 255*document.getElementById("r11").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p12() {
+    l = 255*document.getElementById("r12").value/512;
+console.log(l);
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p13() {
+    m = 255*document.getElementById("r13").value/512;
+        draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p14() {
+    n = 255*document.getElementById("r14").value/512;
+        draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p15() {
+    o = 255*document.getElementById("r15").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p16() {
+    p = 255*document.getElementById("r16").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p17() {
+    q = 255*document.getElementById("r17").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p18() {
+    r = 255*document.getElementById("r18").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+function set_p19() {
+    s = 255*document.getElementById("r19").value/512;
+    draw_array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s);  
+}
+</script>
+
+</body>
