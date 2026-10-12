@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An illustrated, reproducible guide to self-similar geomagic puzzles and two real AME(4,6^n) families, with exact interactive assemblies and state decoding.">
-  <title>AME • self-similar geomagic representations</title>
+  <title>AME &bull; self-similar geomagic representations</title>
   <link rel="stylesheet" href="../AME_4_6.css">
   <link rel="stylesheet" href="fractal.css">
   <script src="../AME_4_6.js"></script>
@@ -19,8 +19,7 @@
 
 <div class="DISCLAIMER">
 <p>The material presented on this webpage grew out of my discussions with ChatGPT (GPT-6 Astra Pro) and is a direct follow-up to the geomagic construction presented <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">here</a>. I have decided to keep this material out of the original paper for two reasons. First, I do not want to obscure its main message. Second, my own contribution was limited to asking questions and guiding the model towards the simplest possible construction. I therefore do not regard this material as suitable for publication as a conventional research paper.</p>
-<p><strong>Above all, this note is a way to indulge my childhood obsession with fractals. See also <a href="https://github.com/matrix-toolbox/x86">this repository</a></strong>.</p>
-<p>This is certainly not the end of the story... :)</p>
+<p><strong>Above all, this note is a way to indulge my childhood obsession with <a href="https://github.com/matrix-toolbox/x86">fractals</a></strong>. :)</p>
 </div>
 
 <p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure.</p>
@@ -32,55 +31,43 @@
   <figcaption><strong>Many shapes, one rule.</strong> These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
 </figure>
 
-<div class="note"><p><strong>What “fractal AME” means here.</strong> Each finite depth gives a finite-dimensional AME state and a finite geomagic puzzle. Repeating an address forever gives a geometric fractal of zero area. We do not define an infinite-dimensional AME state by taking that geometric limit.</p></div>
+<div class="note"><p>&quot;Fractal-AME&quot;: Each finite depth gives a finite-dimensional AME state and a finite geomagic puzzle. Repeating an address forever gives a geometric fractal of zero area. We do not define an infinite-dimensional AME state by taking that geometric limit.</p></div>
 
-<nav class="contents" aria-label="Contents">
-<h2>contents</h2>
-<ol>
-  <li><a href="#meaning">The quantum state and the puzzle</a></li>
-  <li><a href="#bridge">From hexagons to rectangles</a></li>
-  <li><a href="#alphabet">A 96-atom alphabet: the strings and permutations</a></li>
-  <li><a href="#assemble">See complete rows, columns and diagonals assemble</a></li>
-  <li><a href="#replacement">One replacement rule, any depth</a></li>
-  <li><a href="#decode">Recover the state from the picture, and back</a></li>
-  <li><a href="#squares">Squares are possible too</a></li>
-  <li><a href="#signs">The conditional minus sign</a></li>
-  <li><a href="#dimension">The limit and its dimension</a></li>
-  <li><a href="#classical">IFS, L-systems and classical fractal squares</a></li>
-  <li><a href="#scope">What generalizes, and what remains open</a></li>
-  <li><a href="#references">References and related reading</a></li>
-</ol>
-</nav>
-<noscript><p class="note">All explanations and static figures remain available without JavaScript. The interactive explorers and MathJax rendering require JavaScript.</p></noscript>
 <hr>
 
 <section id="meaning">
 <h2>1. the quantum state and the puzzle</h2>
-<p>An AME$(4,d)$ state has four parties, each with $d$ possible basis labels. It is <em>absolutely maximally entangled</em>: whichever two parties are retained, their reduced state is the maximally mixed state $\mathbb I_{d^2}/d^2$. No particular pair is preferred.</p>
+<p>An AME$(4,d)$ state has four parties, each with $d$ possible basis labels. It is <strong>absolutely maximally entangled</strong>: whichever two parties are retained, their reduced state is the maximally mixed state $\mathbb I_{d^2}/d^2$. No particular pair is preferred.</p>
 
-<p>For a four-index tensor $T$, collect two indices into a row label and the other two into a column label. There are three essentially different ways to do this: $AB|CD$, $AC|BD$ and $AD|BC$. If the resulting $d^2\times d^2$ matrices are all unitary, then</p>
+<p>For a four-index tensor $T$, collect two indices into a row label and the other two into a column label. There are three different ways to do this: $AB|CD$, $AC|BD$ and $AD|BC$. If the resulting $d^2\times d^2$ matrices are all unitary, then</p>
 <div class="equation">$$|\psi\rangle=\frac1d\sum_{i,j,k,l=0}^{d-1}T_{ijkl}|i\rangle_A|j\rangle_B|k\rangle_C|l\rangle_D$$</div>
-<p>is an AME state. Such a tensor is called <em>two-unitary</em>. Here all coefficients are real, so its three matrices are orthogonal. We write $T^{\rm g}$ for the geometric seed throughout: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
+<p>is an AME state. Such a tensor is called <strong>two-unitary</strong>. Here all coefficients are real, so its three matrices are orthogonal. We write $T^{\rm g}$ for the geometric seed throughout: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
 
 <p>A geomagic square replaces numbers in a magic square by shapes. Its entries are distinct pieces. Each row, column and main diagonal must assemble into the same target. In this construction the pieces already share a coordinate frame: simply superimpose the occupied regions, keeping every component in its prescribed position. A piece may have several disconnected components. The complete collection at fixed relative positions counts as one piece.</p>
 
-<p>The geometry represents squared magnitudes. Labels identify coefficients, and signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality.</p>
+<p>The geometry represents squared magnitudes. Labels identify coefficients, signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality.</p>
 
 <div class="table-scroll">
 <table class="data-table">
 <caption>The first four finite levels.</caption>
 <thead><tr><th>depth $n$</th><th>local dimension $d=6^n$</th><th>pieces $d^2$</th><th>pieces in one line</th><th>atoms in one piece</th></tr></thead>
-<tbody><tr><td>1</td><td>6</td><td>36</td><td>6</td><td>16</td></tr><tr><td>2</td><td>36</td><td>1,296</td><td>36</td><td>256</td></tr><tr><td>3</td><td>216</td><td>46,656</td><td>216</td><td>4,096</td></tr><tr><td>4</td><td>1,296</td><td>1,679,616</td><td>1,296</td><td>65,536</td></tr></tbody>
+<tbody>
+  <tr><td>1</td><td>6</td><td>36</td><td>6</td><td>16</td></tr>
+  <tr><td>2</td><td>36</td><td>1'296</td><td>36</td><td>256</td></tr>
+  <tr><td>3</td><td>216</td><td>46'656</td><td>216</td><td>4'096</td></tr>
+  <tr><td>4</td><td>1'296</td><td>1'679'616</td><td>1'296</td><td>65'536</td></tr>
+  <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+</tbody>
 </table>
 </div>
-<p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party, and likewise for $B,C,D$.</p>
+<p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p>
 </section>
 
 <section id="bridge">
 <h2>2. from hexagons to rectangles</h2>
 <p>The original hexagon and the new rectangle encode the same $T^{\rm g}$. This is a new placement of the same signed, weighted matching data. It is not an affine transformation of the hexagon. A thin triangular contribution can be subdivided and placed elsewhere, provided its label, its sign and its total relative area are preserved.</p>
 
-<p>For the recursive construction we make all atoms equal. Each of the six sectors contains 16 atoms, so the complete target has 96. An atom in the first four sectors of the equal-slice hexagon is split into two, and the atoms in sectors 4 and 5 already have the required sector weight $1/16$. The resulting atoms are placed on a $24\times4$ grid.</p>
+<p>For the recursive construction we make all atoms equal. Each of the six sectors contains $16$ atoms, so the complete target has $96$. An atom in the first four sectors of the equal-slice hexagon is split into two and the atoms in sectors $4$ and $5$ already have the required sector weight $1/16$. The resulting atoms are placed on a $24\times4$ grid.</p>
 
 <figure class="wide">
  <div class="figure-pair">
@@ -90,14 +77,12 @@
  <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced unchanged from <a href="https://github.com/matrix-toolbox/AME_4_6/blob/main/GEOMAGIC/AME46_geomagic_REAL.html">the original page</a>. The rectangular drawing is calculated from the exact data.</figcaption>
 </figure>
 
-<p>Why use a rectangle of width $\sqrt6$ and height $1$? A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work.</p>
-
-<p>In this rectangular placement 34 of the 36 base pieces are disconnected as closed sets. That is compatible with the definition used here: disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
+<p>A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work. In this rectangular placement $34$ of the $36$ base pieces are disconnected as closed sets. That is compatible with the definition used here, namely disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
 </section>
 
 <section id="alphabet">
-<h2>3. a 96-atom alphabet: the strings and permutations</h2>
-<p>The long strings have a modest job: they specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, and so on. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\ldots,5$.</p>
+<h2>3. a $96$-atom alphabet: the strings and permutations</h2>
+<p>The long strings specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, $\ldots$. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\cdots,5$.</p>
 
 <p>One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the <em>placement</em> of an atom: the same target location can have different quantum colours in different pieces.</p>
 
