@@ -102,7 +102,10 @@
   window.AME46={data:D,nested,lineWords,coverage,digits,orderedWords};
   document.body.classList.add('js-ready');
   const six=[0,1,2,3,4,5];
-  ['atom-sector','decode-i','decode-j','decode-k','decode-l','explorer-i','explorer-j'].forEach(id=>fillSelect(id,six));
+  /* ['atom-sector','decode-i','decode-j','decode-k','decode-l','explorer-i','explorer-j'].forEach(id=>fillSelect(id,six)); */
+  ['atom-sector','decode-i','decode-j','decode-k','decode-l'].forEach(id=>fillSelect(id,six));
+  ['explorer-i','explorer-j'].forEach(id=>{ if($(id)) fillSelect(id,six); });
+  
   fillSelect('atom-position',Array.from({length:16},(_,i)=>i));
 
   function renderAtom() {
@@ -188,6 +191,7 @@
   ['decode-i','decode-j','decode-k','decode-l'].forEach(id=>$(id).addEventListener('change',renderDecoder));
   $('decode-example').addEventListener('click',()=>{['i','j','k','l'].forEach((q,r)=>$('decode-'+q).value=[0,4,0,4][r]);renderDecoder();});renderDecoder();
 
+  if ($('explorer-canvas')) { ///////////////////////////////////////////////////////////////////
   let explorer=null,explorerBounds=null,explorerWordKey='',explorerLookup=null;
   $('explorer-i').value=2;$('explorer-j').value=0;
   function currentWord() {
@@ -252,7 +256,8 @@
     $('explorer-address').value='controlled';$('explorer-shape').value='square';$('explorer-colour').value='controlled-sign';$('explorer-zoom').value='full';renderExplorer();
     $('explorer-address').closest('fieldset').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
   });renderExplorer();
-
+  } /////////////////////////////////////////////////////////////////////////////////////////
+    
   fillSelect('invariant-depth',Array.from({length:12},(_,i)=>i+1),2);
   function renderInvariant(){
     const n=Number($('invariant-depth').value);let a=48n,b=6n,c=12n;
