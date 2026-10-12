@@ -293,26 +293,15 @@
 <h2>9. the limit and its dimension</h2>
 <p>Choose one base label $(i,j)$ and repeat it at every level. This stationary address defines a compact attractor satisfying</p>
 <div class="equation">$$F_{ij}=\bigcup_{(a,b)\in M_{ij}}f_{a,b}(F_{ij}).\tag{8}$$</div>
-<p>There are 16 copies, each smaller by $1/\sqrt{96}$. The interiors of their containing cells are disjoint, so the open set condition holds. The classical Moran&ndash;Hutchinson formula <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a> determines the Hausdorff dimension $s$ from $16(1/\sqrt{96})^s=1$:</p>
+<p>There are $16$ copies, each smaller by $1/\sqrt{96}$. The interiors of their containing cells are disjoint, so the open set condition holds. The classical Moran&ndash;Hutchinson formula <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a> determines the Hausdorff dimension $s$ from $16(1/\sqrt{96})^s=1$:</p>
 <div class="equation">$$\boxed{\ \dim_H F_{ij}=\frac{\log16}{\log\sqrt{96}}=\frac{\log256}{\log96}=1.21488922664690575\ldots\ }.\tag{9}$$</div>
 
-<p>The number is greater than the dimension of a line and less than that of an area. It follows directly from the branching and scale factors. The dimension formula is classical, and the decimal value is not claimed to be a new mathematical constant. Other self-similar sets with 256 pieces scaled by $1/96$ have the same dimension when the open set condition holds.</p>
+<p>The number is greater than the dimension of a line and less than that of an area. It follows directly from the branching and scale factors. Other self-similar sets with $256$ pieces scaled by $1/96$ have the same dimension when the open set condition holds.</p>
 
-<p>For a more detailed portrait, <a href="stationary_depth4.svg">open the exact depth-four drawing</a>. It contains 65,536 atoms but covers only $1/1296$ of its target, so its whole-target appearance is naturally faint. The explorer's magnified-cell view makes the fine structure easier to inspect.</p>
-
-<figure class="wide"><img src="stationary_gallery.svg" alt="All thirty-six stationary depth-two portraits, illustrating varied deleted-cell patterns with the same scale and dimension."><figcaption><strong>A gallery of all 36 stationary addresses.</strong> Each panel repeats its own label, so it shows $P^{(2)}_{(i,i),(j,j)}$. These are 36 portraits with the same dimension in the limit. They are not the complete order-36 array and they do not collectively represent one of its required tiling lines.</figcaption></figure>
+<figure class="wide"><img src="stationary_gallery.svg" alt="All thirty-six stationary depth-two portraits, illustrating varied deleted-cell patterns with the same scale and dimension."><figcaption><strong>A gallery of all 36 stationary addresses.</strong> Each panel repeats its own label, so it shows $P^{(2)}_{(i,i),(j,j)}$. These are $36$ portraits with the same dimension in the limit. They are not the complete order-$36$ array and they do not collectively represent one of its required tiling lines.</figcaption></figure>
 
 <h3>why a zero-area fractal can arise from complete finite puzzles</h3>
-<p>At finite depth, one piece has positive area fraction $6^{-n}$. A complete line has $6^n$ pieces, so its total is always 1. As $n$ increases, the pieces become smaller in area and the number needed for the assembly increases. The limit of one stationary piece has area zero. A fixed finite collection of such limits cannot tile a positive-area rectangle. These statements are consistent because the number of pieces in a finite complete line is not fixed as $n$ grows.</p>
-
-<h3>the dimension belongs to the geometric encoding</h3>
-<p>Subdivide every base atom into $t\times t$ equal subatoms, inheriting its labels and sign. Use the finer cells as the replacement maps. The base piece as a union of regions is unchanged, and the total area assigned to every coefficient at every finite depth is unchanged. But there are now $16t^2$ maps of ratio $1/(t\sqrt{96})$. Their stationary limit has dimension</p>
-<div class="equation">$$s_t=\frac{\log(16t^2)}{\log(t\sqrt{96})}=2-\frac{\log6}{\log(t\sqrt{96})},\qquad t=1,2,\ldots.\tag{10}$$</div>
-<p>For example $s_2=1.397792943\ldots$, and $s_t\to2$. Both quantum families therefore admit multiple fractal encodings with different dimensions. The Hausdorff dimension here is neither a quantum-state invariant nor a local-unitary invariant.</p>
-
-<figure class="wide"><img src="dimension_refinement.svg" alt="The same base piece with one-, two- and three-fold atom subdivisions, and the resulting distinct recursive patterns."><figcaption><strong>The same base shape can generate different fractals.</strong> Refinements $t=1,2,3$ preserve the base regions and their coefficient areas, but change the recursive placements. The corresponding stationary dimensions differ.</figcaption></figure>
-
-<div class="js-only"><fieldset><legend>Refine the encoding, keep the coefficient areas</legend><label for="refinement">Subdivision $t$: <output id="refinement-label">1</output></label><br><input type="range" id="refinement" min="1" max="16" step="1" value="1"><div id="refinement-readout" class="readout" aria-live="polite"></div><canvas id="dimension-canvas" class="puzzle" width="1100" height="400" role="img" aria-label="Hausdorff dimensions for integer atom refinements t=1 through 16, increasing toward 2."></canvas><p class="small">The points correspond to integer refinements. They describe different recursive encodings of the same coefficient magnitudes, not a continuous physical change of the quantum state.</p></fieldset></div>
+<p>At finite depth, one piece has positive area fraction $6^{-n}$. A complete line has $6^n$ pieces, so its total is always $1$. As $n$ increases, the pieces become smaller in area and the number needed for the assembly increases. The limit of one stationary piece has area zero. A fixed finite collection of such limits cannot tile a positive-area rectangle. These statements are consistent because the number of pieces in a finite complete line is not fixed as $n$ grows.</p>
 </section>
 
 <section id="classical">
