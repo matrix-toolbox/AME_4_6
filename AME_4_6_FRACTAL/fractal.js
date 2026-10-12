@@ -122,7 +122,16 @@
   });renderAtom();
 
   let assembly=[],assemblyModel=null,activePiece=null,assemblyTimer=null;
-  function stopAssembly(){if(assemblyTimer)clearInterval(assemblyTimer);assemblyTimer=null;$('assembly-play').textContent='assemble step by step';}
+  /* function stopAssembly(){if(assemblyTimer)clearInterval(assemblyTimer);assemblyTimer=null;$('assembly-play').textContent='assemble step by step';} */
+  
+  function stopAssembly(){
+      if(assemblyTimer)clearInterval(assemblyTimer);
+      assemblyTimer=null;
+      const b=$('assembly-play');
+      if(b)b.textContent='assemble step by step';
+  }
+  
+  
   function updateAssemblyOptions(resetCount=true) {
     stopAssembly();const n=Number($('assembly-depth').value),kind=$('assembly-kind').value,d=6**n;
     const old=Number($('assembly-line').value)||0;
@@ -152,11 +161,19 @@
   }
   ['assembly-depth','assembly-kind','assembly-line'].forEach(id=>$(id).addEventListener('change',()=>updateAssemblyOptions()));
   $('assembly-shape').addEventListener('change',renderAssembly);$('assembly-count').addEventListener('input',()=>{stopAssembly();renderAssembly();});
-  $('assembly-play').addEventListener('click',()=>{
+  /*$('assembly-play').addEventListener('click',()=>{
     if(assemblyTimer){stopAssembly();return;}$('assembly-count').value=0;renderAssembly();$('assembly-play').textContent='Pause';
     assemblyTimer=setInterval(()=>{const n=Number($('assembly-count').value)+1;$('assembly-count').value=n;renderAssembly();if(n>=assembly.length)stopAssembly();},assembly.length===6?650:170);
-  });updateAssemblyOptions();
+  });updateAssemblyOptions();*/
 
+  const playBtn=$('assembly-play');
+  if(playBtn)playBtn.addEventListener('click',()=>{
+  if(assemblyTimer){stopAssembly();return;}
+  $('assembly-count').value=0;renderAssembly();playBtn.textContent='Pause';
+  assemblyTimer=setInterval(()=>{const n=Number($('assembly-count').value)+1;$('assembly-count').value=n;renderAssembly();if(n>=assembly.length)stopAssembly();},assembly.length===6?650:170);
+  });
+
+  
   $('decode-i').value=0;$('decode-j').value=4;$('decode-k').value=0;$('decode-l').value=4;
   function renderDecoder() {
     const address=['i','j','k','l'].map(q=>Number($('decode-'+q).value)),[i,j,k,l]=address;
