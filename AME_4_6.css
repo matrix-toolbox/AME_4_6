@@ -8,5 +8,7 @@ img{max-width:100%;}
 /*td{min-width:10em;}*/
 /*pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}*/
 .OBSOLETE{text-decoration:line-through;}
-#hex-picture td,th{width:30%;text-align:left;white-space:nowrap;}
-#hex-picture table{border-collapse:collapse;}
+#hex-picture table,
+#hex-picture { border-collapse: collapse; width: auto;}
+#hex-picture td,
+#hex-picture th { text-align: left; white-space: nowrap; padding: .3em .8em; }\
