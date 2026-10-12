@@ -135,7 +135,7 @@
 <label>depth <select id="assembly-depth">
   <option value="1">1 &ndash; order 6</option>
   <option value="2">2 &ndash; order 36</option>
-  <option value="3">3 &ndash; order 216</option>
+  <!--option value="3">3 &ndash; order 216</option--> <!-- careful here! -->
 </select></label>
 <label>line <select id="assembly-kind"><option value="row">row</option><option value="column">column</option><option value="diagonal">main diagonal</option><option value="antidiagonal">other diagonal</option></select></label>
 <label id="assembly-line-label">row label <select id="assembly-line"></select></label>
@@ -172,7 +172,7 @@
 <div class="controls">
 <label>address <select id="explorer-address"><option value="stationary">repeat one base label</option><option value="controlled">sign example: (0,2), then (2,0)</option></select></label>
 <label>repeated row digit $i$ <select id="explorer-i"></select></label><label>repeated column digit $j$ <select id="explorer-j"></select></label>
-<label>depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4'096 atoms</option><option value="4">4 &ndash; 65'536 atoms</option></select></label>
+<label>depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4096 atoms</option><option value="4">4 &ndash; 65536 atoms</option></select></label>
 <label>target <select id="explorer-shape"><option value="rectangle">rectangle</option><option value="square" selected>square</option></select></label>
 <label>colour shows <select id="explorer-colour"><option value="geometry">geometry only</option><option value="sector">first sector digit</option><option value="quantum">first quantum-colour digit</option><option value="product-sign">product sign</option><option value="controlled-sign">controlled sign</option><option value="extra-sign">extra sign factor</option></select></label>
 </div>
@@ -230,9 +230,9 @@
 <div class="equation">$$g_{a,b}(u,v)=\left(\frac{a+v}{24},\frac{b+1-u}{4}\right).$$</div>
 <p>Two successive steps have the form $z\mapsto(\delta-z)/96$: a half-turn and a uniform contraction by $1/96$. Thus depth two has a $96\times96$ grid of genuinely square cells.</p>
 
-<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption>One complete row of the order-$36$ puzzle. Here $I=(0,0)$ is fixed and all $36$ column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot 256=9'216$ cells cover the square exactly once.</figcaption></figure>
+<figure class="wide"><img src="row36_assembly.svg" alt="All thirty-six pieces of the depth-two row I=(0,0), followed by their complete square assembly."><figcaption>One complete row of the order-$36$ puzzle. Here $I=(0,0)$ is fixed and all $36$ column words $J$ are listed. The small panels are a list of one row, not the entire $36\times36$ array. Their $36\cdot 256=9216$ cells cover the square exactly once.</figcaption></figure>
 
-<p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives $288$ distinct normalized images under the eight square symmetries. All 1'296 two-level pieces give 10'368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
+<p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives $288$ distinct normalized images under the eight square symmetries. All 1296 two-level pieces give 10368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
 </section>
 
 <!--section id="signs">
@@ -243,7 +243,7 @@
 
 <figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption>For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their $64$ descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
 
-<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9'216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
+<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
 
 <p>The operation is a controlled local sign on the child, selected by one outer party. It fits a useful general rule. Let $A$ be a two-unitary tensor and let every $B^{(x)}$ be two-unitary with the same inner dimension. Then</p>
 <div class="equation">$$W_{(i,a)(j,b)(k,c)(l,e)}=A_{ijkl}B^{(k)}_{abce}\tag{7}$$</div>
