@@ -39,9 +39,7 @@
 <div class="equation">$$|\psi\rangle=\frac1d\sum_{i,j,k,l=0}^{d-1}T_{ijkl}|i\rangle_A|j\rangle_B|k\rangle_C|l\rangle_D$$</div>
 <p>is an AME state. Such a tensor is called <strong>two-unitary</strong>. Here all coefficients are real, so its three matrices are orthogonal. We write $T^{\rm g}$ for the geometric seed throughout: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
 
-<p>A geomagic square replaces numbers in a magic square by shapes. Its entries are distinct pieces. Each row, column and main diagonal must assemble into the same target. In this construction the pieces already share a coordinate frame: simply superimpose the occupied regions, keeping every component in its prescribed position. A piece may have several disconnected components. The complete collection at fixed relative positions counts as one piece.</p>
-
-<p>The geometry represents squared magnitudes. Labels identify coefficients, signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality.</p>
+<p>A geomagic square replaces numbers in a magic square by shapes. Its entries are distinct pieces. Each row, column and main diagonal must assemble into the same target. In this construction the pieces already share a coordinate frame: simply superimpose the occupied regions, keeping every component in its prescribed position. A piece may have several disconnected components. The complete collection at fixed relative positions counts as one piece. The geometry represents squared magnitudes. Labels identify coefficients, signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality. There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p>
 
 <!--div class="table-scroll">
 <table class="data-table">
@@ -55,12 +53,12 @@
   <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
 </tbody>
 </table>
-</div-->
-<p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p>
+</div>
+<p>There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p-->
 </section>
 
 <section id="bridge">
-<h2>from hexagons to rectangles</h2>
+<h2>hexagons $\longrightarrow$ rectangles</h2>
 <p>The original hexagon and the new rectangle encode the same $T^{\rm g}$. This is a new placement of the same signed, weighted matching data. It is not an affine transformation of the hexagon. A thin triangular contribution can be subdivided and placed elsewhere, provided its label, its sign and its total relative area are preserved.</p>
 
 <p>For the recursive construction we make all atoms equal. Each of the six sectors contains $16$ atoms, so the complete target has $96$. An atom in the first four sectors of the equal-slice hexagon is split into two and the atoms in sectors $4$ and $5$ already have the required sector weight $1/16$. The resulting atoms are placed on a $24\times4$ grid.</p>
@@ -70,14 +68,14 @@
   <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the repository.">
   <img src="coefficient_bridge.svg" alt="Rectangular piece (0,4), with four highlighted equal atoms of sector 0 and colour 4, each carrying a minus sign.">
  </div>
- <figcaption><strong>The same coefficient in two placements.</strong> In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">unchanged</a>. The rectangular drawing is calculated from the exact data.</figcaption>
+ <figcaption>There are the same coefficient in two placements. In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">unchanged</a>. The rectangular drawing is calculated from the exact data.</figcaption>
 </figure>
 
 <p>A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work. In this rectangular placement $34$ of the $36$ base pieces are disconnected as closed sets. That is compatible with the definition used here, namely disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
 </section>
 
 <section id="alphabet">
-<h2>a $96$-atom alphabet: the strings and permutations</h2>
+<h2>the strings and permutations &ndash; a $96$-atom alphabet</h2>
 <p>The long strings specify where to put a finite list of atoms. A matching word $\tau=251340$ means $\tau(0)=2$, $\tau(1)=5$, $\tau(2)=1$, $\ldots$. The atom goes into piece $(i,\tau(i))$ for each row $i$. A colour word $\sigma$ supplies $l=\sigma(i)$ in that placement. Both words are permutations of $0,\cdots,5$. One target atom therefore appears in six pieces, once in each row and once in each column. The selected matchings also meet each designated diagonal exactly once. A colour belongs to the placement of an atom: the same target location can have different quantum colours in different pieces.</p>
 
 <p>Equation (B1) in the manuscript gives these six words of matching numbers:</p>
@@ -93,7 +91,7 @@
 
 <p>Read an expanded word from left to right, placing its digits along the bottom row of the corresponding $4\times4$ sector block, then along the next row up. Position $t=0,\ldots,15$ in sector $k$ has coordinates $a=4k+(t\bmod4)$ with $b=\lfloor t/4\rfloor$. For sectors $4$ and $5$, each matching occurs twice. Use its first colour word on its first occurrence, and its second colour word on its second occurrence. For sectors 0&ndash;3 there is only one colour word for each matching. The sign is the sign of the corresponding entry of $T^{\rm g}$. It is provided by the seed, not by the matching number.</p>
 
-<figure class="wide"><img src="atom_recipe.svg" alt="The complete 96-atom matching alphabet above the signed, quantum-colour-labelled atoms of one base piece."><figcaption><strong>From placement numbers to quantum labels.</strong> The upper grid displays the matching numbers used to assign target atoms to pieces. The lower grid shows a selected piece with its actual colour digits and seed signs. The two kinds of numbers serve different purposes.</figcaption></figure>
+<figure class="wide"><img src="atom_recipe.svg" alt="The complete 96-atom matching alphabet above the signed, quantum-colour-labelled atoms of one base piece."><figcaption>Placement numbers and quantum labels. The upper grid displays the matching numbers used to assign target atoms to pieces. The lower grid shows a selected piece with its actual colour digits and seed signs. The two kinds of numbers serve different purposes.</figcaption></figure>
 
 <div class="js-only">
 <fieldset>
