@@ -206,7 +206,9 @@
 <div class="js-only">
 <fieldset>
 <legend>decode any base coefficient</legend>
-<div class="controls"><label>row $i$ <select id="decode-i"></select></label><label>column $j$ <select id="decode-j"></select></label><label>sector $k$ <select id="decode-k"></select></label><label>quantum colour $l$ <select id="decode-l"></select></label><button type="button" id="decode-example">restore the example</button></div>
+<div class="controls"><label>row $i$ <select id="decode-i"></select></label><label>column $j$ <select id="decode-j"></select></label><label>sector $k$ <select id="decode-k"></select></label><label>quantum colour $l$ <select id="decode-l"></select></label>
+  <hr>
+  <button type="button" id="decode-example">restore the example</button></div>
 <div class="canvas-wrap"><canvas id="decode-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="Selected base piece, with all fragments of the chosen coefficient highlighted and signed."></canvas></div>
 <div id="decode-result" class="formula-result" aria-live="polite"></div>
 <p class="small">Numbers inside occupied atoms are the quantum colour $l$. A minus is an explicit sign mark. The chosen sector and colour are highlighted. The remaining atoms of the piece are pale. The six sector blocks run from $k=0$ on the left to $k=5$ on the right.</p>
