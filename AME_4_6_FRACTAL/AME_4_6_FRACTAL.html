@@ -199,9 +199,7 @@
 <div class="equation">$$U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}}\qquad\text{and}\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}.\tag{3}$$</div>
 <p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas before taking the square root.</p>
 
-  <p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then</p>
-<div class="equation">$$\mu=\frac{m}{96^n},\qquad U=\varepsilon\sqrt{\frac{m}{16^n}},\qquad\psi=\varepsilon\frac{\sqrt m}{24^n}.\tag{4}$$</div>
-<p>For example, $(i,j,k,l)=(0,4,0,4)$ has four negative atoms. Thus $\mu=4/96=1/24$, $U=-1/2$, and $\psi=-1/12$.</p>
+<p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then $\mu=m/96^n$, $U=\varepsilon\sqrt{m}/\sqrt{16^n}$ and $\psi=\varepsilon\sqrt{m}/24^n$. For example, $(i,j,k,l)=(0,4,0,4)$ has four negative atoms. Thus $\mu=4/96=1/24$, $U=-1/2$ and $\psi=-1/12$.</p>
 
 <div class="js-only">
 <fieldset>
@@ -216,7 +214,7 @@
 </div>
 
 <p>For the product family, start from the seed coefficients and the stated matching decomposition. Distribute each squared magnitude among its assigned equal atoms, attach its sign and colour label, and put those atoms at the B1 grid positions. Recursively replace occupied cells according to (2), multiplying the base signs. This gives</p>
-<div class="equation">$$\mu_{IJKL}=\frac1d\prod_{r=1}^n\bigl(T^{\rm g}_{i_rj_rk_rl_r}\bigr)^2,\qquad U^{(n)}_{IJ,KL}=\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}.\tag{5}$$</div>
+<div class="equation">$$\mu_{IJKL}=\frac1d\prod_{r=1}^n\bigl(T^{\rm g}_{i_rj_rk_rl_r}\bigr)^2\qquad\text{and}\qquad U^{(n)}_{IJ,KL}=\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}.\tag{5}$$</div>
 <p>With corresponding parties grouped, this is $|\psi_{\rm g}\rangle^{\otimes n}$. Tensor products preserve all three unitary flattenings.</p>
 
 <p>The correspondence is exact once the placement conventions and sign rule are specified. The same matrix can admit many pictures, including the original hexagons and these rectangles. Conversely, an unlabelled silhouette loses the sector, colour and sign information and does not uniquely determine a quantum state. The explorers display complete labels numerically. The portrait figures deliberately show geometry alone.</p>
