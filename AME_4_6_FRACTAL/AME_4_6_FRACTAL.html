@@ -26,18 +26,16 @@
 
 <figure class="wide">
   <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
-  <figcaption><strong>Many shapes, one rule.</strong> These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
+  <figcaption>There are many shapes and only one rule. These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
 </figure>
 
 <hr>
 
 <section id="meaning">
 <h2>the quantum state and the puzzle</h2>
-<p>An AME$(4,d)$ state has four parties, each with $d$ possible basis labels. It is <strong>absolutely maximally entangled</strong>: whichever two parties are retained, their reduced state is the maximally mixed state $\mathbb I_{d^2}/d^2$. No particular pair is preferred.</p>
-
-<p>For a four-index tensor $T$, collect two indices into a row label and the other two into a column label. There are three different ways to do this: $AB|CD$, $AC|BD$ and $AD|BC$. If the resulting $d^2\times d^2$ matrices are all unitary, then</p>
+<p>An <a herf="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic.html">AME</a>$(4,d)$ state has four parties, each with $d$ possible basis labels (levels).</p>
 <div class="equation">$$|\psi\rangle=\frac1d\sum_{i,j,k,l=0}^{d-1}T_{ijkl}|i\rangle_A|j\rangle_B|k\rangle_C|l\rangle_D$$</div>
-<p>is an AME state. Such a tensor is called <strong>two-unitary</strong>. Here all coefficients are real, so its three matrices are orthogonal. We write $T^{\rm g}$ for the geometric seed throughout: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
+<p>Here all coefficients $T$ are real. We write $T^{\rm g}$ for the geometric seed: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
 
 <p>A geomagic square replaces numbers in a magic square by shapes. Its entries are distinct pieces. Each row, column and main diagonal must assemble into the same target. In this construction the pieces already share a coordinate frame: simply superimpose the occupied regions, keeping every component in its prescribed position. A piece may have several disconnected components. The complete collection at fixed relative positions counts as one piece. The geometry represents squared magnitudes. Labels identify coefficients, signs complete the real quantum state. Thus a successful tiling and an AME state are related but separate mathematical requirements. The tiling does not by itself establish the cancellations needed for orthogonality. There are still only four parties at every level. The $n$ six-level digits belonging to party $A$ are grouped into one $6^n$-level party and likewise for $B$, $C$ and $D$.</p>
 
