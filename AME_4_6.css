@@ -5,4 +5,4 @@ a{color:#00f;}
 img{max-width:100%;}
 /*pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}*/
 .OBSOLETE{text-decoration:line-through;}
-
+#hex-picture td, #hex-picture th {text-align:right;width:30%;}
