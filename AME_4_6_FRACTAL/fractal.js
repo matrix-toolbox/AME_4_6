@@ -6,7 +6,8 @@
   const NS = 6;
   const palette = ['#3973a5', '#db7f32', '#47927e', '#c25f62', '#ccaa38', '#886aa5'];
   const light = ['#d5e3ef', '#f3dfcd', '#d5e8e0', '#f0dadd', '#f1e8c4', '#e3dbef'];
-  const fmt = x => x.toLocaleString('en-US');
+  /* const fmt = x => x.toLocaleString('en-US'); */
+  const fmt = x => x.toLocaleString('de-CH');
   const signText = s => s < 0 ? '−' : '+';
   const wordText = w => '(' + w.join(',') + ')';
   const entryMap = new Map(D.entries.map(e => [[e.i,e.j,e.k,e.l].join(','),e]));
