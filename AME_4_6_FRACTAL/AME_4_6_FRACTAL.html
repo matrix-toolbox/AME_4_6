@@ -145,42 +145,39 @@
 <tr><td>5</td><td>7</td><td class="words">514320</td><td class="words">052431</td><td class="words">142530</td><td>1/16</td></tr></tbody></table></div>
 <p>In formulas, the table is a decomposition of squared entries into coloured matchings:</p>
 <div class="equation">$$\bigl(T^{\rm g}_{ijkl}\bigr)^2=\sum_\alpha w_{k\alpha}\,\delta_{j,\tau_{k\alpha}(i)}\,\delta_{l,\sigma_{k\alpha}(i)},\qquad \sum_\alpha w_{k\alpha}=1.$$</div>
-<p>It specifies magnitudes. The exact signs and all 152 nonzero coefficients can be inspected in the <a href="#decode">coefficient decoder below</a>.</p>
+<p>It specifies magnitudes. The exact signs and all $152$ nonzero coefficients can be inspected in the <a href="#decode">coefficient decoder below</a>.</p>
 </details>
 </section>
 
 <section id="assemble">
 <h2>4. see complete rows, columns and diagonals assemble</h2>
-<p>The array below uses the same row and column orders as the companion construction:</p>
-<div class="equation">$$R_0=(0,2,4,5,3,1),\qquad C_0=(2,4,0,1,5,3).$$</div>
-<p>The two displayed diagonals consist of $(i,D(i))$ and $(i,D'(i))$, where</p>
-<div class="equation">$$D=(2,3,4,5,0,1),\qquad D'=(3,2,5,4,1,0).$$</div>
+<p>The array below uses the same row and column orders as the companion construction: $R_0=(0,2,4,5,3,1)$ and $C_0=(2,4,0,1,5,3)$. The two displayed diagonals consist of $(i,D(i))$ and $(i,D'(i))$, where $D=(2,3,4,5,0,1)$ and $D'=(3,2,5,4,1,0)$.</p>
 
-<figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption><strong>The complete base geomagic square.</strong> Every piece contains 16 of the 96 target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
+<figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption><strong>The complete base geomagic square.</strong> Every piece contains $16$ of the $96$ target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
 
 <div class="js-only">
 <fieldset>
-<legend>Assemble a full line</legend>
+<legend>assemble a full line</legend>
 <div class="controls">
-<label>Depth <select id="assembly-depth"><option value="1">1 &ndash; order 6</option><option value="2">2 &ndash; order 36</option></select></label>
-<label>Line <select id="assembly-kind"><option value="row">Row</option><option value="column">Column</option><option value="diagonal">Main diagonal</option><option value="antidiagonal">Other diagonal</option></select></label>
-<label id="assembly-line-label">Row label <select id="assembly-line"></select></label>
-<label>Target <select id="assembly-shape"><option value="rectangle">Rectangle</option><option value="square">Square</option></select></label>
-<button type="button" id="assembly-play">Assemble step by step</button>
+<label>depth <select id="assembly-depth"><option value="1">$1$ &ndash; order $6$</option><option value="2">$2$ &ndash; order $36$</option></select></label>
+<label>line <select id="assembly-kind"><option value="row">row</option><option value="column">column</option><option value="diagonal">main diagonal</option><option value="antidiagonal">other diagonal</option></select></label>
+<label id="assembly-line-label">row label <select id="assembly-line"></select></label>
+<label>Target <select id="assembly-shape"><option value="rectangle">rectangle</option><option value="square">square</option></select></label>
+<button type="button" id="assembly-play">assemble step by step</button>
 </div>
-<p><label for="assembly-count">Pieces placed: <output id="assembly-count-label">6 / 6</output></label><br><input type="range" id="assembly-count" min="0" max="6" value="6" step="1"></p>
+<p><label for="assembly-count">pieces placed: <output id="assembly-count-label">$6$ / $6$</output></label><br><input type="range" id="assembly-count" min="0" max="6" value="6" step="1"></p>
 <div class="canvas-wrap" id="assembly-wrap"><canvas id="assembly-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="Exact superposition of the selected geomagic line."></canvas></div>
 <div id="assembly-readout" class="readout" aria-live="polite"></div>
-<p class="small">Select a piece label below to highlight its contribution within the assembly. Select it again to show all contributors equally.</p>
+<p class="small">select a piece label below to highlight its contribution within the assembly (select it again to show all contributors equally)</p>
 <div class="piece-key" id="assembly-key" aria-label="Contributing pieces"></div>
 </fieldset>
 </div>
 
-<p>At depth one, six pieces containing 16 atoms each cover all $6\cdot16=96$ atoms, once each. At depth two, 36 pieces containing 256 atoms each cover all $36\cdot256=9216$ cells of a $96\times96$ grid. The tool counts occupied cells exactly. It does not estimate coverage from the rendered pixels.</p>
+<p>At depth one, six pieces containing $16$ atoms each cover all $6\cdot 16=96$ atoms, once each. At depth two, $36$ pieces containing $256$ atoms each cover all $36\cdot 256=9216$ cells of a $96\times 96$ grid. The tool counts occupied cells exactly. It does not estimate coverage from the rendered pixels.</p>
 
-<figure class="wide"><img src="seed_all_lines.svg" alt="The six row assemblies, six column assemblies and two diagonal assemblies. Every target rectangle is completely covered."><figcaption><strong>All 14 base assemblies.</strong> Each small rectangle is a different required line of the puzzle, filled without gaps or overlapping interiors. The contribution of each of its six pieces has a different colour.</figcaption></figure>
+<figure class="wide"><img src="seed_all_lines.svg" alt="The six row assemblies, six column assemblies and two diagonal assemblies. Every target rectangle is completely covered."><figcaption><strong>All $14$ base assemblies.</strong> Each small rectangle is a different required line of the puzzle, filled without gaps or overlapping interiors. The contribution of each of its six pieces has a different colour.</figcaption></figure>
 
-<div class="note"><p><strong>Which superposition fills the figure?</strong> One complete row, column or diagonal fills the target exactly once. Superimposing <em>all</em> $d^2$ pieces covers it $d$ times. A selection of attractive portraits generally does not form a tiling line.</p></div>
+<div class="note"><p><strong>Which superposition fills the figure?</strong> One complete row, column or diagonal fills the target exactly once. Superimposing <strong>all</strong> $d^2$ pieces covers it $d$ times. A selection of attractive portraits generally does not form a tiling line.</p></div>
 </section>
 
 <section id="replacement">
@@ -226,9 +223,9 @@
 <h2>6. recover the state from the picture, and back</h2>
 <p>At depth $n$, read the row word $I$, column word $J$, sector word $K=(k_1,\ldots,k_n)$ and quantum-colour word $L=(l_1,\ldots,l_n)$. Each is an $n$-digit base-six word. Keep the complete label at every leaf. A single decorative colour cannot display all these digits at once.</p>
 
-<p>Collect <em>all</em> fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then</p>
+<p>Collect all fragments with the same complete label $(I,J,K,L)$. Let their total area, divided by the area of the whole target, be $\mu_{IJKL}$. Read their common sign $\varepsilon_{IJKL}$. Then</p>
 <div class="equation">$$\boxed{\ U^{(n)}_{IJ,KL}=\varepsilon_{IJKL}\sqrt{d\,\mu_{IJKL}},\qquad\psi^{(n)}_{IJKL}=\varepsilon_{IJKL}\sqrt{\mu_{IJKL}/d}\ },\qquad d=6^n.\tag{3}$$</div>
-<p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas <em>before</em> taking the square root.</p>
+<p>The first quantity is the two-unitary matrix entry, and the second is the coefficient of the normalized state. Empty regions give zero. Add fragment areas before taking the square root.</p>
 
 <h3>counting is enough</h3>
 <p>There are $96^n$ equal atoms in the target grid. If the chosen coefficient occupies $m$ of them, then</p>
@@ -283,7 +280,7 @@
 <h2>8. the conditional minus sign</h2>
 <p>The product family already gives infinitely many dimensions. There is also a simple way to change the states while leaving every occupied atom exactly where it is. When the sector digit at one level is $0$ and the row digit at the next level is $2$, multiply the coefficient by $-1$.</p>
 <div class="equation">$$\mathcal T^{(n)}_{IJKL}=\left(\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}\right)(-1)^{\sum_{r=1}^{n-1}[k_r=0][i_{r+1}=2]},\qquad |\Psi_n\rangle=\frac1{6^n}\sum_{I,J,K,L}\mathcal T^{(n)}_{IJKL}|IJKL\rangle.\tag{6}$$</div>
-<p>Square brackets denote an indicator: $[\text{statement}]$ is 1 when the statement is true and 0 otherwise. An extra minus <em>toggles</em> the old sign. It does not necessarily make the final sign negative.</p>
+<p>Square brackets denote an indicator: $[\text{statement}]$ is 1 when the statement is true and 0 otherwise. An extra minus toggles the old sign. It does not necessarily make the final sign negative.</p>
 
 <figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption><strong>Change a sign, keep the geometry.</strong> For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their 64 descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
 
@@ -317,7 +314,7 @@
 
 <section id="dimension">
 <h2>9. the limit and its dimension</h2>
-<p>Choose one base label $(i,j)$ and repeat it at every level. This <em>stationary address</em> defines a compact attractor satisfying</p>
+<p>Choose one base label $(i,j)$ and repeat it at every level. This stationary address defines a compact attractor satisfying</p>
 <div class="equation">$$F_{ij}=\bigcup_{(a,b)\in M_{ij}}f_{a,b}(F_{ij}).\tag{8}$$</div>
 <p>There are 16 copies, each smaller by $1/\sqrt{96}$. The interiors of their containing cells are disjoint, so the open set condition holds. The classical Moran&ndash;Hutchinson formula <a href="#ref-moran">[3]</a>, <a href="#ref-hutchinson">[4]</a> determines the Hausdorff dimension $s$ from $16(1/\sqrt{96})^s=1$:</p>
 <div class="equation">$$\boxed{\ \dim_H F_{ij}=\frac{\log16}{\log\sqrt{96}}=\frac{\log256}{\log96}=1.21488922664690575\ldots\ }.\tag{9}$$</div>
@@ -344,18 +341,18 @@
 <section id="classical">
 <h2>10. IFS, L-systems and classical fractal squares</h2>
 <h3>an iterated function system</h3>
-<p>For a fixed $(i,j)$, the 16 maps in (8) form an <em>iterated function system</em> (IFS). Starting with the full target and repeatedly taking the union of its 16 images produces the displayed finite approximations and converges to its compact attractor. This is precisely the familiar IFS mechanism <a href="#ref-hutchinson">[4]</a>. The particular masks supply the AME matching data.</p>
+<p>For a fixed $(i,j)$, the 16 maps in (8) form an <strong>iterated function system</strong> (IFS). Starting with the full target and repeatedly taking the union of its 16 images produces the displayed finite approximations and converges to its compact attractor. This is precisely the familiar IFS mechanism <a href="#ref-hutchinson">[4]</a>. The particular masks supply the AME matching data.</p>
 
 <h3>a geometric L-system with very little memory</h3>
 <p>The same geometry can be described as a parallel replacement rule: replace every occupied symbol by the same 16-symbol pattern, with its scale and rotation. This is the connection with geometric L-systems <a href="#ref-plants">[6]</a>. A fixed repeated label gives one stationary rule, and an address with changing labels chooses a mask at each level.</p>
 <p>The conditional sign rule needs only two bits of memory along an address: the preceding control bit $q$ and the accumulated sign $\varepsilon$. On reading a nonzero seed entry $(i,j,k,l)$, update</p>
 <div class="equation">$$(q,\varepsilon)\longmapsto\left([k=0],\;\varepsilon\,\operatorname{sgn}(T^{\rm g}_{ijkl})(-1)^{q[i=2]}\right),\qquad(q,\varepsilon)_{\rm start}=(0,+1).\tag{11}$$</div>
-<p>There are only four memory states. The digit $k$ determines the memory for the <em>next</em> level, while the previous memory determines whether the current sign is toggled. This gives a finite algorithm at every depth. No convergence of signs along an infinite address is assumed.</p>
+<p>There are only four memory states. The digit $k$ determines the memory for the <strong>next</strong> level, while the previous memory determines whether the current sign is toggled. This gives a finite algorithm at every depth. No convergence of signs along an infinite address is assumed.</p>
 
 <div class="js-only"><fieldset><legend>Follow a sign through a short address</legend><div class="controls"><label>Example <select id="automaton-example"><option value="controlled">One toggle: the depth-two example</option><option value="chain">Two toggles along three levels</option><option value="negative">A negative seed coefficient</option></select></label></div><div class="table-scroll"><table class="data-table"><thead><tr><th>level</th><th>$(i,j,k,l)$</th><th>old $q$</th><th>base sign</th><th>extra factor</th><th>new $q$</th><th>accumulated sign</th></tr></thead><tbody id="automaton-rows"></tbody></table></div><p id="automaton-readout" aria-live="polite"></p></fieldset></div>
 
 <h3>a deleted-digit fractal square</h3>
-<p>There is a direct connection with the classical class called <em>fractal squares</em> <a href="#ref-squares">[5]</a>. Let $K=S(F_{ij})$ be a square-normalized stationary attractor. Two steps are half-turn similarities with 256 translation digits. Four steps remove the remaining half-turn, giving the standard deleted-digit form</p>
+<p>There is a direct connection with the classical class called fractal squares <a href="#ref-squares">[5]</a>. Let $K=S(F_{ij})$ be a square-normalized stationary attractor. Two steps are half-turn similarities with 256 translation digits. Four steps remove the remaining half-turn, giving the standard deleted-digit form</p>
 <div class="equation">$$K=\frac{K+\mathcal E}{9216},\qquad\mathcal E\subset\{0,\ldots,9215\}^2,\qquad|\mathcal E|=65\,536.\tag{12}$$</div>
 <p>This means: retain a fixed selection of 65,536 cells in a $9216\times9216$ square grid, and repeat the same selection inside each retained cell. Grouping four existing steps only redescribes the same attractor. It differs from the finer-atom construction in (10), which changes the recursion. “Fractal square” does not imply connectedness or a carpet topology.</p>
 <details><summary>The exact digit sets</summary><p>For two occupied base atoms $(a,b),(a',b')\in M_{ij}$, define</p>
