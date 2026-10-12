@@ -31,19 +31,14 @@ legend { padding: 0 .4em; }
 /*.controls label { flex: 0 0 auto; white-space: nowrap; }
 .controls label > * { min-width: 0;}*/
 
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: .7em;
-}
-
 .controls label {
-  display: flex;
-  flex-direction: column;
-  gap: .3em;
+  display: block;
+}
+.controls label > select,
+.controls label > input {
+  display: block;
   width: 100%;
-  max-width: 100%;
+  margin-top: .3em;
 }
 
 button, input, select { font: inherit; }
