@@ -95,8 +95,8 @@
 
 <div class="js-only">
 <fieldset>
-<legend>Inspect any atom and its six placements</legend>
-<div class="controls"><label>Sector $k$ <select id="atom-sector"></select></label><label>Position $t$ within sector <select id="atom-position"></select></label></div>
+<legend>inspect any atom and its six placements</legend>
+<div class="controls"><label style="width:128px;">sector $k$ <select id="atom-sector"></select></label><label style="width:128px;">position $t$ within sector <select id="atom-position"></select></label></div>
 <div class="canvas-wrap"><canvas id="atom-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="The 24 by 4 atom grid. The selected atom is outlined; numbers show matching identifiers."></canvas></div>
 <div id="atom-readout" class="readout" aria-live="polite"></div>
 <div class="table-scroll"><table class="data-table"><thead><tr><th>row $i$</th><th>piece column $j=\tau(i)$</th><th>quantum colour $l=\sigma(i)$</th><th>sign</th></tr></thead><tbody id="atom-placements"></tbody></table></div>
@@ -147,7 +147,7 @@
 <h2>complete rows, columns and diagonals assemble</h2>
 <p>The array below uses the same row and column orders as the companion construction: $R_0=(0,2,4,5,3,1)$ and $C_0=(2,4,0,1,5,3)$. The two displayed diagonals consist of $(i,D(i))$ and $(i,D'(i))$, where $D=(2,3,4,5,0,1)$ and $D'=(3,2,5,4,1,0)$.</p>
 
-<figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption><strong>The complete base geomagic square.</strong> Every piece contains $16$ of the $96$ target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
+<figure class="wide"><img src="seed_atlas.svg" alt="All thirty-six exact base rectangle pieces, displayed in the row and column orders that make both main diagonals tile."><figcaption>The complete base geomagic square. Every piece contains $16$ of the $96$ target atoms. A pale region belongs to the target frame, not to the piece. Colours help distinguish pieces and have no quantum meaning here.</figcaption></figure>
 
 <div class="js-only">
 <fieldset>
