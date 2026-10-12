@@ -188,7 +188,7 @@
 <div class="equation">$$P^{(0)}=R\qquad\text{and}\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
 <p>where $I=(i_1,\ldots,i_n)$, $J=(j_1,\ldots,j_n)$ and primes remove the first digit. Every piece has $16^n$ equal atoms and occupies the fraction $(16/96)^n=6^{-n}$ of its target.</p>
 
-<!--div class="js-only">
+<div class="js-only">
 <fieldset>
 <legend>explore a piece and its descendants</legend>
 <div class="controls">
@@ -205,7 +205,7 @@
 <p class="small">The dropdowns also provide keyboard access to the zoom. Click a visible atom for its complete sector word, colour word and signs. At high depth, some atoms are smaller than a screen pixel. The numerical counts and addresses remain exact.</p>
 <div id="explorer-atom" class="readout mono" aria-live="polite"></div>
 </fieldset>
-</div-->
+</div>
 
 <details><summary>every depth is a genuine geomagic square</summary>
 <p>Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
