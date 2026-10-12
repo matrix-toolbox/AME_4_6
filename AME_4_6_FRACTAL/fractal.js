@@ -171,7 +171,7 @@
   if(assemblyTimer){stopAssembly();return;}
   $('assembly-count').value=0;renderAssembly();playBtn.textContent='Pause';
   assemblyTimer=setInterval(()=>{const n=Number($('assembly-count').value)+1;$('assembly-count').value=n;renderAssembly();if(n>=assembly.length)stopAssembly();},assembly.length===6?650:170);
-  });
+  });updateAssemblyOptions();
 
   
   $('decode-i').value=0;$('decode-j').value=4;$('decode-k').value=0;$('decode-l').value=4;
