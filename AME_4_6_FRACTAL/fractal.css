@@ -1,4 +1,4 @@
-.DISCLAIMER{color:#f00;padding:4px;background-color:#ff0;border-radius:8px;}
+.DISCLAIMER{color:#f00;padding:4px;background-color:#ff0;border-radius:8px;border:1px solid #f00;}
 html { scroll-behavior: smooth; }
 #content { padding-bottom: 2em; }
 nav.contents ol { columns: 2; column-gap: 3em; }
@@ -25,21 +25,9 @@ summary { cursor: pointer; font-weight: bold; }
 details[open] > summary { margin-bottom: .8em; }
 fieldset { border: 1px solid #999; padding: .85em 1em; margin: 1em 0; min-width: 0; }
 legend { padding: 0 .4em; }
-/*.controls { display: flex; align-items: end; flex-wrap: wrap; gap: .7em 1.15em; }
-.controls label { display: inline-flex; flex-direction: column; gap: .3em; max-width: 100%; }
-.controls label.check { flex-direction: row; align-items: center; padding-bottom: .3em; }*/
-/*.controls label { flex: 0 0 auto; white-space: nowrap; }
-.controls label > * { min-width: 0;}*/
-
-.controls label {
-  display: block;
-}
+.controls label { display: block; }
 .controls label > select,
-.controls label > input {
-  display: block;
-  margin-top: .3em;
-}
-
+.controls label > input { display: block; margin-top: .3em; }
 button, input, select { font: inherit; }
 button, select { min-height: 2em; }
 select { max-width: 100%; }
