@@ -9,3 +9,5 @@ img{max-width:100%;}
 /*pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}*/
 .OBSOLETE{text-decoration:line-through;}
 #hex-picture td,th{width:30%;text-align:left;}
+#hex-picture table{border-collapse:collapse;}
+#hex-picture td,th{border:1px solid #888;padding:0.2em 0.6em;text-align:center;white-space:nowrap;}
