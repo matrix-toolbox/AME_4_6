@@ -8,8 +8,10 @@ references:
 - [J. Phys.: Conf. Ser. **2448**, 012003 (2023)](https://doi.org/10.1088/1742-6596/2448/1/012003)
 - ...
 
-# 2023 &ndash; 2025
-... awaiting update ...
+# 2024
+
+- Butson-type representation &ndash; [discrete](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH36_6d.html) visualization of an affine family
+- Butson-type representation &ndash; [continuous](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH36_6c.html) visualization of an affine family
 
 # 2026
 
