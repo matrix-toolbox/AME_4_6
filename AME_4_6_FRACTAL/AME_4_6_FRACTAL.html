@@ -77,7 +77,7 @@
 <fieldset>
 <legend>inspect any atom and its six placements</legend>
 <div class="controls"><label>sector $k$ <select id="atom-sector"></select></label><label>position $t$ within sector <select id="atom-position"></select></label></div>
-<div class="canvas-wrap"><canvas id="atom-canvas" class="puzzle" width="1200" height="490" role="img" aria-label="The 24 by 4 atom grid. The selected atom is outlined; numbers show matching identifiers."></canvas></div>
+<div class="canvas-wrap"><canvas id="atom-canvas" class="puzzle" width="1200" height="200" role="img" aria-label="The 24 by 4 atom grid. The selected atom is outlined; numbers show matching identifiers."></canvas></div>
 <div id="atom-readout" class="readout" aria-live="polite"></div>
 <div class="table-scroll"><table class="data-table"><thead><tr><th>row $i$</th><th>piece column $j=\tau(i)$</th><th>quantum colour $l=\sigma(i)$</th><th>sign</th></tr></thead><tbody id="atom-placements"></tbody></table></div>
 </fieldset>
@@ -136,7 +136,7 @@
 <label>depth <select id="assembly-depth">
   <option value="1">1 &ndash; order 6</option>
   <option value="2">2 &ndash; order 36</option>
-  <!--option value="3">3 &ndash; order 216</option--> <!-- careful here! -->
+  <option value="3">3 &ndash; order 216</option> <!-- careful here! -->
 </select></label>
 <label>line <select id="assembly-kind"><option value="row">row</option><option value="column">column</option><option value="diagonal">main diagonal</option><option value="antidiagonal">other diagonal</option></select></label>
 <label id="assembly-line-label">row label <select id="assembly-line"></select></label>
