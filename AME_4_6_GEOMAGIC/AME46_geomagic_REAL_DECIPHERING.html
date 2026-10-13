@@ -6,78 +6,10 @@
 <meta name="description" content="A step-by-step explanation of Table I and Equation (B1): how permutation strings become colored fragments in a geomagic representation of a real AME(4,6) state.">
 <title>AME &bull; deciphering</title>
 <link rel="stylesheet" href="../AME_4_6.css">
+<link rel="stylesheet" href="AME_4_6_geomagic.css">
 <script src="../AME_4_6.js"></script>
-<style>
-code, pre { font-family: ui-monospace, "Courier New", monospace; }
-code { font-size: .94em; white-space: nowrap; }
-pre { background: #f4f4f4; padding: .7em; overflow-x: auto; }
-.record { font-size: 1.03em; line-height: 1.85; }
-.record > span { display: inline-block; margin-right: 1.2em; }
-table { border-collapse: collapse; margin: .75em 0; font-size: .98em; }
-td, th { border: 1px solid #888; padding: .25em .65em; text-align: center; }
-thead th { background: #f4f4f4; }
-caption { text-align: left; font-size: .91em; margin-bottom: .45em; }
-.table-scroll { max-width: 100%; overflow-x: auto; margin: .5em 0; }
-.key-table { width: 100%; }
-.key-table td:last-child { text-align: left; }
-.key-table td:first-child { white-space: nowrap; }
-.b1-table { width: 100%; }
-.b1-table code { letter-spacing: .08em; }
-figure { margin: 1em 0; }
-figcaption, .small { font-size: .9em; }
-svg { display: block; width: 100%; height: auto; overflow: visible; }
-svg text { font-family: "Times New Roman", Times, serif; }
-.edge-figure { max-width: 760px; margin: 1em auto; }
-.figure-pair { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 2em; align-items: start; }
-.figure-pair figure { margin: .6em 0; }
-.figure-pair svg { max-width: 350px; margin: 0 auto .5em; }
-.note { border-left: 3px solid #888; padding: .1em 1em; margin: 1.1em 0; background: #fafafa; }
-.formula { font-size: 1.1em; text-align: center; margin: 1em 0; overflow-x: auto; padding: .3em 0; }
-.formula sup, .formula sub { line-height: 0; }
-.color-chip { display: inline-flex; align-items: center; justify-content: center; width: 1.65em; height: 1.65em; margin: 0 .12em; background: var(--color); color: #111; border: 1px solid #777; font-family: Arial,sans-serif; font-size: .9em; line-height: 1; }
-.color-dark { color: #fff; }
-li { margin: .38em 0; }
-details { border-top: 1px solid #aaa; border-bottom: 1px solid #aaa; padding: .65em 0; margin: 1.2em 0; }
-summary { cursor: pointer; font-weight: bold; }
-details > :last-child { margin-bottom: .35em; }
-.controls { display: flex; gap: 1.3em; flex-wrap: wrap; margin: 1em 0; align-items: end; }
-.controls label { display: grid; gap: .2em; }
-select, button { font: inherit; font-size: .9em; padding: .28em .5em; color: #111; background: #fff; border: 1px solid #777; border-radius: 0; }
-button { cursor: pointer; }
-button:hover { background: #f1f1f1; }
-.explorer { border: 1px solid #888; padding: 0 1.1em 1em; margin: 1em 0; }
-.explorer h3 { margin-bottom: .6em; }
-.explorer .table-scroll { margin-top: .3em; }
-.explorer table { width: 100%; }
-.chosen-row > * { background: #eee; font-weight: bold; }
-.explorer svg { max-width: 640px; margin: .7em auto; }
-.explorer-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr); gap: 1.4em; align-items: start; }
-.explorer-grid svg { max-width: 370px; }
-.explorer-copy { font-size: .96em; }
-.noscript { border: 1px solid #888; padding: .7em; }
-.foot { font-size: .88em; }
-.source-note { color: #444; }
-@media (max-width: 700px) {
-  body { font-size: 17px; margin: 14px; }
-  h1 { font-size: 1.75em; }
-  .figure-pair, .explorer-grid { grid-template-columns: 1fr; gap: .5em; }
-  .figure-pair svg { max-width: 330px; }
-  .explorer { padding: 0 .65em .7em; }
-  td, th { padding: .24em .38em; }
-  .b1-table code { font-size: .85em; letter-spacing: 0; }
-  .b1-table { font-size: .9em; }
-  .controls { gap: .7em; }
-}
-@media print {
-  body { font-size: 11pt; margin: 0; }
-  #content { max-width: none; }
-  a { color: #111; }
-  .controls { display: none; }
-  h2, h3 { break-after: avoid; }
-  figure, table, .note, .formula { break-inside: avoid; }
-  .color-chip, svg { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-}
-</style>
+ <script defer src="AME_4_6_geomagic.js"></script>
+
 </head>
 <body>
 <main id="content">
@@ -135,7 +67,7 @@ button:hover { background: #f1f1f1; }
 <text x="45" y="24" font-size="17">matching label \$m\$</text><rect x="45" y="46" width="76" height="52" fill="#F0DE5C" stroke="#555"/><text x="83" y="80" text-anchor="middle" font-size="23">2</text><rect x="121" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="159" y="80" text-anchor="middle" font-size="23">3</text><rect x="197" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="235" y="80" text-anchor="middle" font-size="23">3</text><rect x="273" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="311" y="80" text-anchor="middle" font-size="23">1</text><rect x="349" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="387" y="80" text-anchor="middle" font-size="23">0</text><rect x="425" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="463" y="80" text-anchor="middle" font-size="23">1</text><rect x="501" y="46" width="76" height="52" fill="#f3f3f3" stroke="#555"/><text x="539" y="80" text-anchor="middle" font-size="23">0</text><rect x="577" y="46" width="76" height="52" fill="#F0DE5C" stroke="#555"/><text x="615" y="80" text-anchor="middle" font-size="23">2</text>
 <text x="45" y="124" text-anchor="middle" font-size="16">0 (start)</text><text x="121" y="124" text-anchor="middle" font-size="16">\$1/8\$</text><text x="577" y="124" text-anchor="middle" font-size="16">\$7/8\$</text><text x="653" y="124" text-anchor="middle" font-size="16">\$1\$ (end)</text></svg><figcaption>The digits inside the intervals are <strong>matching labels</strong>. Yellow shows the two contributions of matching $2$ to cell $(0, 4)$ and the gray intervals are outside this selected contribution.</figcaption></figure>
 
-<p>Join both endpoints of each interval to the hexagon's center. An interval occupying $1/8$ of the outer edge makes a triangle of area $1/8$ of the sector: all these triangles have the same altitude to that edge. The relevant width is the <strong>fraction of the straight edge</strong>, not the angle at the center.</p>
+<p>Join both endpoints of each interval to the hexagon's center. An interval occupying $1/8$ of the outer edge makes a triangle of area $1/8$ of the sector: all these triangles have the same altitude to that edge. The relevant width is the fraction of the straight edge, not the angle at the center.</p>
 
 <div class="figure-pair">
 <figure><svg viewBox="0 0 350 330" role="img" aria-labelledby="wedge-static-title wedge-static-desc">
@@ -263,12 +195,12 @@ button:hover { background: #f1f1f1; }
 <p>To recover the aggregate areas directly, start with every $A_{ijkl}$ equal to zero. For every record, and for <strong>each</strong> of its color words, run through rows $i=0,\ldots,5$ and add $w$ at the indicated address:</p>
 <p class="formula">$A_{i,\tau(i),k,\sigma(i)}\leftarrow A_{i,\tau(i),k,\sigma(i)}+w$.</p>
 
-<p>For a nonzero total, the matrix-entry magnitude is $\sqrt{A_{ijkl}}$. Table I and Eq. (B1) specify areas and placement. Signs come from Eq. (5), or from the hatching when reading the paper's picture. A zero total gives a zero entry. The matrix address is row $6i+j$, column $6k+l$.</p>
-
-<p>The normalized state has amplitudes $T^{\rm g}_{ijkl}/6$, so its basis-state probabilities are $A_{ijkl}/36$. Equation (B1) affects how the same accumulated areas are drawn, not the resulting matrix entries.</p>
+<p>For a nonzero total, the matrix-entry magnitude is $\sqrt{A_{ijkl}}$. Table I and Eq. (B1) specify areas and placement. Signs come from Eq. (5), or from the hatching when reading the paper's picture. A zero total gives a zero entry. The matrix address is row $6i+j$, column $6k+l$. The normalized state has amplitudes $T^{\rm g}_{ijkl}/6$, so its basis-state probabilities are $A_{ijkl}/36$. Equation (B1) affects how the same accumulated areas are drawn, not the resulting matrix entries.</p>
 
 <hr>
 
+<p>All pictures on this page are made by Claude (Anthropic, Claude Opus 5.5).</p>
+  
 </main>
 
 <script>
@@ -278,6 +210,7 @@ button:hover { background: #f1f1f1; }
    The explorer asks MathJax to typeset its output after each update.
    The explanatory text and full tables above are ordinary HTML.
    */
+/*
 const TABLE_I = [
   {
     "k": 0,
@@ -701,7 +634,7 @@ byId('paired-example').addEventListener('click',()=>{
   byId('matching-select').value='0';
   byId('row-select').value='0';
   renderExplorer();
-});
+});*/
 renderExplorer();
 </script>
 </body>
