@@ -21,6 +21,8 @@
     <figcaption>Real-valued representative of the AME$(4,6)$ state as a geomagic square. Every color also has its own texture and a black dot at the rim marks a minus sign.</figcaption>
 </figure>
 
+<p>This is the color-independent version announced in the caption of Figure 1. Besides the textures, it differs from the printed figure in two ways. First, it uses the canonical equal split of Appendix&nbsp;B, so that every thin triangle covers $1/8$ of a sector for $k=0,\ldots,3$ and $1/16$ for $k=4,5$, whereas Figure 1 uses the unequal widths of the illustrated split. Second, a black dot at the rim replaces the hatching that marks a minus sign in the paper. Both drawings are built from the same Table I and Eq. (B1), both carry the same $152$ nonzero entries with the same areas $A_{ijkl}$ and both are decoded by Eq. (B2) and Eq. (B3).</p>
+    
 <h2>decoding the picture</h2> <!-- (<a href="AME_4_6_geomagic_a01_s.png" alt="real-valued representative of AME(4, 6) state as a geomagic square, without colors and textures">flattened</a> version) -->
 
 <p>Each hexagon of the central $6\times 6$ array is a cell $(i,j)$. One should read $i$ and $j$ from the printed labels, not from the position. Each hexagon is divided into six triangles, the sectors $k=0,\ldots,5$ (see the sector key). Each thin triangle inside has a color $l=0,\ldots,5$, shown both by its color and by its texture: 0 plain, 1 horizontal lines, 2 vertical lines, 3 dots, 4 diagonal lines, 5 crosses. A black dot just outside the outer rim means a minus sign. The hexagons around the array only show how rows, columns and diagonals fit together and they add no entries.</p>
@@ -37,8 +39,8 @@
 <tr><th>sectors $4$, $5$</th><td>$\pm 1/(2\sqrt{2})\approx\pm 0.354$</td><td>$\pm 1/2$</td></tr>
 </table>
 
-<p>The reason is that every thin triangle covers $1/8$ of the outer edge in sectors 0&ndash;3 and $1/16$ in sectors 4 and 5, so its area is $1/8$ or $1/16$ of a sector. The total area $A_{ijkl}$ of the triangles, in units of one sector, is the square of the entry.</p>
-
+<p>The reason is that every thin triangle covers $1/8$ of the outer edge in sectors 0&ndash;3 and $1/16$ in sectors $4$ and $5$, so its area is $1/8$ or $1/16$ of a sector. The total area $A_{ijkl}$ of the triangles, in units of one sector, is the square of the entry. Counting replaces measuring only because all triangles of a sector have the same width. In Figure 1 of the paper the widths are deliberately unequal, one entry may be cut into as many as seven fragments, and the areas then have to be added as in Eq. (B2) before the square root is taken.</p>
+    
 <h2><a href="AME_4_6_geomagic_REAL_DECIPHERING.html">example</a></h2>
 
 <p>Cell $(0,4)$ is the second hexagon of the top row. Its sector 0 (outlined, upper right) contains two yellow triangles with diagonal lines, so $l=4$ and both have a black dot at the rim. Two triangles in sector 0 give $1/2$ and the dots give the sign: $U^{\rm g}_{4,4}=-1/2$.</p>
@@ -48,6 +50,8 @@
     <figcaption>Cell $(0,4)$, enlarged. The number next to each group of thin triangles is its color $l$. Black dots at the rim mark negative entries. Sector 0 is outlined.</figcaption>
 </figure>
 
+<p>Table I and Eq. (B1) of the appendix tells which cells receive this particular fragment and in which color. Those strings are described in details <a href="AME_4_6_geomagic_REAL_DECIPHERING.html">here</a>.</p>
+    
 <h2>geomagic square</h2>
 
 <p>All $36$ hexagons are cut along the same thin triangles. Each thin triangle appears in exactly six cells: one in every row, one in every column and one on each main diagonal. Therefore the pieces of every row, column and main diagonal fill a full hexagon exactly once, as shown below for sector $0$ of the top row. Every piece has the area of one sector and no two of the $36$ pieces have the same shape, even after rotation or reflection.</p>
@@ -57,8 +61,8 @@
     <figcaption>Sector 0 of the six cells of the top row, in the displayed column order, fills sector 0 of the hexagon exactly once.</figcaption>
 </figure>
 
-<p>The paper shows the same matrix in another drawing, in which the thin triangles have unequal widths and hatching marks the minus signs. Areas, hence all entries, are the same in both drawings.</p>
-
+<p>The paper shows the same matrix in another drawing, in which the thin triangles have unequal widths and hatching marks the minus signs. Areas, hence all entries, are the same in both drawings. Figure 1 of the paper is one such choice, with unequal widths and the equal split drawn here is another. The fourteen tilings, the areas and all entries are the same for both. In both casec the $36$ pieces stay pairwise non-congruent and only their shapes differ.</p>
+    
 <h2>from $U^{\rm g}$ to the sparse matrix</h2>
 
 <p>$U^{\rm g}$ is a locally rotated form of a sparse matrix $U$ with only 60 nonzero entries, equal to $1$ or $\pm 1/\sqrt{2}$:
