@@ -1,10 +1,12 @@
-#last-update{font-family:monospace;}
-.alert{color:#f00;}
-a{color:#00f;}
-#content{max-width:1024px;margin:0 auto;}
-img{max-width:100%;}
+#last-update { font-family: monospace; }
+.alert { color: #f00; }
+.important-note { color: #f00; padding: 4px; background-color: #ff0; border-radius: 8px; border: 1 px solid #f00; }
+.prompt { font-family: monospace; text-weight: bold; }
+a { color: #00f; }
+#content { max-width: 1024px; margin: 0 auto; }
+img { max-width: 100%; }
 /*pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}*/
-.OBSOLETE{text-decoration:line-through;}
+.OBSOLETE{ text-decoration: line-through; }
 #hex-picture { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; margin: 1em 0; }
 #hex-picture th, #hex-picture td { padding: .3em .9em; white-space: nowrap; text-align: right; vertical-align: baseline; }
 #hex-picture td, #hex-picture tr:first-child th + th { min-width: 12em; }
