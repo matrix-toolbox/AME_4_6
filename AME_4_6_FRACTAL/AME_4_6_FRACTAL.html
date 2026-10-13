@@ -19,7 +19,7 @@
 
 <div class="important-note">
 <p>The material presented on this webpage grew out of my discussions with ChatGPT (GPT-6 Astra Pro) and is a direct follow-up to the geomagic construction presented <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html">here</a>. My own contribution was limited to asking questions and guiding the model towards the simplest possible construction. The question was:</p>
-<p class="prompt">&gt;&gt; can we anyhow relate the construction of AME states with IFS or L-System?</p>
+<p class="prompt">&rangle;&rangle; can we anyhow relate the construction of AME states with IFS or L-System?</p>
 <p>And the answer was surprisingly affirmative.</p>
 <p>The publishability of this material in its current form and under these circumstances is questionable.</p>
 </div>
@@ -167,25 +167,6 @@
 <div class="equation">$$P^{(0)}=R\qquad\text{and}\qquad P^{(n)}_{I,J}=\bigcup_{(a,b)\in M_{i_1j_1}}f_{a,b}\!\left(P^{(n-1)}_{I',J'}\right),\tag{2}$$</div>
 <p>where $I=(i_1,\ldots,i_n)$, $J=(j_1,\ldots,j_n)$ and primes remove the first digit. Every piece has $16^n$ equal atoms and occupies the fraction $(16/96)^n=6^{-n}$ of its target.</p>
 
-<!--div class="js-only">
-<fieldset>
-<legend>explore a piece and its descendants</legend>
-<div class="controls">
-<label>address <select id="explorer-address"><option value="stationary">repeat one base label</option><option value="controlled">sign example: (0,2), then (2,0)</option></select></label>
-<label>repeated row digit $i$ <select id="explorer-i"></select></label><label>repeated column digit $j$ <select id="explorer-j"></select></label>
-<label>depth <select id="explorer-depth"><option value="1">1 &ndash; 16 atoms</option><option value="2" selected>2 &ndash; 256 atoms</option><option value="3">3 &ndash; 4096 atoms</option><option value="4">4 &ndash; 65536 atoms</option></select></label>
-<label>target <select id="explorer-shape"><option value="rectangle">rectangle</option><option value="square" selected>square</option></select></label>
-<label>colour shows <select id="explorer-colour"><option value="geometry">geometry only</option><option value="sector">first sector digit</option><option value="quantum">first quantum-colour digit</option><option value="product-sign">product sign</option><option value="controlled-sign">controlled sign</option><option value="extra-sign">extra sign factor</option></select></label>
-</div>
-<p><label for="explorer-zoom">view </label><select id="explorer-zoom"><option value="full">whole target</option><option value="cell">magnify one occupied outer cell</option></select> <label for="explorer-cell">outer cell </label><select id="explorer-cell"></select> <button type="button" id="explorer-download">download this view as PNG</button></p>
-<div class="canvas-wrap square-view" id="explorer-wrap"><canvas id="explorer-canvas" class="puzzle" width="1100" height="1100" role="img" aria-label="A selected stationary geomagic piece, calculated from its exact atom addresses."></canvas></div>
-<div id="explorer-legend" class="legend"></div>
-<div id="explorer-readout" class="readout" aria-live="polite"></div>
-<p class="small">The dropdowns also provide keyboard access to the zoom. Click a visible atom for its complete sector word, colour word and signs. At high depth, some atoms are smaller than a screen pixel. The numerical counts and addresses remain exact.</p>
-<div id="explorer-atom" class="readout mono" aria-live="polite"></div>
-</fieldset>
-</div-->
-
 <details><summary>every depth is a genuine geomagic square</summary>
 <p>Away from shared boundaries, a point in the target has one atom address at each level. That address selects a matching $\tau$ at each level. Their digitwise product is a permutation of the $6^n$ row and column words. It hits each row, column and designated product diagonal exactly once. Thus every one of the $2d+2$ required lines tiles the target, with $d=6^n$. For the displayed array use the lexicographic products of $R_0$ and $C_0$.</p>
 <p>Each replacement retains $16$ of $96$ equal cells. Therefore all pieces have target-area fraction $1/d$, and a line contains exactly $d$ pieces.</p>
@@ -236,24 +217,6 @@
 <p>Pairwise noncongruence also holds for this particular square construction. It is checked separately: the base gives $288$ distinct normalized images under the eight square symmetries. All 1296 two-level pieces give 10368. Recovering coarse cells in pairs of levels extends that certificate to every depth. A common affine map does not preserve noncongruence in general. The separate argument is needed here.</p>
 </section>
 
-<!--section id="signs">
-<h2>the conditional minus sign</h2>
-<p>The product family already gives infinitely many dimensions. There is also a simple way to change the states while leaving every occupied atom exactly where it is. When the sector digit at one level is $0$ and the row digit at the next level is $2$, multiply the coefficient by $-1$.</p>
-<div class="equation">$$\mathcal T^{(n)}_{IJKL}=\left(\prod_{r=1}^nT^{\rm g}_{i_rj_rk_rl_r}\right)(-1)^{\sum_{r=1}^{n-1}[k_r=0][i_{r+1}=2]}\qquad\text{and}\qquad |\Psi_n\rangle=\frac1{6^n}\sum_{I,J,K,L}\mathcal T^{(n)}_{IJKL}|IJKL\rangle.\tag{6}$$</div>
-<p>Square brackets denote an indicator: $[\text{statement}]$ is $1$ when the statement is true and $0$ otherwise. An extra minus toggles the old sign. It does not necessarily make the final sign negative.</p>
-
-<figure class="wide"><img src="controlled_sign.svg" alt="The same depth-two piece with and without the conditional sign rule; sixty-four descendants of four outer sector-zero atoms are marked with an additional minus."><figcaption>For $I=(0,2)$ and $J=(2,0)$, four outer atoms lie in sector $k_1=0$. Since the next row digit is $i_2=2$, their $64$ descendants receive an extra factor $-1$. Gold marks this additional factor. The original product signs are not displayed in this illustration.</figcaption></figure>
-
-<p>A concrete coefficient has $I=(0,2)$, $J=(2,0)$, $K=(0,0)$ and $L=(2,3)$. Its $4\cdot8=32$ fragments occupy $32/9216=1/288$ of the target. The product matrix entry is $1/(2\sqrt2)$, and the controlled entry is $-1/(2\sqrt2)$. The corresponding normalized state coefficient is $-1/(72\sqrt2)$. Its area is unchanged.</p>
-
-<p>The operation is a controlled local sign on the child, selected by one outer party. It fits a useful general rule. Let $A$ be a two-unitary tensor and let every $B^{(x)}$ be two-unitary with the same inner dimension. Then</p>
-<div class="equation">$$W_{(i,a)(j,b)(k,c)(l,e)}=A_{ijkl}B^{(k)}_{abce}\tag{7}$$</div>
-<p>is two-unitary. In each bipartition the controlling index $k$ lies entirely on one side. After reordering indices, the matrix factors into the appropriate flattening of $A$ tensored with an identity, and a block-diagonal matrix whose blocks are flattenings of $B^{(k)}$. Both factors are unitary. Apply this rule repeatedly, using a local sign flip on the inner level $i=2$ when the outer $k=0$. This proves that every $|\Psi_n\rangle$ is a real AME$(4,6^n)$ state. An arbitrary control depending on two outer parties would need a new proof.</p>
-
-<p>For every $n\geqslant 2$, an exact invariant separates $|\Psi_n\rangle$ from the specified grouped seed power $|\psi_{\rm g}\rangle^{\otimes n}$, even allowing arbitrary local $U(6^n)$ changes of basis. At depth two the separating values are</p>
-<div class="equation">$$\mathcal I(\Psi_2)=\frac{4464}{36^8},\qquad\mathcal I(\psi_{\rm g}^{\otimes2})=\frac{5184}{36^8}.$$</div>
-<p>This establishes a different local-unitary class from those seed powers. It does not establish that the controlled states are irreducible against every possible factorization into other AME states.</p>
-</section-->
 <hr>
 
 <p>Generated by ChatGPT and fine-tuned by the author.</p>
