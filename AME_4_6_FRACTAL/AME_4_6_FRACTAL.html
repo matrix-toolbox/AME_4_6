@@ -13,23 +13,23 @@
 </head>
 <body id="fractal-page">
 <main id="content">
-<h1 id="top">AME state &ndash; self-similar <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representations</h1>
+<h1 id="top">AME state &ndash; self-similar <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html">geomagic</a> representations</h1>
 <p id="last-update">update: 2026-10-12 by <a href="https://matrix-toolbox.github.io/">W. Bruzda</a></p>
 <hr>
 
 <div class="DISCLAIMER">
-<p>The material presented on this webpage grew out of my discussions with ChatGPT (GPT-6 Astra Pro) and is a direct follow-up to the geomagic construction presented <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">here</a>. My own contribution was limited to asking questions and guiding the model towards the simplest possible construction. The question was: &quot;can we anyhow relate the construction of AME states with IFS or L-System?&quot; And the answer was surprisingly affirmative. Hence, I do not regard this material as suitable for publication as a conventional research paper.</p>
+<p>The material presented on this webpage grew out of my discussions with ChatGPT (GPT-6 Astra Pro) and is a direct follow-up to the geomagic construction presented <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html">here</a>. My own contribution was limited to asking questions and guiding the model towards the simplest possible construction. The question was: &quot;can we anyhow relate the construction of AME states with IFS or L-System?&quot; And the answer was surprisingly affirmative. Hence, I do not regard this material as suitable for publication as a conventional research paper.</p>
 <p>This note is a way to indulge my childhood obsession with <a href="https://github.com/matrix-toolbox/x86">fractals</a>. :)</p>
 </div>
 
-<p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure. The starting point is the real AME$(4,6)$ state and its <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">geomagic</a> representation. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane.</p>
+<p>A small puzzle can contain smaller copies of another puzzle. Repeating this one rule produces increasingly intricate pictures, yet their quantum meaning stays exact: at depth $n$ they describe real absolutely maximally entangled states of four systems, each with $6^n$ levels. Every row, every column and both main diagonals still assemble into the same complete figure. The starting point is the real AME$(4,6)$ state and its <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html">geomagic</a> representation. Here the same signed data are placed in rectangles so that the construction can repeat by genuine similarities of the plane.</p>
 
 <figure class="wide">
   <img src="stationary_portraits.svg" alt="Three exact stationary pieces, each shown at depths one, two and three; each retains smaller copies in sixteen prescribed positions.">
   <figcaption>There are many shapes and only one rule. These are finite approximations to selected stationary fractals. Each coloured set is one puzzle piece in its own pale target frame. Colours distinguish portraits. They do not encode quantum labels in this figure. The complete tilings, signs and decoding rules appear below.</figcaption>
 </figure>
 
-<p>An <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic.html">AME</a>$(4,d)$ state has four parties, each with $d$ possible basis labels (levels).</p>
+<p>An <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic.html">AME</a>$(4,d)$ state has four parties, each with $d$ possible basis labels (levels).</p>
 <div class="equation">$$|\psi\rangle=\frac1d\sum_{i,j,k,l=0}^{d-1}T_{ijkl}|i\rangle_A|j\rangle_B|k\rangle_C|l\rangle_D$$</div>
 <p>Here all coefficients $T$ are real. We write $T^{\rm g}$ for the geometric seed: $|\psi_{\rm g}\rangle=T^{\rm g}/6$.</p>
 
@@ -47,7 +47,7 @@
   <img class="hexagon" src="seed_hexagon_original.png" alt="Original hexagonal piece (0,4), with quantum colour numbers and minus dots, reproduced unchanged from the repository.">
   <img src="coefficient_bridge.svg" alt="Rectangular piece (0,4), with four highlighted equal atoms of sector 0 and colour 4, each carrying a minus sign.">
  </div>
- <figcaption>There are the same coefficient in two placements. In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME46_geomagic_REAL.html">unchanged</a>. The rectangular drawing is calculated from the exact data.</figcaption>
+ <figcaption>There are the same coefficient in two placements. In piece $(0,4)$, the two negative triangles of sector $k=0$, colour $l=4$, become four equal rectangular atoms. Their total is still one quarter of a sector, so $T^{\rm g}_{0404}=-1/2$. The hexagon is reproduced <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html">unchanged</a>. The rectangular drawing is calculated from the exact data.</figcaption>
 </figure>
 
 <p>A cell of its $24\times4$ grid has width $\sqrt6/24$ and height $1/4$. Its aspect ratio is $1/\sqrt6$: it is a miniature copy of the whole rectangle turned through a right angle. This is the small geometric fact that makes the self-similarity work. In this rectangular placement $34$ of the $36$ base pieces are disconnected as closed sets. That is compatible with the definition used here, namely disconnected components retain their positions. A picture intended as a physical puzzle could use a transparent carrier for each whole piece.</p>
