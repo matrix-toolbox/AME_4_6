@@ -189,7 +189,9 @@
     const address=['i','j','k','l'].map(q=>Number($('decode-'+q).value)),[i,j,k,l]=address;
     const entry=entryMap.get(address.join(','));const model=nested([[i,j]]);
     const match=c=>c.ks[0]===k&&c.ls[0]===l;
-    drawCells($('decode-canvas'),model,c=>match(c)?palette[l]:'#e4e6e8',{grid:true,labels:c=>(c.baseSign<0?'−':'')+c.ls[0]});
+    // drawCells($('decode-canvas'),model,c=>match(c)?palette[l]:'#e4e6e8',{grid:true,labels:c=>(c.baseSign<0?'−':'')+c.ls[0]});
+    drawCells($('decode-canvas'), model, c=>match(c)?palette[l]:'#e4e6e8',{grid:true, aspect:model.W/model.H, labels:c=>(c.baseSign<0?'−':'')+c.ls[0]});
+    
     const el=$('decode-result');const m=entry?entry.fragmentCount:0;
     el.innerHTML='<p><strong>'+m+' equal atoms'+(entry?', sign '+signText(entry.sign):'')+'.</strong> '+(entry?'Add their areas before taking the square root.':'There is no region with this complete label, so the coefficient is zero.')+'</p><div class="equation">$$\\mu=\\frac{'+m+'}{96}='+fraction(m,96)+',\\qquad U^{\\rm g}_{'+(6*i+j)+','+(6*k+l)+'}='+matrixTex(entry)+',\\qquad\\psi_{'+address.join('')+'}='+stateTex(entry)+'.$$</div>';
     typeset(el);
