@@ -5,7 +5,7 @@
 .important-note > :last-child  { margin-bottom: 0; }
 .prompt { font-family: monospace; font-weight: bold; }
 a { color: #00f; }
-#content { max-width: 1024px; margin: 0 auto; }
+#content { max-width: 100%; margin: 0 auto; }
 img { max-width: 100%; }
 .OBSOLETE{ text-decoration: line-through; }
 #hex-picture { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; margin: 1em 0; }
