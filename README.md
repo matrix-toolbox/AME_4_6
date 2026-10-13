@@ -9,8 +9,8 @@ references:
 
 # 2024
 
-- Butson-type representation &ndash; [discrete](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_d.html) visualization of an affine family
-- Butson-type representation &ndash; [continuous](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_c.html) visualization of an affine family
+- [Butson-type](https://doi.org/10.1515/spma-2024-0010) representation &ndash; [discrete](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_d.html) visualization of an affine family
+- [Butson-type](https://doi.org/10.1515/spma-2024-0010) representation &ndash; [continuous](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_c.html) visualization of an affine family
 
 # 2026
 
