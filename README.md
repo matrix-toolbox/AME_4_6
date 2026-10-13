@@ -1,5 +1,11 @@
 # AME state of four quhexes 
 
+<!--
+
+    =================================================================
+    CONTENT IS TEMPORARILY HIDDEN TO EXPOSE THE MOST IMPORTANT THINGS
+    =================================================================
+
 # 2022
 
 references:
@@ -12,7 +18,7 @@ references:
 - [Butson-type](https://doi.org/10.1515/spma-2024-0010) representation &ndash; [discrete](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_d.html) visualization of an affine family
 - [Butson-type](https://doi.org/10.1515/spma-2024-0010) representation &ndash; [continuous](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_BH/AME_4_6_BH_36_6_c.html) visualization of an affine family
 
-# 2026
+# 2026-->
 
 - **original** [**real**-valued](https://github.com/suhailahmadrather/Real-AME-4-6-state) AME(4, 6) state by **Suhail Ahmad Rather**
 - geomagic representation of a real-valued AME(4, 6) state
