@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A step-by-step explanation of Table I and Equation (B1): how permutation strings become colored fragments in a geomagic representation of a real AME(4,6) state.">
+<meta name="description" content="A step-by-step explanation of Table I and Equation (B1) of Geomagic Square Representation of a Real AME(4,6) State: how permutation strings become colored fragments in a geomagic representation of a real AME(4,6) state.">
 <title>AME &bull; deciphering</title>
 <link rel="stylesheet" href="../AME_4_6.css">
 <link rel="stylesheet" href="AME_4_6_geomagic.css">
@@ -19,6 +19,8 @@
 
 <p>The strings in the appendix are compact instructions for making the picture. Table I specifies which cells receive a fragment and which colors to use. Equation (B1) specifies where those fragments sit along the outer edge of a sector. To understand the recipe one can follow just one row of the table.</p>
 
+<p class="note">Table I and Eq. (B1) are the appendix of the manuscript. They fix which cells receive a fragment, in which color and in which order the fragments sit along an edge. The widths of the intervals are left free. The canonical equal split used below produces the picture shown <a href="AME_4_6_geomagic_REAL.html">here</a> and the unequal widths of the split produce Figure 1 of the paper. Both carry the same $152$ nonzero entries. A minus sign is hatched here, as in the paper and it is a black dot at the <a href="AME_4_6_geomagic_REAL.html">rim</a>.</p>
+ 
 <p>Throughout this page, a whole sector has area <strong>1</strong>, so a whole hexagon has area <strong>6</strong>. Row, column, sector and color labels all start at <strong>0</strong>. A color is identified by its printed number as well as its appearance: <span class="color-chip" style="--color:#FF6666">0</span> <span class="color-chip" style="--color:#65D8E8">1</span> <span class="color-chip" style="--color:#DC6EEB">2</span> <span class="color-chip" style="--color:#69D879">3</span> <span class="color-chip" style="--color:#F0DE5C">4</span> <span class="color-chip color-dark" style="--color:#6867EF">5</span>.</p>
 
 <h2>three kinds of string</h2>
@@ -74,7 +76,7 @@
 
 <p>For this particular coefficient, the two fragments are the complete contribution. Their areas add to</p>
 <p class="formula">$A_{0404}=1/8+1/8=1/4$.</p>
-<p>Both fragments are hatched in the paper's convention. Therefore</p>
+<p>Both fragments are hatched in the paper's convention, which is a black dot at the rim <a href="AME_4_6_geomagic_REAL.html">here</a>. Therefore</p>
 <p class="formula">$U^{\rm g}_{4,4}=T^{\rm g}_{0404}=-\sqrt{1/4}=-1/2$.</p>
 <p>The normalized quantum-state amplitude is this entry divided by six: <strong>$-1/12$</strong>. We sum the areas first and then take one signed square root. Taking a square root separately for each fragment would provide the wrong answer.</p>
 
@@ -105,6 +107,8 @@
 <h2>inspection</h2>
 
 <p>Choose a sector, a matching and a row label. The explorer separates this record's contribution from the complete coefficient area obtained by adding all relevant records. It uses the canonical equal splits, not the particular unequal widths of the paper's Figure 1.</p>
+
+<p>Choose a sector, a matching and a row label. The explorer separates this record's contribution from the complete coefficient area obtained by adding all relevant records. It uses the canonical equal splits, i.e., the <a href="AME_4_6_geomagic_REAL.html">picture</a>, not the particular unequal widths of the paper's Figure 1.</p>
 
 <div class="explorer" id="explorer">
 <div class="controls">
@@ -181,8 +185,8 @@
 
 <p>To recover the aggregate areas directly, start with every $A_{ijkl}$ equal to zero. For every record, and for each of its color words, run through rows $i=0,\ldots,5$ and add $w$ at the indicated address:</p>
 <p class="formula">$A_{i,\tau(i),k,\sigma(i)}\leftarrow A_{i,\tau(i),k,\sigma(i)}+w$.</p>
-<p>For a nonzero total, the matrix-entry magnitude is $\sqrt{A_{ijkl}}$. Table I and Eq. (B1) specify areas and placement. Signs come from Eq. (5), or from the hatching when reading the paper's picture. A zero total gives a zero entry. The matrix address is row $6i+j$, column $6k+l$. The normalized state has amplitudes $T^{\rm g}_{ijkl}/6$, so its basis-state probabilities are $A_{ijkl}/36$. Equation (B1) affects how the same accumulated areas are drawn, not the resulting matrix entries.</p>
-
+<p>For a nonzero total, the matrix-entry magnitude is $\sqrt{A_{ijkl}}$. Table I and Eq. (B1) specify areas and placement. Signs come from Eq. (5), or from the hatching when reading the paper's picture and from the rim dots when reading the previous page. A zero total corresponds to a zero entry. The matrix address is row $6i+j$, column $6k+l$. The normalized state has amplitudes $T^{\rm g}_{ijkl}/6$, so its basis-state probabilities are $A_{ijkl}/36$. Equation (B1) affects how the same accumulated areas are drawn, not the resulting matrix entries.</p>
+ 
 <hr>
 
 <p>All pictures on this page are made by Claude (Anthropic, Claude Opus 5.5).</p>
