@@ -5,6 +5,8 @@ a{color:#00f;}
 img{max-width:100%;}
 /*pre{background:#f4f4f4;padding:0.5em;overflow-x:auto;}*/
 .OBSOLETE{text-decoration:line-through;}
-#hex-picture { width: 40%; table-layout: fixed; border-collapse: collapse; }
-#hex-picture tr:first-child th { width: 33.33%; }
-#hex-picture td, #hex-picture th { text-align: right; white-space: nowrap; }
+#hex-picture { display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse; margin: 1em 0; }
+#hex-picture th, #hex-picture td { padding: .3em .9em; white-space: nowrap; text-align: right; vertical-align: baseline; }
+#hex-picture td, #hex-picture tr:first-child th + th { min-width: 12em; }
+#hex-picture tr > th:first-child { text-align: left; }
+#hex-picture tr:first-child th { border-bottom: 1px solid currentColor; }
