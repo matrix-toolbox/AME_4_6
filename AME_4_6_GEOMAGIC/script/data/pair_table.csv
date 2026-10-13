@@ -1,0 +1,8 @@
+# Eq. (2) of the manuscript: Xi^{ab}_x for each pair ab and x = 0..3; iY = ZX = [[0,1],[-1,0]], I = identity
+pair,x0,x1,x2,x3
+AB,Z,iY,I,X
+AC,-Z,-I,X,-iY
+AD,iY,I,-Z,X
+BC,X,Z,I,iY
+BD,I,Z,-iY,X
+CD,I,X,Z,-iY
