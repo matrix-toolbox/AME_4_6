@@ -27,3 +27,9 @@ references:
   - [**gallery**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html) of various **geomagic** representations
   - [**fractal**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_FRACTAL/AME_4_6_FRACTAL.html) geomagic representation of a real-valued AME(4, 6) state
 - ...
+
+---
+
+IGNORE everything else and just admire the [**gallery**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html)! :)
+
+---
