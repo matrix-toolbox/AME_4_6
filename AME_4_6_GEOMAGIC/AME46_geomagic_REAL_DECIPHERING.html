@@ -31,14 +31,13 @@
 <tr><td><code>23310102</code></td><td>eight matching labels</td><td>which matching owns each interval along this edge</td></tr>
 </tbody></table></div>
 
-<p>Read each string digit by digit. For example, <code>430215</code> means the list <code>4, 3, 0, 2, 1, 5</code>. Its first digit belongs to row $i=0$, its second to row $i=1$, and so on. A leading zero must be kept. The words $\tau$ and $\sigma$ are permutations: each contains the labels $0$ &ndash; $5$ exactly once. The longer words in Eq. (B1) are <b>orders of intervals</b>, i.e., their matching labels deliberately repeat. A matching label $m$ is an entry in the table for the chosen sector $k$ and it is not a color label.</p>
+<p>Read each string digit by digit. For example, <code>430215</code> means the list <code>4, 3, 0, 2, 1, 5</code>. Its first digit belongs to row $i=0$, its second to row $i=1$, and so on. A leading zero must be kept. The words $\tau$ and $\sigma$ are permutations: each contains the labels $0$ &ndash; $5$ exactly once. The longer words in Eq. (B1) are orders of intervals, i.e., their matching labels deliberately repeat. A matching label $m$ is an entry in the table for the chosen sector $k$ and it is not a color label.</p>
 
 <h2>unpacking one row of Table I</h2>
 
 <p>Take the record with sector $k=0$ and matching $m=2$:</p>
-<p class="record"><span>$k=0$</span><span>$m=2$</span><span>${\tau=}$ <code>430215</code></span><span>${\sigma_1=}$ <code>423150</code></span><span>$\sigma_2=\mbox{—}$</span><span>$w=1/4$</span></p>
-
-<p>The dash $\mbox{—}$ says that this record uses only one color word. Write out the two permutations underneath the row labels:</p>
+<p class="record"><span>$k=0$</span><span>$m=2$</span><span>${\tau=}$ <code>430215</code></span><span>${\sigma_1=}$ <code>423150</code></span><span>$\sigma_2=\mbox{--}$</span><span>$w=1/4$</span></p>
+<p>The dash $\mbox{--}$ says that this record uses only one color word. Write out the two permutations underneath the row labels:</p>
 
 <div class="table-scroll"><table>
 <caption>Everything in this table concerns sector $k=0$. The last column is the contribution from this record.</caption>
@@ -86,7 +85,7 @@
 <p>Take sector $k=4$, matching $m=0$:</p>
 <p class="record"><span>${\tau=}$ <code>142530</code></span><span>${\sigma_1=}$ <code>415320</code></span><span>${\sigma_2=}$ <code>504321</code></span><span>$w=1/16$</span></p>
 
-<p>The same six cells are used twice, with a different color assignment each time. <strong>The listed weight applies to each color word.</strong> Thus every selected cell receives $1/16$ from $\sigma_1$ and another $1/16$ from $\sigma_2$, for a total contribution of $1/8$.</p>
+<p>The same six cells are used twice, with a different color assignment each time. The listed weight applies to each color word. Thus every selected cell receives $1/16$ from $\sigma_1$ and another $1/16$ from $\sigma_2$, for a total contribution of $1/8$.</p>
 
 <div class="table-scroll"><table>
 <caption>Each color column contributes area $1/16$ in sector $4$.</caption>
@@ -107,7 +106,7 @@
 
 <h2>inspection</h2>
 
-<p>Choose a sector, a matching and a row label. The explorer separates <strong>this record's contribution</strong> from the <strong>complete coefficient area</strong> obtained by adding all relevant records. It uses the canonical equal splits, not the particular unequal widths of the paper's Figure 1.</p>
+<p>Choose a sector, a matching and a row label. The explorer separates this record's contribution from the complete coefficient area obtained by adding all relevant records. It uses the canonical equal splits, not the particular unequal widths of the paper's Figure 1.</p>
 
 <div class="explorer" id="explorer">
 <div class="controls">
@@ -128,18 +127,12 @@
 <h2>forming a hexagon</h2>
 
 <p>Fix just one of the small edge intervals. Its matching puts the corresponding triangle in six cells, i.e., one in each row, one in each column and one on each diagonal. Consequently, when the pieces of any one of those fourteen lines are assembled, that triangle appears exactly once.</p>
-
 <p>Repeat this for every interval of all six sectors. The pieces cover the hexagon, with overlaps only along shared boundaries. The color permutations have a separate role. For every colored interval, its six copies use all six colors once. Hence, across the whole array, each color supplies one complete hexagon.</p>
-
 <p>The particular orders in Eq. (B1) also help make the $36$ piece shapes different. A different ordering can preserve the areas and the tilings while changing the shapes. Pairwise non-congruence is the additional property checked in Appendix B and it does not follow just from adding the weights!</p>
 
-<details id="unequal-splits">
-<summary>case of two occurrences with unequal widths</summary>
-<p>For one color word, the two positive widths need only add to $w$. In the main example, widths $3/16$ and $1/16$ would still give total area $1/4$ in each selected cell. These numbers are an illustration, not the actual widths chosen for Figure 1.</p>
-<p>For two color words, the two widths must add to $2w$. Follow the matching's two occurrences in edge order, skipping the intervals belonging to other matchings. Allocate the first cumulative length $w$ to $\sigma_1$ and the remaining $w$ to $\sigma_2$. An occurrence may need an extra cut.</p>
-<p>For example, with $w=1/16$, give the two occurrences widths $3/32$ and $1/32$. The first $2/32$ of the earlier occurrence uses $\sigma_1$. Its remaining $1/32$, together with all $1/32$ of the later occurrence, uses $\sigma_2$. Both color words still receive exactly $1/16$.</p>
-<p>This changes the drawing while preserving every accumulated coefficient area. In the equal split the first occurrence uses $\sigma_1$ and the second uses $\sigma_2$. With unequal widths that shortcut need not hold.</p>
-</details>
+<h3>two occurrences with unequal splits</h3>
+<p>For one color word, the two positive widths need only add to $w$. In the main example, widths $3/16$ and $1/16$ would still give total area $1/4$ in each selected cell. These numbers are an illustration, not the actual widths chosen for Figure 1. For two color words, the two widths must add to $2w$. Follow the matching's two occurrences in edge order, skipping the intervals belonging to other matchings. Allocate the first cumulative length $w$ to $\sigma_1$ and the remaining $w$ to $\sigma_2$. An occurrence may need an extra cut.</p>
+<p>For example, with $w=1/16$, give the two occurrences widths $3/32$ and $1/32$. The first $2/32$ of the earlier occurrence uses $\sigma_1$. Its remaining $1/32$, together with all $1/32$ of the later occurrence, uses $\sigma_2$. Both color words still receive exactly $1/16$. This changes the drawing while preserving every accumulated coefficient area. In the equal split the first occurrence uses $\sigma_1$ and the second uses $\sigma_2$. With unequal widths that shortcut need not hold.</p>
 
 <details id="complete-data">
 <summary>complete strings and labels</summary>
@@ -188,7 +181,7 @@
 
 <h2>table $\longrightarrow$ matrix</h2>
 
-<p>To recover the aggregate areas directly, start with every $A_{ijkl}$ equal to zero. For every record, and for <strong>each</strong> of its color words, run through rows $i=0,\ldots,5$ and add $w$ at the indicated address:</p>
+<p>To recover the aggregate areas directly, start with every $A_{ijkl}$ equal to zero. For every record, and for each of its color words, run through rows $i=0,\ldots,5$ and add $w$ at the indicated address:</p>
 <p class="formula">$A_{i,\tau(i),k,\sigma(i)}\leftarrow A_{i,\tau(i),k,\sigma(i)}+w$.</p>
 <p>For a nonzero total, the matrix-entry magnitude is $\sqrt{A_{ijkl}}$. Table I and Eq. (B1) specify areas and placement. Signs come from Eq. (5), or from the hatching when reading the paper's picture. A zero total gives a zero entry. The matrix address is row $6i+j$, column $6k+l$. The normalized state has amplitudes $T^{\rm g}_{ijkl}/6$, so its basis-state probabilities are $A_{ijkl}/36$. Equation (B1) affects how the same accumulated areas are drawn, not the resulting matrix entries.</p>
 
