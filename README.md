@@ -18,5 +18,6 @@ references:
 - geomagic representation of a real-valued AME(4, 6) state
   - [old notes](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic.html) (incomplete)
   - [**geomagic** solution](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html) (based on a real-valued representation found independently later) and [detailed explanation](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL_DECIPHERING.html)
+  - [**gallery**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html) of various **geomagic** representations
   - [**fractal**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_FRACTAL/AME_4_6_FRACTAL.html) geomagic representation of a real-valued AME(4, 6) state
 - ...
