@@ -422,3 +422,5 @@ byId('paired-example').addEventListener('click',()=>{
   byId('row-select').value='0';
   renderExplorer();
 });
+
+renderExplorer();
