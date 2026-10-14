@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AME(4, 6)</title>
+<link rel="stylesheet" href="../AME_4_6.css">
+<link rel="stylesheet" href="rubik.css">
+<script src=".../AME_4_6.js"></script>
+<script defer src="rubik.js"></script>
+
+<div id="content">
+
+<h1><a href="https://github.com/matrix-toolbox/AME_4_6">AME$(4, 6)$ State</a> &ndash; Real-Valued Representatives on a $3\times 3\times 3$ Rubik's Cube</h1>
+<p id="last-update">update: 2026-10-14</p>
+
+<hr>
+
+<p>This is just for fun. A $3\times3\times3$ Rubik's cube serves here as a classical model of a family of locally equivalent, real-valued AME$(4,6)$ states. Four marked corner cubies carry the local frames of the four six-level parties: $A$ starts at the corner <code>RUF</code> (right, up, front), $B$ at <code>LUB</code>, $C$ at <code>LDF</code> and $D$ at <code>RDB</code>. The solved cube encodes a reference state, which is already absolutely maximally entangled. A twist applies a real orthogonal $6\times 6$ matrix to every party whose corner lies in the turned layer, so the state changes but remains AME. This model does not create entanglement.</p>
+
+<p>Drag the cube to change the view. The buttons <code>R</code>, ..., <code>B</code> or the keys <code>r</code>, <code>l</code>, <code>u</code>, <code>d</code>, <code>f</code> and <code>b</code> turn a face clockwise as seen from outside and the buttons <code>R'</code>, ..., <code>B'</code> or the keys <code>R</code>, <code>L</code>, <code>U</code>, <code>D</code>, <code>F</code>, <code>B</code> turn it back. The sequence field takes the standard notation <code>R</code>, <code>R'</code> and <code>R2</code>, separated by spaces. On the right, the decoded amplitudes $\psi_{ijkl}$ are drawn as a $36\times 36$ matrix for the chosen grouping of the parties, blue for negative and orange for positive entries. Hover over or tap an entry to read its exact value.</p>
+
+<div class="rubik tex2jax_ignore">
+<div>
+<div class="stage"><canvas id="cubeCanvas" tabindex="0" aria-label="Rubik cube, drag to change the view"></canvas><button id="homeView">reset view</button></div>
+<div class="turns" id="turnButtons"></div>
+<div class="row"><button id="scramble">scramble</button><button id="undo">undo</button><button id="solve">retrace</button><button id="stop" disabled>stop</button><button id="reset">reset</button><label><input type="checkbox" id="animate" checked> animate</label></div>
+<div class="row"><input id="word" type="text" aria-label="move sequence" spellcheck="false" autocapitalize="off" placeholder="R U R' U'"><button id="applyWord">apply</button></div>
+<div class="history" id="history"></div>
+<div class="logmeta"><span id="moveCount"></span><span id="cubeStatus"></span></div>
+<p id="error" class="error" role="alert"></p>
+<canvas id="netCanvas" aria-label="unfolded cube with the four marked corners A, B, C, D"></canvas>
+</div>
+<div>
+<div class="row"><label>basis <select id="mode"><option value="mixed">mixed real basis</option><option value="pairs">signed pair basis</option></select></label><label>grouping <select id="flatten"><option value="01">AB | CD</option><option value="02">AC | BD</option><option value="03">AD | BC</option></select></label></div>
+<p class="metrics">fidelity with solved: <span id="fidelity">1</span>, <span id="overlap">⟨ψ₀|ψ⟩ = 1</span><br>
+nonzero amplitudes: <span id="support">192</span> of 6⁴ = 1296</p>
+<p id="action"></p>
+<p class="coeff"><span id="ket"></span>, amplitude <span id="amplitude"></span>, probability <span id="probability"></span></p>
+<div class="heat"><canvas id="heatCanvas" width="432" height="432" aria-label="36 by 36 matrix of signed amplitudes"></canvas>
+<div class="ramp"></div><div class="ends"><span>−1/6</span><span>0</span><span>+1/6</span></div></div>
+</div>
+</div>
+
+<h2>local frames</h2>
+
+<p>The four matrices $O(R_p)$ currently applied to the parties or the gates of the last move alone. Rows and columns are the levels $0,\ldots,5$. Hover over an entry for its exact value. A party moved by the last twist is framed in black.</p>
+
+<p class="tex2jax_ignore"><select id="gateView" aria-label="local matrices"><option value="frames">current local frames</option><option value="step">gates of the last move</option></select></p>
+<div id="gateGrid" class="gategrid tex2jax_ignore"></div>
+
+<h2>details</h2>
+
+<p>AME$(4,6)$ means four parties $A$, $B$, $C$ and $D$ with six levels each, such that every two-party reduction is maximally mixed. The solved cube is assigned a real reference state $|\psi_0\rangle$ with $192$ nonzero coefficients, the tensor encoded by the pictures G02, G03 and G04 of the <a href="https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html">gallery</a>. A configuration $\kappa$ of the cube gives each marked corner $p$ a frame $R_p(\kappa)$, the rotation that carries the corner from its home to its current position and orientation, and the decoded state is
+\[
+|\psi(\kappa)\rangle=O\big(R_A(\kappa)\big) \otimes O\big(R_B(\kappa)\big) \otimes O\big(R_C(\kappa)\big) \otimes O\big(R_D(\kappa)\big)|\psi_0\rangle.
+\]
+</p>
+
+<p>The six levels come from the four body diagonals of the cube. A rotation $R$ permutes them. If $P(R)$ is this $4\times 4$ permutation matrix, then $D(R)=\bigwedge^2 P(R)$ acts on the six oriented pairs $01$, $02$, $03$, $12$, $13$ and $23$ as a signed permutation matrix, with a minus sign whenever a pair is reordered. Moreover, $D(RS)=D(R)D(S)$. The local gate is $O(R)=W D(R) W^{\mathsf T}$, where $W={\rm H}\oplus\mathbb{I}_4$ with the Hadamard matrix ${\rm H}$ in the mixed real basis and $W=\mathbb{I}_6$ in the signed pair basis. Both bases start from the same $|\psi_0\rangle$. Every $O(R)$ is a real orthogonal matrix, hence a local unitary, although its determinant may be $-1$. A twist with spatial rotation $Q$ changes $R_p\mapsto Q R_p$ for the marked corners in the turned layer and leaves the other parties alone. Which parties move depends on $\kappa$, so the cube does not give a fixed representation of the Rubik group. The corner positions act as classical control.</p>
+
+<p>Twists change the amplitudes, their signs, the number of nonzero entries and the overlap with $|\psi_0\rangle$. They cannot change the AME property, because
+\begin{equation}
+\rho_{XY}(\kappa)=\big(O_X\otimes O_Y\big)\frac{\mathbb{I}_{36}}{36}\big(O_X\otimes O_Y\big)^{\mathsf T}=\frac{\mathbb{I}_{36}}{36}
+\end{equation}
+for every pair of parties $X$ and $Y$. A quarter turn $Q$ permutes the four diagonals in a four-cycle, so $\operatorname{tr}D(Q)=\frac{1}{2}\big((\operatorname{tr}P(Q))^2-\operatorname{tr}P(Q)^2\big)=0$ and $\operatorname{tr}O(Q)=0$. From the solved cube a quarter turn moves exactly two marked corners. Since their joint reduction is $\mathbb{I}_{36}/36$,
+\begin{equation}
+\langle\psi_0|\psi(Q)\rangle=\frac{\operatorname{tr}O(Q) \operatorname{tr}O(Q)}{36}=0 .
+\end{equation}
+The same holds for every quarter turn that moves one or two marked corners, so the new state is again orthogonal to the previous one. Nothing of this kind is claimed for turns that move three or four marked corners.</p>
+
+<p>The decoder reads only the four marked corners and ignores the edges and the other four corners. Hence, a solved cube always yields $|\psi_0\rangle$ but the converse is false.</p>
+
+<!--p>All arithmetic is exact in $\mathbb{Q}(\sqrt{2})$. The reference is $\psi_0=U_0/6$ with $U_0=(A+\sqrt{2}B)/4$ and integer arrays $A$ and $B$. After each completed twist the state is rebuilt from the four frames as $\psi=(a+\sqrt{2}b)/(6d)$, so the denominators do not grow with the length of a scramble, and for all six two-party flattenings the page checks the integer identities $aa^{\top}+2bb^{\top}=d^2 \mathbb{I}_{36}$ and $ab^{\mathsf T}+ba^{\mathsf T}=0$. Only the colours and the decimal fidelities are approximate.</p-->
+
+<hr>
+
+<p>Generated and fine-tuned with the help of several LLMs (ChatGPT, Claude and Lumo) under the author's supervision.</p>
+
+</div>
