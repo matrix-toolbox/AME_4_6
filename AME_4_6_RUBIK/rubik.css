@@ -1,0 +1,39 @@
+.rubik { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2em; align-items: start; margin: 1em 0 2em; }
+.rubik button, .rubik select, .rubik input, #gateView { font: inherit; font-size: .9em; padding: .25em .6em; }
+.stage { position: relative; height: 24em; background: #1c2d36; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.stage canvas:active { cursor: grabbing; }
+.stage button { position: absolute; right: .6em; bottom: .6em; font-size: .8em; }
+.turns { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .3em; margin: .6em 0; }
+.turns div { display: flex; flex-direction: column; gap: .2em; }
+.turns button { border: 1px solid #0005; border-radius: 3px; }
+.turns button:hover { filter: brightness(1.1); }
+.rubik code, .gategrid code { font-family: monospace, monospace; }
+.turns code { position: relative; font-weight: bold; }
+.prime { position: absolute; left: 100%; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: .4em; margin: .4em 0; }
+.row input[type=text] { flex: 1; min-width: 0; font-family: monospace, monospace; }
+.history { min-height: 2.6em; max-height: 6em; overflow: auto; overflow-wrap: anywhere; padding: .3em .5em; border: 1px solid #ccc; font-family: monospace, monospace; }
+.logmeta { display: flex; justify-content: space-between; font-size: .85em; color: #555; }
+.error { color: #b00; }
+.error:empty { display: none; }
+#netCanvas { display: block; width: 26em; max-width: 100%; height: 19.5em; margin-top: 1em; }
+.metrics { margin: .6em 0 .3em; }
+#action { min-height: 2.6em; }
+.heat { max-width: 26em; }
+#heatCanvas { display: block; width: 100%; height: auto; aspect-ratio: 1; cursor: crosshair; touch-action: pan-y; }
+.ramp { box-sizing: border-box; height: .6em; margin-top: .5em; background: linear-gradient(to right, #486fa6, #f8faf7, #be633e); border: 1px solid #ccc; }
+.ends { display: grid; grid-template-columns: 1fr auto 1fr; font-size: .85em; }
+.ends span:last-child { text-align: right; }
+.coeff span { font-family: monospace, monospace; }
+.gategrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1em; margin-bottom: 1em; }
+.gate { min-width: 0; padding: .4em; border: 1px solid #ccc; }
+.gate.affected { border-color: #000; }
+.matrix { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2px; margin: .4em 0; }
+.matrix span { text-align: center; font: .75em/1.9 monospace, monospace; background: #f1f1f1; color: #888; }
+.matrix span.pos { color: #8d432d; background: #f6e5db; }
+.matrix span.neg { color: #355a91; background: #e2eaf6; }
+@media (max-width: 820px) {
+  .rubik { grid-template-columns: 1fr; }
+  .gategrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
