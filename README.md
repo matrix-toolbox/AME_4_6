@@ -26,10 +26,6 @@ references:
   - [**geomagic** solution](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL.html) (based on a real-valued representation found independently later) and [detailed explanation](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/AME_4_6_geomagic_REAL_DECIPHERING.html)
   - [**gallery**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html) of various **geomagic** representations
   - [**fractal**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_FRACTAL/AME_4_6_FRACTAL.html) geomagic representation of a real-valued AME(4, 6) state
+- AME(4, 6) as a 3 &times; 3 &times; 3 **Rubik's Cube**... yes, it is possible &rarr; DIY!
+- AME(4, 6) as ... **whatever** you wish &rarr; just find an analogy and ask LLM...
 - ...
-
----
-
-IGNORE everything else and just admire the [**gallery**](https://matrix-toolbox.github.io/AME_4_6/AME_4_6_GEOMAGIC/gallery/index.html)! :)
-
----
